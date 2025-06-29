@@ -1,16 +1,13 @@
 {
   "files": {
-    "main.css": "/signaturetattooz/static/css/main.0bbd7770.css",
-    "main.js": "/signaturetattooz/static/js/main.aab0f8fe.js",
-    "static/js/453.1ccb6dd4.chunk.js": "/signaturetattooz/static/js/453.1ccb6dd4.chunk.js",
-    "static/media/logo.svg": "/signaturetattooz/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/signaturetattooz/static/css/main.f19ad7b3.css",
+    "main.js": "/signaturetattooz/static/js/main.9a64c779.js",
     "index.html": "/signaturetattooz/index.html",
-    "main.0bbd7770.css.map": "/signaturetattooz/static/css/main.0bbd7770.css.map",
-    "main.aab0f8fe.js.map": "/signaturetattooz/static/js/main.aab0f8fe.js.map",
-    "453.1ccb6dd4.chunk.js.map": "/signaturetattooz/static/js/453.1ccb6dd4.chunk.js.map"
+    "main.f19ad7b3.css.map": "/signaturetattooz/static/css/main.f19ad7b3.css.map",
+    "main.9a64c779.js.map": "/signaturetattooz/static/js/main.9a64c779.js.map"
   },
   "entrypoints": [
-    "static/css/main.0bbd7770.css",
-    "static/js/main.aab0f8fe.js"
+    "static/css/main.f19ad7b3.css",
+    "static/js/main.9a64c779.js"
   ]
 }
