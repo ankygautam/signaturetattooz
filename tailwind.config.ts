@@ -5,17 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#090909",
-        surface: "#0e0e11",
-        bone: "#f3ede2",
-        muted: "#9fa0a6",
-        accent: "#a6192e",
-        accentMuted: "#c2a35a",
-        stroke: "#1c1c22",
+        background: "#060606",
+        surface: "#101013",
+        bone: "#f4eee4",
+        muted: "#aaa39c",
+        accent: "#8d1f32",
+        accentMuted: "#b89160",
+        stroke: "#242429",
       },
       fontFamily: {
-        display: ['"Playfair Display"', "serif"],
-        sans: ['"Manrope"', "Inter", "system-ui", "sans-serif"],
+        display: ['"Cormorant Garamond"', "serif"],
+        sans: ['"Sora"', "Inter", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         wide: "0.14em",

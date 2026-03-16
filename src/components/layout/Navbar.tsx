@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Button } from "../ui/Button";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 import { fadeIn } from "@/lib/motion";
-import { clsx } from "clsx";
+import { cn } from "@/lib/utils";
 
 const links = [
   { label: "Home", href: "#home" },
-  { label: "Artists", href: "#artists" },
-  { label: "Styles", href: "#styles" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Booking", href: "#booking" },
-  { label: "Aftercare", href: "#aftercare" },
+  { label: "Artist", href: "#artist" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -19,40 +19,42 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <motion.header
-      className={clsx(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "backdrop-blur-xl" : "",
-      )}
       variants={fadeIn(0.05)}
       initial="hidden"
       animate="show"
+      className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-8"
     >
-      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border border-white/5 bg-black/40 px-4 py-3 shadow-card backdrop-blur-xl md:px-6">
+      <div
+        className={cn(
+          "section-shell flex max-w-7xl items-center justify-between rounded-full border border-white/8 px-4 py-3 transition-all duration-300 md:px-6",
+          scrolled ? "bg-black/70 shadow-card backdrop-blur-xl" : "bg-black/30 backdrop-blur-md",
+        )}
+      >
         <a href="#home" className="flex items-center gap-3">
-          <span className="h-9 w-9 rounded-full border border-accent/40 bg-gradient-to-br from-accent/60 to-accentMuted/70 shadow-glow" />
-          <div className="leading-tight">
-            <p className="font-display text-lg uppercase tracking-[0.22em] text-bone">
-              SignatureTattooz
-            </p>
-            <p className="text-[10px] text-muted uppercase tracking-[0.28em]">
-              Private Studio
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-accentMuted/40 bg-gradient-to-br from-accent/70 to-accentMuted/80 font-display text-lg text-bone">
+            S
+          </span>
+          <div>
+            <p className="font-display text-2xl leading-none text-bone">Signature Tattooz</p>
+            <p className="mt-1 text-[0.65rem] uppercase tracking-[0.34em] text-muted">
+              Hoshiarpur · Punjab
             </p>
           </div>
         </a>
 
-        <nav className="hidden items-center gap-7 text-xs uppercase tracking-[0.18em] text-muted lg:flex">
+        <nav className="hidden items-center gap-8 lg:flex">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="pb-1 transition-all duration-200 hover:text-bone hover:underline underline-offset-8"
+              className="text-[0.72rem] uppercase tracking-[0.28em] text-muted transition hover:text-bone"
             >
               {link.label}
             </a>
@@ -60,38 +62,15 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button
-            className="hidden md:inline-flex"
-            onClick={() => document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            Book Consultation
+          <Button href="#contact" className="hidden md:inline-flex">
+            Book Session
           </Button>
           <button
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-stroke/70 bg-white/5 text-bone lg:hidden"
-            onClick={() => setOpen((v) => !v)}
+            onClick={() => setOpen((value) => !value)}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-bone lg:hidden"
             aria-label="Toggle navigation"
           >
-            <span className="sr-only">Toggle navigation</span>
-            <div className="flex flex-col gap-1.5">
-              <span
-                className={clsx(
-                  "block h-0.5 w-6 bg-bone transition-transform duration-200",
-                  open && "translate-y-1.5 rotate-45",
-                )}
-              />
-              <span
-                className={clsx(
-                  "block h-0.5 w-6 bg-bone transition-opacity duration-200",
-                  open && "opacity-0",
-                )}
-              />
-              <span
-                className={clsx(
-                  "block h-0.5 w-6 bg-bone transition-transform duration-200",
-                  open && "-translate-y-1.5 -rotate-45",
-                )}
-              />
-            </div>
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
@@ -99,34 +78,26 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
-            className="mx-auto mt-3 w-full max-w-6xl overflow-hidden rounded-3xl border border-white/5 bg-black/80 backdrop-blur-xl lg:hidden"
+            className="section-shell mt-3 overflow-hidden rounded-[2rem] border border-white/8 bg-black/85 p-4 shadow-card backdrop-blur-xl lg:hidden"
           >
-            <div className="flex flex-col divide-y divide-white/5">
+            <div className="flex flex-col gap-2">
               {links.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="px-5 py-4 text-sm uppercase tracking-[0.2em] text-muted transition hover:bg-white/5 hover:text-bone"
+                  className="rounded-2xl px-4 py-3 text-sm uppercase tracking-[0.24em] text-muted transition hover:bg-white/[0.04] hover:text-bone"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="px-5 py-4">
-                <Button
-                  className="w-full justify-center"
-                  onClick={() => {
-                    setOpen(false);
-                    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  Book Consultation
-                </Button>
-              </div>
+              <Button href="#contact" className="mt-2 w-full" onClick={() => setOpen(false)}>
+                Book Session
+              </Button>
             </div>
           </motion.div>
         )}
