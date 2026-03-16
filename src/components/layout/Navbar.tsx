@@ -29,31 +29,33 @@ export function Navbar() {
       variants={fadeIn(0.05)}
       initial="hidden"
       animate="show"
-      className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-8"
+      className="fixed inset-x-0 top-0 z-50"
     >
       <div
         className={cn(
-          "section-shell flex max-w-7xl items-center justify-between rounded-none border-b border-white/10 px-0 py-4 transition-all duration-300",
-          scrolled ? "bg-black/80 shadow-card backdrop-blur-xl" : "bg-transparent",
+          "section-shell flex max-w-7xl items-center justify-between border-b px-0 py-5 transition-all duration-300",
+          scrolled
+            ? "border-white/10 bg-black/88 backdrop-blur-xl"
+            : "border-white/10 bg-black/35 backdrop-blur-md",
         )}
       >
-        <a href="#home" className="flex items-center gap-3">
-          <div>
-            <p className="font-display text-4xl uppercase leading-none tracking-[0.08em] text-bone">
+        <a href="#home" className="flex min-w-0 items-center gap-3">
+          <div className="min-w-0">
+            <p className="font-display text-3xl uppercase leading-none tracking-[0.08em] text-bone sm:text-4xl">
               Signature Tattooz
             </p>
-            <p className="mt-1 text-[0.65rem] uppercase tracking-[0.34em] text-muted">
-              Hoshiarpur · Punjab
+            <p className="mt-1 text-[0.58rem] uppercase tracking-[0.34em] text-muted sm:text-[0.62rem]">
+              Tattoo Studio · Hoshiarpur (PB)
             </p>
           </div>
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-6 xl:flex">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-[0.68rem] uppercase tracking-[0.28em] text-muted transition hover:text-bone"
+              className="text-[0.62rem] uppercase tracking-[0.28em] text-muted transition hover:text-bone"
             >
               {link.label}
             </a>
@@ -61,12 +63,16 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button href="#contact" variant="secondary" className="hidden md:inline-flex">
+          <Button
+            href="#contact"
+            variant="secondary"
+            className="hidden md:inline-flex rounded-none border-x-0 border-b-0 border-t-0 px-0"
+          >
             Book Session
           </Button>
           <button
             onClick={() => setOpen((value) => !value)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-bone lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center border border-white/10 bg-transparent text-bone xl:hidden"
             aria-label="Toggle navigation"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -81,7 +87,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
-            className="section-shell mt-3 overflow-hidden rounded-[2rem] border border-white/8 bg-black/85 p-4 shadow-card backdrop-blur-xl lg:hidden"
+            className="section-shell overflow-hidden border-b border-white/10 bg-black/95 px-0 py-4 shadow-card backdrop-blur-xl xl:hidden"
           >
             <div className="flex flex-col gap-2">
               {links.map((link) => (
@@ -89,12 +95,17 @@ export function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-2xl px-4 py-3 text-sm uppercase tracking-[0.24em] text-muted transition hover:bg-white/[0.04] hover:text-bone"
+                  className="px-0 py-3 text-sm uppercase tracking-[0.24em] text-muted transition hover:text-bone"
                 >
                   {link.label}
                 </a>
               ))}
-              <Button href="#contact" className="mt-2 w-full" onClick={() => setOpen(false)}>
+              <Button
+                href="#contact"
+                variant="secondary"
+                className="mt-2 w-full rounded-none border-x-0 border-b-0 border-t-0 px-0"
+                onClick={() => setOpen(false)}
+              >
                 Book Session
               </Button>
             </div>
