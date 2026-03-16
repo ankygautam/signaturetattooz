@@ -4,6 +4,7 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [react()],
+  base: "/signaturetattooz/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
