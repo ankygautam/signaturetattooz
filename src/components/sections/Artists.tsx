@@ -2,17 +2,18 @@ import { motion } from "framer-motion";
 import { artists } from "@/data/artists";
 import { fadeUp, revealCard, stagger, viewport } from "@/lib/motion";
 import { Tag } from "../ui/Tag";
+import { Button } from "../ui/Button";
 
 export function Artists() {
   return (
-    <section id="artists" className="relative bg-surface py-24">
+    <section id="artists" className="relative bg-background py-24">
       <div className="section-shell space-y-12">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div className="space-y-4">
-            <Tag tone="muted">The artists</Tag>
-            <h2 className="font-display text-3xl text-bone md:text-4xl">Artist-first studio</h2>
+            <Tag tone="muted">Meet the artists</Tag>
+            <h2 className="font-display text-3xl text-bone md:text-4xl">Editorial-grade profiles</h2>
             <p className="max-w-2xl text-muted">
-              Dedicated rooms, personalized playlists, and collaborative sketch sessions keep the focus on your story and the artist’s vision.
+              Artist-forward presentation with dedicated suites, refined palettes, and bespoke compositions for every client story.
             </p>
           </div>
           <motion.div
@@ -23,12 +24,12 @@ export function Artists() {
             className="flex items-center gap-4 rounded-full border border-stroke/80 px-4 py-3 text-sm text-muted"
           >
             <span className="h-2 w-2 rounded-full bg-accent" />
-            By-appointment only · Healed check-ins at 4 weeks
+            By-application only · Limited monthly bookings
           </motion.div>
         </div>
 
         <motion.div
-          className="grid gap-8 md:grid-cols-3"
+          className="grid gap-7 md:grid-cols-2 xl:grid-cols-3"
           variants={stagger(0.14)}
           initial="hidden"
           whileInView="show"
@@ -38,9 +39,9 @@ export function Artists() {
             <motion.article
               key={artist.name}
               variants={revealCard}
-              className="group relative overflow-hidden rounded-3xl border border-stroke bg-background/60 shadow-card"
+              className="group relative overflow-hidden rounded-3xl border border-stroke/80 bg-surface shadow-card transition hover:-translate-y-1 hover:shadow-glow"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-72 overflow-hidden">
                 <img
                   src={artist.image}
                   alt={artist.name}
@@ -52,10 +53,10 @@ export function Artists() {
                   {artist.title}
                 </span>
               </div>
-              <div className="flex flex-col gap-3 p-6">
-                <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-muted">
-                  <span>{artist.name}</span>
-                  <span className="rounded-full bg-accent/70 px-3 py-1 text-[10px] text-bone/90">
+              <div className="flex flex-col gap-4 p-6">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-muted">
+                  <span className="text-bone">{artist.name}</span>
+                  <span className="rounded-full bg-accent/80 px-3 py-1 text-[10px] text-bone/90">
                     {artist.years} yrs
                   </span>
                 </div>
@@ -70,14 +71,23 @@ export function Artists() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={artist.instagram}
-                  className="text-sm text-accent transition hover:text-accentMuted"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  @ {artist.instagram.split("https://instagram.com/")[1]}
-                </a>
+                <div className="flex items-center justify-between">
+                  <a
+                    href={artist.instagram}
+                    className="text-sm text-accent transition hover:text-accentMuted"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    @ {artist.instagram.split("https://instagram.com/")[1]}
+                  </a>
+                  <Button
+                    variant="ghost"
+                    className="text-xs uppercase tracking-[0.16em]"
+                    onClick={() => artist.portfolioUrl && document.querySelector(artist.portfolioUrl)?.scrollIntoView({ behavior: "smooth" })}
+                  >
+                    View Portfolio
+                  </Button>
+                </div>
               </div>
             </motion.article>
           ))}

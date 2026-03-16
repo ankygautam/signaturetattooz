@@ -5,6 +5,7 @@ import { Portfolio } from "./components/sections/Portfolio";
 import { Artists } from "./components/sections/Artists";
 import { Experience } from "./components/sections/Experience";
 import { Booking } from "./components/sections/Booking";
+import { AboutStudio } from "./components/sections/AboutStudio";
 
 function Atmosphere() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Navbar />
       <main className="space-y-8">
         <Hero />
+        <AboutStudio />
         <Portfolio />
         <Artists />
         <Experience />

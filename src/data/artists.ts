@@ -6,6 +6,7 @@ export type Artist = {
   image: string;
   bio: string;
   instagram: string;
+  portfolioUrl?: string;
 };
 
 export const artists: Artist[] = [
@@ -18,6 +19,7 @@ export const artists: Artist[] = [
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
     bio: "Curates bespoke compositions with a balance of precision line work and luxe textures inspired by jewelry design.",
     instagram: "https://instagram.com/novareyes.ink",
+    portfolioUrl: "#gallery",
   },
   {
     name: "Kai Laurent",
@@ -28,6 +30,7 @@ export const artists: Artist[] = [
       "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80",
     bio: "Known for painterly gradients and organic flows that mirror the body’s movement.",
     instagram: "https://instagram.com/kailaure.tattoo",
+    portfolioUrl: "#gallery",
   },
   {
     name: "Mila Voss",
@@ -38,5 +41,6 @@ export const artists: Artist[] = [
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
     bio: "Creates bold, architectural pieces that blend symmetry with atmospheric shading.",
     instagram: "https://instagram.com/milavoss.studio",
+    portfolioUrl: "#gallery",
   },
 ];
