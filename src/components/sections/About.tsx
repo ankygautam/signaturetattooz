@@ -10,18 +10,31 @@ export function About() {
     <section id="about" className="relative py-24">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="space-y-7">
-          <SectionHeader
-            eyebrow="About Signature Tattooz"
-            title="A Better Rated Tattoo Shop With A More Personal Process."
-            description="Signature Tattooz provides unique and custom work and is one of the best rated tattoo shops in Hoshiarpur (PB). The studio focuses on high quality service, custom artwork, collaboration, comfort, privacy, and a safe sanitary environment."
-          />
+          <div className="space-y-4">
+            <p className="eyebrow">About Signature Tattooz</p>
+            <h2 className="font-display text-5xl uppercase leading-[0.88] tracking-[0.03em] text-bone sm:text-6xl">
+              A Better Rated Tattoo Shop With A More Personal Process.
+            </h2>
+          </div>
+
+          <motion.p
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={fadeUp(0.06)}
+            className="max-w-xl text-sm leading-8 text-muted"
+          >
+            Signature Tattooz provides unique and custom work and is one of the best rated tattoo
+            shops in Hoshiarpur (PB). The studio focuses on high quality service, custom artwork,
+            collaboration, comfort, privacy, and a safe sanitary environment.
+          </motion.p>
 
           <motion.p
             initial="hidden"
             whileInView="show"
             viewport={viewport}
             variants={fadeUp(0.1)}
-            className="serif-copy max-w-2xl text-2xl leading-9 text-bone/85"
+            className="max-w-xl text-sm leading-8 text-muted"
           >
             Nitin Gautam leads the studio as an Expert Tattooist and Digital Artist, constantly
             evolving through new methods while staying grounded in traditional tattooing roots.
