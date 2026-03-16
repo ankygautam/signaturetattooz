@@ -48,7 +48,7 @@ export function ArtistSpotlight() {
               "Constantly learning new methods",
             ].map((item) => (
               <div key={item} className="panel p-5 text-sm leading-7 text-muted">
-                {item}
+                <p className="font-display text-4xl uppercase leading-none text-bone">{item}</p>
               </div>
             ))}
           </div>

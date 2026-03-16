@@ -9,7 +9,7 @@ const aboutImage =
 export function About() {
   return (
     <section id="about" className="relative py-24">
-      <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -20,10 +20,10 @@ export function About() {
           <img src={aboutImage} alt="Signature Tattooz studio" className="h-[36rem] w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6">
-            <p className="eyebrow">Studio mood</p>
-            <p className="mt-2 max-w-sm text-sm leading-7 text-bone/85">
-              A welcoming atmosphere with privacy, calm pacing, and the discipline of a safe,
-              sanitary setup.
+            <p className="eyebrow">About the studio</p>
+            <p className="serif-copy mt-3 max-w-sm text-xl leading-8 text-bone/90">
+              Welcoming atmosphere, private station, safe process, and custom work that feels made
+              for the person wearing it.
             </p>
           </div>
         </motion.div>
@@ -31,7 +31,7 @@ export function About() {
         <div className="space-y-8">
           <SectionHeader
             eyebrow="About Signature Tattooz"
-            title="Custom work rooted in craft, comfort, and evolving artistry."
+            title="A Tattoo Shop Built Around Original Work And Respect For The Craft."
             description="Signature Tattooz provides unique and custom work and is one of the best rated tattoo shops in Hoshiarpur (PB). Led by Nitin Gautam, the studio combines traditional tattooing roots with a constant drive to learn, refine, and appreciate the art form at a higher level."
           />
 
@@ -42,26 +42,27 @@ export function About() {
             variants={fadeUp(0.1)}
             className="max-w-2xl text-sm leading-8 text-muted"
           >
-            The experience is built around high quality service, client collaboration, private
-            comfort, and a safe and sanitary environment. Every session is approached with care so
-            the final design feels personal, wearable, and original to the person carrying it.
+            High quality service, client collaboration, comfort, privacy, and a safe sanitary
+            environment shape the entire studio experience. Whether the idea starts as a reference,
+            a memory, or a rough sketch, the process is built to turn it into artwork with
+            personality and staying power.
           </motion.p>
 
           <div className="grid gap-4 sm:grid-cols-3">
             {[
               {
                 icon: MapPin,
-                title: "Hoshiarpur (PB)",
+                title: "Tattoo Shop",
                 text: "A focused private station built for one-on-one work.",
               },
               {
                 icon: ShieldCheck,
-                title: "Safe & sanitary",
+                title: "Clean Standards",
                 text: "Clean process standards with comfort and trust at the center.",
               },
               {
                 icon: Sparkles,
-                title: "Nitin Gautam",
+                title: "Lead Artist",
                 text: "Expert Tattooist and Digital Artist shaping each concept carefully.",
               },
             ].map((item) => (
@@ -74,7 +75,9 @@ export function About() {
                 className="panel p-5"
               >
                 <item.icon className="h-5 w-5 text-accentMuted" />
-                <h3 className="mt-4 font-display text-3xl leading-none text-bone">{item.title}</h3>
+                <h3 className="mt-4 font-display text-4xl uppercase leading-none text-bone">
+                  {item.title}
+                </h3>
                 <p className="mt-3 text-sm leading-7 text-muted">{item.text}</p>
               </motion.div>
             ))}

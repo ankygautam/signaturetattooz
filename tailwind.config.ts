@@ -14,7 +14,8 @@ export default {
         stroke: "#242429",
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', "serif"],
+        display: ['"Bebas Neue"', "sans-serif"],
+        serif: ['"Cormorant Garamond"', "serif"],
         sans: ['"Sora"', "Inter", "system-ui", "sans-serif"],
       },
       letterSpacing: {

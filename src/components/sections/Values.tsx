@@ -9,8 +9,8 @@ export function Values() {
       <div className="section-shell space-y-12">
         <SectionHeader
           eyebrow="Why choose us"
-          title="A serious tattoo brand is built on more than visuals."
-          description="These are the standards behind the studio experience, from the first consultation to the healed result."
+          title="The Shop Standard Behind The Work."
+          description="These points are the backbone of the studio, similar to the reference's punchier value blocks and bold service messaging."
           align="center"
         />
 
@@ -26,7 +26,9 @@ export function Values() {
               <p className="text-[0.65rem] uppercase tracking-[0.34em] text-accentMuted">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-8 font-display text-4xl leading-none text-bone">{value.title}</h3>
+              <h3 className="mt-8 font-display text-5xl uppercase leading-none text-bone">
+                {value.title}
+              </h3>
               <p className="mt-4 text-sm leading-7 text-muted">{value.description}</p>
             </motion.article>
           ))}

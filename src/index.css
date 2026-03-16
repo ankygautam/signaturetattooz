@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:wght@500;600;700&family=Sora:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -57,6 +57,10 @@ body {
 
 .eyebrow {
   @apply text-[0.7rem] uppercase tracking-[0.32em] text-accentMuted;
+}
+
+.serif-copy {
+  font-family: "Cormorant Garamond", serif;
 }
 
 .input-shell {

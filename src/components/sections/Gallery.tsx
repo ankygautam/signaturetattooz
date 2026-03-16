@@ -24,8 +24,8 @@ export function Gallery() {
         <div className="flex flex-col gap-8 xl:flex-row xl:items-end xl:justify-between">
           <SectionHeader
             eyebrow="Featured work"
-            title="An image-led portfolio shaped like a modern tattoo editorial."
-            description="Use the filters to sort by direction. The layout is built so you can swap any placeholder with your own healed work, fresh tattoos, or studio photography later."
+            title="Latest Work, Shown With A Stronger Tattoo-Shop Energy."
+            description="A grittier image-led portfolio inspired by the reference. You can still swap every placeholder later, but the structure now feels closer to a modern studio showcase."
           />
 
           <div className="flex flex-wrap gap-3">
@@ -62,7 +62,7 @@ export function Gallery() {
                 whileInView="show"
                 viewport={viewport}
                 variants={fadeUp(index * 0.03)}
-                className={cn("group relative overflow-hidden rounded-[1.8rem]", item.size)}
+                className={cn("group relative overflow-hidden rounded-[1.2rem] border border-white/8", item.size)}
               >
                 <img
                   src={item.image}
@@ -72,15 +72,17 @@ export function Gallery() {
                     index % 3 === 0 ? "h-[32rem]" : index % 2 === 0 ? "h-[26rem]" : "h-[22rem]",
                   )}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-85" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5">
                   <div>
-                    <p className="font-display text-3xl text-bone">{item.title}</p>
+                    <p className="font-display text-4xl uppercase leading-none text-bone">
+                      {item.title}
+                    </p>
                     <p className="mt-2 text-[0.65rem] uppercase tracking-[0.28em] text-accentMuted">
                       {item.category}
                     </p>
                   </div>
-                  <div className="h-10 w-10 rounded-full border border-white/15 bg-black/20 transition group-hover:border-accentMuted" />
+                  <div className="h-12 w-12 rounded-full border border-white/15 bg-black/30 transition group-hover:border-accentMuted" />
                 </div>
               </motion.article>
             ))}

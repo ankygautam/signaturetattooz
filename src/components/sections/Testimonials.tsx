@@ -8,12 +8,12 @@ export function Testimonials() {
       <div className="section-shell space-y-10">
         <SectionHeader
           eyebrow="Testimonials"
-          title="Client words with the same polish as the rest of the studio."
-          description="Placeholder testimonials for now, structured so you can replace them later with real reviews from happy clients."
+          title="What Clients Remember After The Session."
+          description="Still placeholders for now, but the section now reads more like a real tattoo shop testimonial block instead of a generic SaaS carousel."
           align="center"
         />
 
-        <div className="panel overflow-hidden border-accentMuted/15">
+        <div className="panel overflow-hidden border-accentMuted/15 bg-black/40">
           <AnimatedTestimonials testimonials={testimonials} autoplay className="py-14" />
         </div>
       </div>
