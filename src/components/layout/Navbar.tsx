@@ -33,16 +33,15 @@ export function Navbar() {
     >
       <div
         className={cn(
-          "section-shell flex max-w-7xl items-center justify-between rounded-full border border-white/8 px-4 py-3 transition-all duration-300 md:px-6",
-          scrolled ? "bg-black/70 shadow-card backdrop-blur-xl" : "bg-black/30 backdrop-blur-md",
+          "section-shell flex max-w-7xl items-center justify-between rounded-none border-b border-white/10 px-0 py-4 transition-all duration-300",
+          scrolled ? "bg-black/80 shadow-card backdrop-blur-xl" : "bg-transparent",
         )}
       >
         <a href="#home" className="flex items-center gap-3">
-          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-accentMuted/40 bg-gradient-to-br from-accent/70 to-accentMuted/80 font-display text-lg text-bone">
-            S
-          </span>
           <div>
-            <p className="font-display text-2xl leading-none text-bone">Signature Tattooz</p>
+            <p className="font-display text-4xl uppercase leading-none tracking-[0.08em] text-bone">
+              Signature Tattooz
+            </p>
             <p className="mt-1 text-[0.65rem] uppercase tracking-[0.34em] text-muted">
               Hoshiarpur · Punjab
             </p>
@@ -54,7 +53,7 @@ export function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              className="text-[0.72rem] uppercase tracking-[0.28em] text-muted transition hover:text-bone"
+              className="text-[0.68rem] uppercase tracking-[0.28em] text-muted transition hover:text-bone"
             >
               {link.label}
             </a>
@@ -62,7 +61,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Button href="#contact" className="hidden md:inline-flex">
+          <Button href="#contact" variant="secondary" className="hidden md:inline-flex">
             Book Session
           </Button>
           <button

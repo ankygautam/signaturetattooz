@@ -10,10 +10,12 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/8 bg-black/60 py-12">
-      <div className="section-shell grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
+    <footer className="border-t border-white/8 bg-[#040404] py-14">
+      <div className="section-shell grid gap-10 lg:grid-cols-[1.3fr_0.7fr_0.8fr]">
         <div className="space-y-4">
-          <p className="font-display text-4xl leading-none text-bone">Signature Tattooz</p>
+          <p className="font-display text-6xl uppercase leading-none tracking-[0.06em] text-bone">
+            Signature Tattooz
+          </p>
           <p className="max-w-md text-sm leading-7 text-muted">
             Custom tattoos with story, detail, and soul. Signature Tattooz is built around
             original artwork, comfort, privacy, and a safe studio standard in Hoshiarpur.

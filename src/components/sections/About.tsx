@@ -1,38 +1,54 @@
 import { motion } from "framer-motion";
-import { MapPin, ShieldCheck, Sparkles } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeUp, viewport } from "@/lib/motion";
 
-const aboutImage =
+const aboutMain =
   "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=80";
+const aboutSide =
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80";
 
 export function About() {
   return (
     <section id="about" className="relative py-24">
-      <div className="section-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={viewport}
-          variants={fadeUp(0.08)}
-          className="relative overflow-hidden rounded-[2rem] border border-white/8 shadow-card"
-        >
-          <img src={aboutImage} alt="Signature Tattooz studio" className="h-[36rem] w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-6">
-            <p className="eyebrow">About the studio</p>
-            <p className="serif-copy mt-3 max-w-sm text-xl leading-8 text-bone/90">
-              Welcoming atmosphere, private station, safe process, and custom work that feels made
-              for the person wearing it.
-            </p>
-          </div>
-        </motion.div>
+      <div className="section-shell grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid gap-5 sm:grid-cols-[1.1fr_0.9fr]">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={fadeUp(0.05)}
+            className="noise-mask relative overflow-hidden border border-white/10"
+          >
+            <img src={aboutMain} alt="Signature Tattooz interior" className="h-[38rem] w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={fadeUp(0.12)}
+            className="flex flex-col gap-5"
+          >
+            <div className="border border-white/10 bg-white/[0.03] p-6">
+              <p className="eyebrow">Location</p>
+              <p className="mt-3 font-display text-5xl uppercase leading-none text-bone">
+                Hoshiarpur
+              </p>
+              <p className="mt-2 text-sm uppercase tracking-[0.26em] text-accentMuted">Punjab</p>
+            </div>
+            <div className="noise-mask relative flex-1 overflow-hidden border border-white/10">
+              <img src={aboutSide} alt="Nitin Gautam portrait" className="h-full w-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+            </div>
+          </motion.div>
+        </div>
 
         <div className="space-y-8">
           <SectionHeader
             eyebrow="About Signature Tattooz"
-            title="A Tattoo Shop Built Around Original Work And Respect For The Craft."
-            description="Signature Tattooz provides unique and custom work and is one of the best rated tattoo shops in Hoshiarpur (PB). Led by Nitin Gautam, the studio combines traditional tattooing roots with a constant drive to learn, refine, and appreciate the art form at a higher level."
+            title="A Better Rated Tattoo Shop With A More Personal Process."
+            description="Signature Tattooz provides unique and custom work and is one of the best rated tattoo shops in Hoshiarpur (PB). The studio focuses on high quality service, custom artwork, collaboration, comfort, privacy, and a safe sanitary environment."
           />
 
           <motion.p
@@ -40,45 +56,40 @@ export function About() {
             whileInView="show"
             viewport={viewport}
             variants={fadeUp(0.1)}
-            className="max-w-2xl text-sm leading-8 text-muted"
+            className="serif-copy text-2xl leading-9 text-bone/85"
           >
-            High quality service, client collaboration, comfort, privacy, and a safe sanitary
-            environment shape the entire studio experience. Whether the idea starts as a reference,
-            a memory, or a rough sketch, the process is built to turn it into artwork with
-            personality and staying power.
+            Nitin Gautam leads the studio as an Expert Tattooist and Digital Artist, constantly
+            evolving through new methods while staying grounded in traditional tattooing roots.
           </motion.p>
 
-          <div className="grid gap-4 sm:grid-cols-3">
+          <motion.p
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            variants={fadeUp(0.15)}
+            className="max-w-xl text-sm leading-8 text-muted"
+          >
+            The atmosphere is welcoming, the station is private and comfortable, and each tattoo is
+            shaped through conversation so the final work feels original rather than repeated. From
+            concept to execution, the studio is built around trust, clarity, and clean standards.
+          </motion.p>
+
+          <div className="grid gap-4 sm:grid-cols-2">
             {[
-              {
-                icon: MapPin,
-                title: "Tattoo Shop",
-                text: "A focused private station built for one-on-one work.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Clean Standards",
-                text: "Clean process standards with comfort and trust at the center.",
-              },
-              {
-                icon: Sparkles,
-                title: "Lead Artist",
-                text: "Expert Tattooist and Digital Artist shaping each concept carefully.",
-              },
-            ].map((item) => (
+              "Private & comfortable setup",
+              "Custom artwork built with the client",
+              "Safe and sanitary process",
+              "Multiple tattoo genres with strong roots",
+            ].map((item, index) => (
               <motion.div
-                key={item.title}
+                key={item}
                 initial="hidden"
                 whileInView="show"
                 viewport={viewport}
-                variants={fadeUp(0.12)}
-                className="panel p-5"
+                variants={fadeUp(0.08 + index * 0.04)}
+                className="border border-white/10 bg-white/[0.03] p-5"
               >
-                <item.icon className="h-5 w-5 text-accentMuted" />
-                <h3 className="mt-4 font-display text-4xl uppercase leading-none text-bone">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-muted">{item.text}</p>
+                <p className="font-display text-4xl uppercase leading-none text-bone">{item}</p>
               </motion.div>
             ))}
           </div>

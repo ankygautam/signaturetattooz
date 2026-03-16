@@ -1,6 +1,5 @@
 import { startTransition, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { SectionHeader } from "@/components/ui/SectionHeader";
 import { galleryItems } from "@/data/site-content";
 import { fadeUp, viewport } from "@/lib/motion";
 import { cn } from "@/lib/utils";
@@ -19,73 +18,103 @@ export function Gallery() {
   }, [activeFilter]);
 
   return (
-    <section id="gallery" className="relative py-24">
+    <section id="gallery" className="relative bg-[#050505] py-24">
       <div className="section-shell space-y-10">
-        <div className="flex flex-col gap-8 xl:flex-row xl:items-end xl:justify-between">
-          <SectionHeader
-            eyebrow="Featured work"
-            title="Latest Work, Shown With A Stronger Tattoo-Shop Energy."
-            description="A grittier image-led portfolio inspired by the reference. You can still swap every placeholder later, but the structure now feels closer to a modern studio showcase."
-          />
+        <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
+          <div>
+            <p className="eyebrow">Featured Work</p>
+            <h2 className="mt-4 font-display text-6xl uppercase leading-[0.84] text-bone sm:text-7xl">
+              Black
+              <br />
+              Stories
+            </h2>
+          </div>
 
-          <div className="flex flex-wrap gap-3">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => startTransition(() => setActiveFilter(filter))}
-                className={cn(
-                  "rounded-full border px-4 py-2 text-[0.65rem] uppercase tracking-[0.28em] transition",
-                  activeFilter === filter
-                    ? "border-accentMuted bg-accentMuted/10 text-bone"
-                    : "border-white/10 bg-white/[0.03] text-muted hover:text-bone",
-                )}
-              >
-                {filter}
-              </button>
-            ))}
+          <div className="space-y-5">
+            <p className="max-w-2xl text-sm leading-8 text-muted">
+              A more image-heavy gallery inspired by the reference layout. It is built to feel like
+              a tattoo brand showcase first, with filters and hover details layered in after.
+            </p>
+
+            <div className="flex flex-wrap gap-3">
+              {filters.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => startTransition(() => setActiveFilter(filter))}
+                  className={cn(
+                    "border px-4 py-2 text-[0.64rem] uppercase tracking-[0.28em] transition",
+                    activeFilter === filter
+                      ? "border-accentMuted bg-accentMuted/10 text-bone"
+                      : "border-white/10 text-muted hover:border-white/20 hover:text-bone",
+                  )}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
-            initial={{ opacity: 0, y: 18 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -18 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35 }}
-            className="columns-1 gap-5 md:columns-2 xl:columns-3"
+            className="grid gap-5 lg:grid-cols-12"
           >
-            {filteredItems.map((item, index) => (
-              <motion.article
-                key={`${activeFilter}-${item.title}`}
-                initial="hidden"
-                whileInView="show"
-                viewport={viewport}
-                variants={fadeUp(index * 0.03)}
-                className={cn("group relative overflow-hidden rounded-[1.2rem] border border-white/8", item.size)}
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
+            {filteredItems.map((item, index) => {
+              const sizes = [
+                "lg:col-span-5 lg:row-span-2",
+                "lg:col-span-3",
+                "lg:col-span-4",
+                "lg:col-span-4",
+                "lg:col-span-3",
+                "lg:col-span-5",
+              ];
+
+              const heights = [
+                "h-[34rem]",
+                "h-[16rem]",
+                "h-[16rem]",
+                "h-[16rem]",
+                "h-[16rem]",
+                "h-[20rem]",
+              ];
+
+              return (
+                <motion.article
+                  key={`${activeFilter}-${item.title}`}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={viewport}
+                  variants={fadeUp(index * 0.04)}
                   className={cn(
-                    "w-full object-cover transition duration-500 group-hover:scale-105",
-                    index % 3 === 0 ? "h-[32rem]" : index % 2 === 0 ? "h-[26rem]" : "h-[22rem]",
+                    "group noise-mask relative overflow-hidden border border-white/10",
+                    sizes[index % sizes.length],
                   )}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-85" />
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5">
-                  <div>
-                    <p className="font-display text-4xl uppercase leading-none text-bone">
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className={cn(
+                      "w-full object-cover transition duration-500 group-hover:scale-105",
+                      heights[index % heights.length],
+                    )}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5">
+                    <p className="font-display text-5xl uppercase leading-none text-bone">
                       {item.title}
                     </p>
-                    <p className="mt-2 text-[0.65rem] uppercase tracking-[0.28em] text-accentMuted">
+                    <p className="mt-2 text-[0.68rem] uppercase tracking-[0.3em] text-accentMuted">
                       {item.category}
                     </p>
                   </div>
-                  <div className="h-12 w-12 rounded-full border border-white/15 bg-black/30 transition group-hover:border-accentMuted" />
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              );
+            })}
           </motion.div>
         </AnimatePresence>
       </div>

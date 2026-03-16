@@ -66,3 +66,24 @@ body {
 .input-shell {
   @apply w-full rounded-[1.25rem] border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-bone outline-none transition placeholder:text-muted/70 focus:border-accentMuted focus:bg-white/[0.05];
 }
+
+.stroke-title {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(244, 238, 228, 0.2);
+}
+
+.noise-mask {
+  position: relative;
+}
+
+.noise-mask::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 35%),
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05), transparent 18%),
+    radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.04), transparent 18%);
+  mix-blend-mode: soft-light;
+}

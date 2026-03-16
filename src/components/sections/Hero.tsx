@@ -1,98 +1,103 @@
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { fadeUp, stagger } from "@/lib/motion";
 
-const heroImage =
-  "https://images.unsplash.com/photo-1542727365-19732a80dcfd?auto=format&fit=crop&w=1800&q=80";
+const heroPrimary =
+  "https://images.unsplash.com/photo-1542727365-19732a80dcfd?auto=format&fit=crop&w=1600&q=80";
+const heroSecondary =
+  "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80";
 
 export function Hero() {
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden">
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `linear-gradient(90deg, rgba(6,6,6,0.95) 8%, rgba(6,6,6,0.76) 45%, rgba(6,6,6,0.88) 100%), url(${heroImage})`,
-          backgroundPosition: "center top",
-          backgroundSize: "cover",
-        }}
-      />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(183,145,96,0.16),transparent_30%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(6,6,6,0.3)_60%,rgba(6,6,6,1))]" />
+    <section id="home" className="relative min-h-screen overflow-hidden bg-black pt-28">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(141,31,50,0.22),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(183,145,96,0.14),transparent_24%)]" />
+      <div className="absolute inset-0 grid-overlay opacity-[0.08]" />
 
-      <div className="section-shell relative flex min-h-screen items-end pb-14 pt-32 md:items-center md:pb-24">
+      <div className="section-shell relative grid min-h-[calc(100vh-7rem)] gap-10 pb-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
         <motion.div
-          variants={stagger(0.14)}
+          variants={stagger(0.12)}
           initial="hidden"
           animate="show"
-          className="grid w-full gap-12 lg:grid-cols-[1.05fr_0.95fr]"
+          className="flex flex-col justify-end pb-10"
         >
-          <div className="max-w-3xl space-y-7">
-            <motion.p variants={fadeUp(0.04)} className="eyebrow">
-              Signature Tattooz · Tattoo shop in Hoshiarpur
-            </motion.p>
-            <motion.h1
-              variants={fadeUp(0.1)}
-              className="font-display text-[5.5rem] uppercase leading-[0.82] tracking-[0.03em] text-bone sm:text-[7rem] md:text-[8.5rem] lg:text-[10rem]"
-            >
-              Custom Tattoos
-              <br />
-              With Story,
-              <br />
-              Detail & Soul
-            </motion.h1>
-            <motion.p
-              variants={fadeUp(0.16)}
-              className="max-w-xl text-sm leading-8 text-muted sm:text-base"
-            >
-              Signature Tattooz builds original tattoo work around custom artwork, private comfort,
-              hygienic practice, and direct collaboration with lead artist Nitin Gautam.
-            </motion.p>
-            <motion.div variants={fadeUp(0.22)} className="flex flex-wrap gap-4">
-              <Button href="#gallery" size="lg">
-                View Work
-              </Button>
-              <Button href="#contact" variant="ghost" size="lg">
-                Book Now
-              </Button>
-            </motion.div>
+          <motion.p variants={fadeUp(0.02)} className="eyebrow">
+            Tattoo shop aesthetic · Custom work · Hoshiarpur
+          </motion.p>
+          <motion.h1
+            variants={fadeUp(0.08)}
+            className="mt-4 font-display text-[5.5rem] uppercase leading-[0.8] tracking-[0.05em] text-bone sm:text-[7.5rem] lg:text-[10rem]"
+          >
+            Ink
+            <br />
+            With
+            <br />
+            Identity
+          </motion.h1>
+          <motion.p
+            variants={fadeUp(0.14)}
+            className="serif-copy mt-6 max-w-xl text-2xl leading-8 text-bone/80"
+          >
+            Signature Tattooz creates custom tattoos with story, detail, privacy, hygiene, and a
+            more personal studio process led by Nitin Gautam.
+          </motion.p>
+          <motion.div variants={fadeUp(0.2)} className="mt-8 flex flex-wrap gap-4">
+            <Button href="#gallery" size="lg">
+              View Work
+            </Button>
+            <Button href="#contact" variant="ghost" size="lg">
+              Book Now
+            </Button>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp(0.12)}
+          initial="hidden"
+          animate="show"
+          className="relative min-h-[38rem]"
+        >
+          <div className="noise-mask absolute right-0 top-0 h-[78%] w-[78%] overflow-hidden border border-white/10 bg-black shadow-card">
+            <img src={heroPrimary} alt="Tattoo studio portrait" className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
           </div>
 
-          <motion.div
-            variants={fadeUp(0.18)}
-            className="self-end justify-self-end rounded-[2rem] border border-white/10 bg-black/40 p-6 backdrop-blur-md md:max-w-sm"
-          >
+          <div className="noise-mask absolute bottom-0 left-0 z-10 h-[42%] w-[46%] overflow-hidden border border-white/10 bg-black shadow-card">
+            <img src={heroSecondary} alt="Tattoo detail" className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          </div>
+
+          <div className="absolute left-[10%] top-[10%] z-20 border border-white/10 bg-black/80 px-5 py-4 backdrop-blur-md">
             <p className="eyebrow">Lead artist</p>
-            <h2 className="mt-3 font-display text-5xl uppercase leading-none text-bone">
+            <p className="mt-2 font-display text-5xl uppercase leading-none text-bone">
               Nitin Gautam
-            </h2>
-            <p className="mt-2 text-sm uppercase tracking-[0.22em] text-accentMuted">
+            </p>
+            <p className="mt-2 text-xs uppercase tracking-[0.28em] text-accentMuted">
               Expert Tattooist · Digital Artist
             </p>
-            <div className="mt-8 grid grid-cols-2 gap-4 border-t border-white/10 pt-6 text-sm text-muted">
-              <div>
-                <p className="font-display text-3xl uppercase text-bone">Location</p>
-                <p className="mt-2">Hoshiarpur (PB)</p>
-              </div>
-              <div>
-                <p className="font-display text-3xl uppercase text-bone">Focus</p>
-                <p className="mt-2">Custom tattoos, privacy, hygiene</p>
-              </div>
-            </div>
-          </motion.div>
+          </div>
+
+          <div className="absolute bottom-8 right-0 z-20 max-w-xs border border-white/10 bg-black/85 p-5 backdrop-blur-md">
+            <p className="eyebrow">Studio values</p>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              Welcoming atmosphere, private station, safe and sanitary environment, and custom work
+              shaped through collaboration.
+            </p>
+          </div>
         </motion.div>
       </div>
 
-      <motion.a
+      <a
         href="#about"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 inline-flex -translate-x-1/2 items-center gap-3 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-[0.65rem] uppercase tracking-[0.28em] text-muted backdrop-blur-md"
+        className="absolute bottom-6 left-1/2 inline-flex -translate-x-1/2 items-center gap-3 text-[0.65rem] uppercase tracking-[0.28em] text-muted transition hover:text-bone"
       >
-        Scroll
-        <ArrowDown className="h-3.5 w-3.5" />
-      </motion.a>
+        Scroll Down
+        <ArrowDownRight className="h-4 w-4" />
+      </a>
+
+      <div className="pointer-events-none absolute bottom-2 right-4 font-display text-[7rem] uppercase leading-none text-white/5 sm:text-[10rem]">
+        Tattoo
+      </div>
     </section>
   );
 }
