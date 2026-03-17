@@ -7,6 +7,7 @@ import { Contact } from "@/components/sections/Contact";
 import { Gallery } from "@/components/sections/Gallery";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
+import { TattooSchool } from "@/components/sections/TattooSchool";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Values } from "@/components/sections/Values";
 
@@ -31,6 +32,7 @@ export default function App() {
         <Gallery />
         <ArtistSpotlight />
         <Values />
+        <TattooSchool />
         <Testimonials />
         <BookingCTA />
         <Contact />
