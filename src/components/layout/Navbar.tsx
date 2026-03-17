@@ -11,6 +11,7 @@ const links = [
   { label: "Services", href: "#services" },
   { label: "Gallery", href: "#gallery" },
   { label: "Artist", href: "#artist" },
+  { label: "School", href: "#tattoo-school" },
   { label: "Why Us", href: "#why-us" },
   { label: "Contact", href: "#contact" },
 ];
