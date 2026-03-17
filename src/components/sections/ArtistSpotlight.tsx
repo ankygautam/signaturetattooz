@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { fadeUp, viewport } from "@/lib/motion";
@@ -56,7 +56,7 @@ export function ArtistSpotlight() {
           <div className="flex flex-wrap items-center gap-4">
             <Button href="#contact">Book With Nitin</Button>
             <a
-              href="https://instagram.com/signaturetattooz"
+              href="https://www.instagram.com/signaturetattooz"
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
@@ -64,12 +64,20 @@ export function ArtistSpotlight() {
               <Instagram className="h-4 w-4" />
             </a>
             <a
-              href="https://facebook.com/signaturetattooz"
+              href="https://www.facebook.com/nitinsignaturetattooz/"
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
             >
               <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.youtube.com/@signaturetattooz"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
+            >
+              <Youtube className="h-4 w-4" />
             </a>
           </div>
         </div>

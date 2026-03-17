@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
@@ -31,7 +31,7 @@ export function Contact() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://instagram.com/signaturetattooz"
+              href="https://www.instagram.com/signaturetattooz"
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
@@ -39,12 +39,20 @@ export function Contact() {
               <Instagram className="h-4 w-4" />
             </a>
             <a
-              href="https://facebook.com/signaturetattooz"
+              href="https://www.facebook.com/nitinsignaturetattooz/"
               target="_blank"
               rel="noreferrer"
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
             >
               <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.youtube.com/@signaturetattooz"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
+            >
+              <Youtube className="h-4 w-4" />
             </a>
           </div>
         </div>

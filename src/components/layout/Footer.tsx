@@ -1,4 +1,4 @@
-import { Facebook, Instagram, MapPin } from "lucide-react";
+import { Facebook, Instagram, MapPin, Youtube } from "lucide-react";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -42,7 +42,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://instagram.com/signaturetattooz"
+                href="https://www.instagram.com/signaturetattooz"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition hover:border-accentMuted hover:text-bone"
@@ -50,12 +50,20 @@ export function Footer() {
                 <Instagram className="h-4 w-4" />
               </a>
               <a
-                href="https://facebook.com/signaturetattooz"
+                href="https://www.facebook.com/nitinsignaturetattooz/"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition hover:border-accentMuted hover:text-bone"
               >
                 <Facebook className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.youtube.com/@signaturetattooz"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 transition hover:border-accentMuted hover:text-bone"
+              >
+                <Youtube className="h-4 w-4" />
               </a>
             </div>
           </div>
