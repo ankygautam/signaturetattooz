@@ -58,6 +58,20 @@ export function GalleryManagementPage() {
     });
   }, [category, items, search]);
 
+  const missingDefaultItems = useMemo(
+    () =>
+      defaultGallerySeedItems.filter(
+        (seed) =>
+          !items.some(
+            (item) =>
+              item.imageUrl === seed.imageUrl ||
+              (item.title.trim().toLowerCase() === seed.title.trim().toLowerCase() &&
+                item.category.trim().toLowerCase() === seed.category.trim().toLowerCase()),
+          ),
+      ),
+    [items],
+  );
+
   const stats = [
     {
       title: "Gallery items",
@@ -168,7 +182,12 @@ export function GalleryManagementPage() {
     setSubmitError(null);
 
     try {
-      for (const item of defaultGallerySeedItems) {
+      if (missingDefaultItems.length === 0) {
+        setSubmitError("All current website gallery images are already available in the dashboard.");
+        return;
+      }
+
+      for (const item of missingDefaultItems) {
         await createItem(item);
       }
     } catch (caught) {
@@ -199,8 +218,27 @@ export function GalleryManagementPage() {
               Upload portfolio imagery to Firebase Storage, keep metadata in Firestore, and curate the collection with search, category filters, and editing controls.
             </p>
           </div>
-          <Button onClick={openCreate}>Add Gallery Item</Button>
+          <div className="flex flex-wrap gap-3">
+            <Button
+              variant="secondary"
+              onClick={() => void handleImportDefaults()}
+              disabled={seeding || missingDefaultItems.length === 0}
+            >
+              {seeding
+                ? "Importing..."
+                : missingDefaultItems.length === 0
+                  ? "Website Gallery Imported"
+                  : `Import Website Gallery (${missingDefaultItems.length})`}
+            </Button>
+            <Button onClick={openCreate}>Add Gallery Item</Button>
+          </div>
         </div>
+
+        {submitError ? (
+          <div className="mt-6 rounded-[1.25rem] border border-[#8d1f32]/40 bg-[#8d1f32]/10 px-4 py-3 text-sm text-bone/90">
+            {submitError}
+          </div>
+        ) : null}
 
         {!firestoreConfigured ? (
           <EmptyState
