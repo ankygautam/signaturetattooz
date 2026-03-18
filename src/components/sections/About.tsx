@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { SiteVisuals } from "@/admin/types/content";
+import { defaultSiteVisuals } from "@/data/cms-defaults";
+import { usePublicSingletonDocument } from "@/firebase/public-content";
 import { fadeUp, viewport } from "@/lib/motion";
 
-const aboutImage =
-  "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1400&q=80";
-
 export function About() {
+  const visuals = usePublicSingletonDocument<SiteVisuals>(
+    "cms",
+    "siteVisuals",
+    defaultSiteVisuals,
+  );
+
   return (
     <section id="about" className="relative py-24">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -61,7 +66,7 @@ export function About() {
           className="noise-mask relative overflow-hidden border border-white/10"
         >
           <img
-            src={aboutImage}
+            src={visuals.aboutImage}
             alt="Tattoo artwork detail"
             className="h-[38rem] w-full object-cover"
           />

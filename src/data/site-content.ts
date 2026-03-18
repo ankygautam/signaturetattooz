@@ -1,3 +1,14 @@
+export const studioPhotos = {
+  heroPrimary:
+    "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=1600&q=80",
+  heroSecondary:
+    "https://images.unsplash.com/photo-1601121141529-7857c6624f95?auto=format&fit=crop&w=1200&q=80",
+  about:
+    "https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=1400&q=80",
+  artist:
+    "https://images.unsplash.com/photo-1521119989659-a83eee488004?auto=format&fit=crop&w=1400&q=80",
+} as const;
+
 export const services = [
   {
     title: "Custom Design",
@@ -31,42 +42,42 @@ export const galleryItems = [
     title: "Serpent Veil",
     category: "Blackwork",
     image:
-      "https://images.unsplash.com/photo-1601121141529-7857c6624f95?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1543248939-4296e1fea89b?auto=format&fit=crop&w=1200&q=80",
     size: "mb-5 break-inside-avoid",
   },
   {
     title: "Quiet Bloom",
     category: "Fine Line",
     image:
-      "https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
     size: "mb-5 break-inside-avoid",
   },
   {
     title: "Royal Atlas",
     category: "Custom",
     image:
-      "https://images.unsplash.com/photo-1522163182402-834f871fd851?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80",
     size: "mb-5 break-inside-avoid",
   },
   {
     title: "Iron Prayer",
     category: "Traditional",
     image:
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80",
     size: "mb-5 break-inside-avoid",
   },
   {
     title: "Velvet Oath",
     category: "Realism",
     image:
-      "https://images.unsplash.com/photo-1552539618-7eec75b05f72?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1552539618-7eec75b05f72?auto=format&fit=crop&w=1200&q=80&sat=-15",
     size: "mb-5 break-inside-avoid",
   },
   {
     title: "Ritual Lines",
     category: "Blackwork",
     image:
-      "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1601121141529-7857c6624f95?auto=format&fit=crop&w=1200&q=80",
     size: "mb-5 break-inside-avoid",
   },
 ];
@@ -105,20 +116,20 @@ export const testimonials = [
       "Nitin took my rough idea and turned it into something far more refined. The studio felt calm, private, and genuinely professional from start to finish.",
     name: "Amanpreet Singh",
     designation: "Custom sleeve session",
-    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
+    src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80",
   },
   {
     quote:
       "What stood out most was the detail and the way the concept was explained before anything started. It felt like art direction, not just booking a tattoo.",
     name: "Ritika Sharma",
     designation: "Fine line custom piece",
-    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=1200&q=80",
+    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80",
   },
   {
     quote:
       "The environment was clean, the process was comfortable, and the final design healed beautifully. Signature Tattooz absolutely lives up to its reputation in Hoshiarpur.",
     name: "Harsh Mehta",
     designation: "Cover up transformation",
-    src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?auto=format&fit=crop&w=1200&q=80",
+    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
   },
 ];

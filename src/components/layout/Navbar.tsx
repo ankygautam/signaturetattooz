@@ -5,20 +5,25 @@ import { Button } from "@/components/ui/Button";
 import { fadeIn } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Artist", href: "#artist" },
-  { label: "School", href: "#tattoo-school" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "Contact", href: "#contact" },
+type NavbarPage = "home" | "school";
+
+const getLinks = (page: NavbarPage) => [
+  { label: "Home", href: page === "home" ? "#home" : "./#home" },
+  { label: "About", href: page === "home" ? "#about" : "./#about" },
+  { label: "Services", href: page === "home" ? "#services" : "./#services" },
+  { label: "Gallery", href: page === "home" ? "#gallery" : "./#gallery" },
+  { label: "Artist", href: page === "home" ? "#artist" : "./#artist" },
+  { label: "School", href: page === "home" ? "./school.html" : "#tattoo-school" },
+  { label: "Why Us", href: page === "home" ? "#why-us" : "./#why-us" },
+  { label: "Contact", href: page === "home" ? "#contact" : "./#contact" },
 ];
 
-export function Navbar() {
+export function Navbar({ page = "home" }: { page?: NavbarPage }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const links = getLinks(page);
+  const homeHref = page === "home" ? "#home" : "./#home";
+  const bookingHref = page === "home" ? "#contact" : "./#contact";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -41,7 +46,7 @@ export function Navbar() {
             : "border-white/10 bg-black/35 backdrop-blur-md",
         )}
       >
-        <a href="#home" className="flex min-w-0 items-center gap-3">
+        <a href={homeHref} className="flex min-w-0 items-center gap-3">
           <div className="min-w-0">
             <p className="font-display text-3xl uppercase leading-none tracking-[0.08em] text-bone sm:text-4xl">
               Signature Tattooz
@@ -66,7 +71,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <Button
-            href="#contact"
+            href={bookingHref}
             variant="secondary"
             className="hidden md:inline-flex rounded-none border-x-0 border-b-0 border-t-0 px-0"
           >
@@ -103,7 +108,7 @@ export function Navbar() {
                 </a>
               ))}
               <Button
-                href="#contact"
+                href={bookingHref}
                 variant="secondary"
                 className="mt-2 w-full rounded-none border-x-0 border-b-0 border-t-0 px-0"
                 onClick={() => setOpen(false)}

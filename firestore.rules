@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    match /bookings/{document=**} {
+      allow create: if true;
+      allow read, update, delete: if signedIn();
+    }
+
+    match /contactSubmissions/{document=**} {
+      allow create: if true;
+      allow read, update, delete: if signedIn();
+    }
+
+    match /galleryItems/{document=**} {
+      allow read: if true;
+      allow write: if signedIn();
+    }
+
+    match /services/{document=**} {
+      allow read, write: if signedIn();
+    }
+
+    match /artists/{document=**} {
+      allow read, write: if signedIn();
+    }
+
+    match /cms/{document=**} {
+      allow read: if true;
+      allow write: if signedIn();
+    }
+
+    match /settings/{document=**} {
+      allow read, write: if signedIn();
+    }
+  }
+}

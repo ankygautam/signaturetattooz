@@ -1,24 +1,30 @@
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Youtube } from "lucide-react";
+import { SiteVisuals } from "@/admin/types/content";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { defaultSiteVisuals } from "@/data/cms-defaults";
+import { usePublicSingletonDocument } from "@/firebase/public-content";
 import { fadeUp, viewport } from "@/lib/motion";
 
-const artistImage =
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=80";
-
 export function ArtistSpotlight() {
+  const visuals = usePublicSingletonDocument<SiteVisuals>(
+    "cms",
+    "siteVisuals",
+    defaultSiteVisuals,
+  );
+
   return (
     <section id="artist" className="relative py-24">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <motion.div
           variants={fadeUp(0.06)}
           initial="hidden"
-          whileInView="show"
-          viewport={viewport}
-          className="relative overflow-hidden rounded-[2rem] border border-white/8 shadow-card"
-        >
-          <img src={artistImage} alt="Nitin Gautam" className="h-[38rem] w-full object-cover" />
+        whileInView="show"
+        viewport={viewport}
+        className="relative overflow-hidden rounded-[2rem] border border-white/8 shadow-card"
+      >
+          <img src={visuals.artistImage} alt="Nitin Gautam" className="h-[38rem] w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
         </motion.div>
 

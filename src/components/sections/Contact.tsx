@@ -1,8 +1,61 @@
+import { FormEvent, useState } from "react";
 import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { submitPublicInquiry } from "@/firebase/submissions";
 
 export function Contact() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    placement: "",
+    tattooIdea: "",
+    budget: "",
+    message: "",
+  });
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSubmitting(true);
+    setSuccess(null);
+    setError(null);
+
+    try {
+      await submitPublicInquiry({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim(),
+        placement: form.placement.trim(),
+        tattooIdea: form.tattooIdea.trim(),
+        budget: form.budget.trim(),
+        message: form.message.trim(),
+      });
+
+      setSuccess("Your inquiry has been sent to Signature Tattooz. We will reach out soon.");
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        placement: "",
+        tattooIdea: "",
+        budget: "",
+        message: "",
+      });
+    } catch (caught) {
+      setError(
+        caught instanceof Error
+          ? caught.message
+          : "Something went wrong while sending your inquiry. Please try again.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="relative py-24">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -10,7 +63,7 @@ export function Contact() {
           <SectionHeader
             eyebrow="Contact"
             title="Book a session or start with a consultation."
-            description="Use the form to share your idea, placement, budget, and references. This layout is ready for your real booking workflow whenever you want to connect it."
+            description="Use the form to share your idea, placement, budget, and references. Your inquiry now goes straight into the Signature Tattooz studio dashboard for booking and follow-up."
           />
 
           <div className="grid gap-4">
@@ -57,20 +110,68 @@ export function Contact() {
           </div>
         </div>
 
-        <form className="panel grid gap-4 p-6 md:grid-cols-2">
-          <input className="input-shell" placeholder="Name" />
-          <input className="input-shell" placeholder="Email" type="email" />
-          <input className="input-shell" placeholder="Phone" />
-          <input className="input-shell" placeholder="Placement" />
-          <input className="input-shell" placeholder="Tattoo Idea" />
-          <input className="input-shell" placeholder="Budget" />
+        <form className="panel grid gap-4 p-6 md:grid-cols-2" onSubmit={(event) => void handleSubmit(event)}>
+          <input
+            className="input-shell"
+            placeholder="Name"
+            value={form.name}
+            onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
+            required
+          />
+          <input
+            className="input-shell"
+            placeholder="Email"
+            type="email"
+            value={form.email}
+            onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
+            required
+          />
+          <input
+            className="input-shell"
+            placeholder="Phone"
+            value={form.phone}
+            onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))}
+            required
+          />
+          <input
+            className="input-shell"
+            placeholder="Placement"
+            value={form.placement}
+            onChange={(event) => setForm((current) => ({ ...current, placement: event.target.value }))}
+            required
+          />
+          <input
+            className="input-shell"
+            placeholder="Tattoo Idea"
+            value={form.tattooIdea}
+            onChange={(event) => setForm((current) => ({ ...current, tattooIdea: event.target.value }))}
+            required
+          />
+          <input
+            className="input-shell"
+            placeholder="Budget"
+            value={form.budget}
+            onChange={(event) => setForm((current) => ({ ...current, budget: event.target.value }))}
+          />
           <textarea
             className="input-shell min-h-[9rem] md:col-span-2"
             placeholder="Message"
+            value={form.message}
+            onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
           />
+          {error ? (
+            <div className="md:col-span-2 rounded-[1.25rem] border border-[#8d1f32]/40 bg-[#8d1f32]/10 px-4 py-3 text-sm text-bone/90">
+              {error}
+            </div>
+          ) : null}
+          {success ? (
+            <div className="md:col-span-2 rounded-[1.25rem] border border-accentMuted/30 bg-accentMuted/10 px-4 py-3 text-sm text-bone/90">
+              {success}
+            </div>
+          ) : null}
           <div className="md:col-span-2">
-            <Button type="submit" size="lg">
-              Send Inquiry
+            <Button type="submit" size="lg" className="min-w-[13rem]" disabled={submitting}>
+              {submitting ? "Sending..." : "Send Inquiry"}
             </Button>
           </div>
         </form>

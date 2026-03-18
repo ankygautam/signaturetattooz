@@ -1,11 +1,17 @@
 import { motion } from "framer-motion";
+import { SiteVisuals } from "@/admin/types/content";
 import { Button } from "@/components/ui/Button";
+import { defaultSiteVisuals } from "@/data/cms-defaults";
+import { usePublicSingletonDocument } from "@/firebase/public-content";
 import { fadeUp, viewport } from "@/lib/motion";
 
-const bannerImage =
-  "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1800&q=80";
-
 export function BookingCTA() {
+  const visuals = usePublicSingletonDocument<SiteVisuals>(
+    "cms",
+    "siteVisuals",
+    defaultSiteVisuals,
+  );
+
   return (
     <section className="relative py-24">
       <div className="section-shell">
@@ -16,7 +22,11 @@ export function BookingCTA() {
           viewport={viewport}
           className="relative overflow-hidden rounded-[2.5rem] border border-white/10"
         >
-          <img src={bannerImage} alt="Tattoo booking banner" className="h-[28rem] w-full object-cover" />
+          <img
+            src={visuals.bookingBannerImage}
+            alt="Tattoo booking banner"
+            className="h-[28rem] w-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/70" />
           <div className="absolute inset-0 flex items-center">
             <div className="section-shell w-full">

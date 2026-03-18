@@ -1,14 +1,19 @@
 import { Facebook, Instagram, MapPin, Youtube } from "lucide-react";
 
-const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+type FooterPage = "home" | "school";
+
+const getLinks = (page: FooterPage) => [
+  { label: "Home", href: page === "home" ? "#home" : "./#home" },
+  { label: "About", href: page === "home" ? "#about" : "./#about" },
+  { label: "Services", href: page === "home" ? "#services" : "./#services" },
+  { label: "Gallery", href: page === "home" ? "#gallery" : "./#gallery" },
+  { label: "School", href: page === "home" ? "./school.html" : "#tattoo-school" },
+  { label: "Contact", href: page === "home" ? "#contact" : "./#contact" },
 ];
 
-export function Footer() {
+export function Footer({ page = "home" }: { page?: FooterPage }) {
+  const links = getLinks(page);
+
   return (
     <footer className="border-t border-white/8 bg-[#040404] py-14">
       <div className="section-shell grid gap-10 lg:grid-cols-[1.3fr_0.7fr_0.8fr]">

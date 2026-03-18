@@ -1,14 +1,18 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { SiteVisuals } from "@/admin/types/content";
+import { defaultSiteVisuals } from "@/data/cms-defaults";
+import { usePublicSingletonDocument } from "@/firebase/public-content";
 import { fadeUp, stagger } from "@/lib/motion";
 
-const heroPrimary =
-  "https://images.unsplash.com/photo-1542727365-19732a80dcfd?auto=format&fit=crop&w=1600&q=80";
-const heroSecondary =
-  "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80";
-
 export function Hero() {
+  const visuals = usePublicSingletonDocument<SiteVisuals>(
+    "cms",
+    "siteVisuals",
+    defaultSiteVisuals,
+  );
+
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-black pt-28">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(141,31,50,0.22),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(183,145,96,0.14),transparent_24%)]" />
@@ -58,12 +62,16 @@ export function Hero() {
           className="relative min-h-[38rem]"
         >
           <div className="noise-mask absolute right-0 top-0 h-[78%] w-[78%] overflow-hidden border border-white/10 bg-black shadow-card">
-            <img src={heroPrimary} alt="Tattoo studio portrait" className="h-full w-full object-cover" />
+            <img
+              src={visuals.heroPrimaryImage}
+              alt="Tattoo studio portrait"
+              className="h-full w-full object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
           </div>
 
           <div className="noise-mask absolute bottom-0 left-0 z-10 h-[42%] w-[46%] overflow-hidden border border-white/10 bg-black shadow-card">
-            <img src={heroSecondary} alt="Tattoo detail" className="h-full w-full object-cover" />
+            <img src={visuals.heroSecondaryImage} alt="Tattoo detail" className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
           </div>
 

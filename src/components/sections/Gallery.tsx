@@ -1,6 +1,8 @@
 import { startTransition, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { galleryItems } from "@/data/site-content";
+import { GalleryItemContent } from "@/admin/types/content";
+import { defaultGalleryPublicItems } from "@/data/cms-defaults";
+import { usePublicContentCollection } from "@/firebase/public-content";
 import { fadeUp, viewport } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
@@ -8,14 +10,24 @@ const filters = ["All", "Blackwork", "Realism", "Fine Line", "Traditional", "Cus
 
 export function Gallery() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All");
+  const fallbackItems = useMemo(() => defaultGalleryPublicItems, []);
+  const managedItems = usePublicContentCollection<GalleryItemContent>("galleryItems", fallbackItems);
+
+  const sortedItems = useMemo(
+    () =>
+      [...managedItems].sort(
+        (left, right) => (left.order ?? Number.MAX_SAFE_INTEGER) - (right.order ?? Number.MAX_SAFE_INTEGER),
+      ),
+    [managedItems],
+  );
 
   const filteredItems = useMemo(() => {
     if (activeFilter === "All") {
-      return galleryItems;
+      return sortedItems;
     }
 
-    return galleryItems.filter((item) => item.category === activeFilter);
-  }, [activeFilter]);
+    return sortedItems.filter((item) => item.category === activeFilter);
+  }, [activeFilter, sortedItems]);
 
   return (
     <section id="gallery" className="relative bg-[#050505] py-24">
@@ -96,8 +108,8 @@ export function Gallery() {
                   )}
                 >
                   <img
-                    src={item.image}
-                    alt={item.title}
+                    src={item.imageUrl}
+                    alt={item.alt || item.title}
                     className={cn(
                       "w-full object-cover transition duration-500 group-hover:scale-105",
                       heights[index % heights.length],

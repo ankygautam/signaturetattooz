@@ -7,7 +7,6 @@ import { Contact } from "@/components/sections/Contact";
 import { Gallery } from "@/components/sections/Gallery";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
-import { TattooSchool } from "@/components/sections/TattooSchool";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Values } from "@/components/sections/Values";
 
@@ -24,7 +23,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background text-bone">
       <Atmosphere />
-      <Navbar />
+      <Navbar page="home" />
       <main>
         <Hero />
         <About />
@@ -32,12 +31,11 @@ export default function App() {
         <Gallery />
         <ArtistSpotlight />
         <Values />
-        <TattooSchool />
         <Testimonials />
         <BookingCTA />
         <Contact />
       </main>
-      <Footer />
+      <Footer page="home" />
     </div>
   );
 }

@@ -48,7 +48,7 @@ export function Button({
     lg: "px-6 py-3.5 text-sm tracking-[0.24em]",
   };
   const base =
-    "inline-flex items-center justify-center rounded-full uppercase transition-all duration-300";
+    "inline-flex items-center justify-center rounded-full uppercase transition-all duration-300 disabled:pointer-events-none disabled:opacity-60";
 
   if ("href" in props) {
     const anchorProps = props as AnchorProps;
