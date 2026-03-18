@@ -46,7 +46,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     () => ({
       user,
       loading,
-      authAvailable: Boolean(auth),
+      authAvailable: firebaseConfigured,
       signIn: async (email, password) => {
         if (!auth) {
           throw new Error(
