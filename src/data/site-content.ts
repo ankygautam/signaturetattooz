@@ -152,23 +152,65 @@ export const values = [
 export const testimonials = [
   {
     quote:
-      "Nitin took my rough idea and turned it into something far more refined. The studio felt calm, private, and genuinely professional from start to finish.",
-    name: "Amanpreet Singh",
-    designation: "Custom sleeve session",
-    src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80",
+      "I got my first tattoo today and it was a wonderful experience. Mr Nitin is very knowledgeable and skilled. He created a very chill atmosphere which made me calm as a first timer. He used a brand new needle which was opened in front of me. I love my tattoo.",
+    name: "Manish Nagi",
+    designation: "Google Review",
+    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
   },
   {
     quote:
-      "What stood out most was the detail and the way the concept was explained before anything started. It felt like art direction, not just booking a tattoo.",
-    name: "Ritika Sharma",
-    designation: "Fine line custom piece",
+      "\"Obsessed with my new tattoo! My experience was amazing, and the tattoo is perfect. Highly recommend!\"",
+    name: "Palk Chauhan",
+    designation: "Google Review",
     src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80",
   },
   {
     quote:
-      "The environment was clean, the process was comfortable, and the final design healed beautifully. Signature Tattooz absolutely lives up to its reputation in Hoshiarpur.",
-    name: "Harsh Mehta",
-    designation: "Cover up transformation",
+      "We got 3 tattoos in total from sir. His customer service is commendable. He was so patient while we were taking time to pick up our designs. He guided us throughout while we were picking up our fonts and designs. His experience in using the needle was so good as we were all expecting that the pain would be real hard, but honestly it was not. The price was also genuine. Commendable job, 100% recommended.",
+    name: "Tayleen Kaur",
+    designation: "Google Review",
+    src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    quote:
+      "Well I came here for my very first tattoo and the experience was amazing - let's say incredible. I was feeling very nervous, but the artist made me feel comfortable. I'm happy with my tattoo and even getting compliments from people. It's exactly how I wanted it. Mr. Nitin is so talented and experienced in his work that I hardly knew the pain while getting my tattoo. I'm a happy customer from Signature Art studio and would definitely visit again for more in the future.",
+    name: "Neha Saini",
+    designation: "Google Review",
     src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    quote:
+      "Today I got inked my first tattoo from Nitin sir. He is a very kind and humble person. He helped me in the design I wanted and even enhanced it with his inputs.",
+    name: "Payal Aggarwal",
+    designation: "Google Review",
+    src: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    quote:
+      "Nitin paji really nice guy. I showed him a picture of a tattoo I wanted while he was working on another tattoo. He looked at it and said yes, sure - when do you want it done? I scheduled an appointment. Got it done very professionally in a nice clean hygienic shop. Can't wait to go back for my next tattoo.",
+    name: "Kevin Sidhu",
+    designation: "Google Review",
+    src: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    quote:
+      "Nitin is one of the best tattoo artists. He provides the best service along with genuine pricing and doesn't compromise on hygiene and safety standards. Do visit him if you're looking to get a tattoo.",
+    name: "Karan Gill",
+    designation: "Google Review",
+    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    quote:
+      "I had a wonderful experience with Signature Tattooz. I was a little nervous before, but he makes me feel comfortable. I am satisfied with my tattoo. Clarity in making, reasonable price, lovely atmosphere, friendly service - I love the work. Thank you so much.",
+    name: "Ben",
+    designation: "Google Review",
+    src: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1200&q=80",
+  },
+  {
+    quote:
+      "One of the best tattoo artists in Hoshiarpur and I love the fact that he is really passionate about his work. He is so nice and polite while he was working on my tattoo and I was so comfortable with him. This is my second tattoo with him and I again love it 100/100.",
+    name: "Urvashi Thakur",
+    designation: "Google Review",
+    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80",
   },
 ];

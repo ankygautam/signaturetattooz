@@ -7,9 +7,9 @@ export function Testimonials() {
     <section className="relative py-24">
       <div className="section-shell space-y-10">
         <SectionHeader
-          eyebrow="Testimonials"
-          title="What Clients Remember After The Session."
-          description="Still placeholders for now, but the section now reads more like a real tattoo shop testimonial block instead of a generic SaaS carousel."
+          eyebrow="Google Reviews"
+          title="What Clients Say After The Session."
+          description="A curated set of Google reviews from Signature Tattooz clients, reflecting the studio's approach to comfort, hygiene, design guidance, and finished tattoo quality."
           align="center"
         />
 
