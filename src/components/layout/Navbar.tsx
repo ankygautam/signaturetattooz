@@ -44,24 +44,24 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
   }, [page]);
 
   const frameClasses = lightSurface
-    ? "border-[#d8cfc1] bg-[#f7f1e9]/90 backdrop-blur-xl shadow-[0_12px_30px_rgba(33,24,17,0.08)]"
+    ? "border-[#d5cab9] bg-[#f8f3eb]/96 backdrop-blur-xl shadow-[0_16px_36px_rgba(33,24,17,0.12)]"
     : scrolled
       ? "border-white/10 bg-black/88 backdrop-blur-xl"
       : "border-white/10 bg-black/35 backdrop-blur-md";
 
-  const brandClasses = lightSurface ? "text-[#171412]" : "text-bone";
-  const metaClasses = lightSurface ? "text-[#7b7068]" : "text-muted";
+  const brandClasses = lightSurface ? "text-[#120f0d]" : "text-bone";
+  const metaClasses = lightSurface ? "text-[#5e544d]" : "text-muted";
   const navLinkClasses = lightSurface
-    ? "text-[#6a6058] hover:text-[#171412]"
+    ? "font-medium text-[#3d342e] hover:text-[#120f0d]"
     : "text-muted hover:text-bone";
   const iconButtonClasses = lightSurface
-    ? "border-[#d8cfc1] bg-white/40 text-[#171412]"
+    ? "border-[#cfc2af] bg-white/70 text-[#120f0d]"
     : "border-white/10 bg-transparent text-bone";
   const mobilePanelClasses = lightSurface
     ? "border-[#d8cfc1] bg-[#f8f2ea]/95 shadow-[0_20px_50px_rgba(33,24,17,0.12)]"
     : "border-white/10 bg-black/95 shadow-card";
   const bookingButtonClasses = lightSurface
-    ? "border-[#c9ac7d] bg-[#efe2cb] text-[#171412] hover:bg-[#e8d5b4]"
+    ? "!border-[#b9955b] !bg-[#e4c997] !text-[#120f0d] hover:!bg-[#dbbb82]"
     : undefined;
 
   return (
