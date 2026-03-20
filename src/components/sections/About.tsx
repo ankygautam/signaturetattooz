@@ -63,7 +63,7 @@ export function About() {
           whileInView="show"
           viewport={viewport}
           variants={fadeUp(0.08)}
-          className="noise-mask relative overflow-hidden border border-white/10"
+          className="noise-mask relative overflow-hidden rounded-[2rem] border border-[#d8cfc1] shadow-[0_24px_60px_rgba(33,24,17,0.12)]"
         >
           <img
             src={visuals.aboutImage}

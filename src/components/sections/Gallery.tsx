@@ -209,7 +209,7 @@ export function Gallery() {
   };
 
   return (
-    <section id="gallery" className="relative bg-[#050505] py-24">
+    <section id="gallery" className="relative py-24">
       <div className="section-shell space-y-10">
         <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
           <div>

@@ -25,6 +25,10 @@ body {
   min-height: 100vh;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 ::selection {
   background: #8d1f32;
   color: #f4eee4;
@@ -102,4 +106,91 @@ body {
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05), transparent 18%),
     radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.04), transparent 18%);
   mix-blend-mode: soft-light;
+}
+
+.editorial-light {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 6%, rgba(183, 145, 96, 0.16), transparent 22%),
+    radial-gradient(circle at 88% 10%, rgba(141, 31, 50, 0.1), transparent 18%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(245, 239, 230, 0.96)),
+    #f5efe6;
+}
+
+.editorial-light::before,
+.editorial-light::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.editorial-light::before {
+  opacity: 0.22;
+  background:
+    linear-gradient(90deg, rgba(31, 24, 19, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(31, 24, 19, 0.03) 1px, transparent 1px);
+  background-size: 150px 150px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 92%);
+}
+
+.editorial-light::after {
+  background:
+    radial-gradient(circle at 18% 28%, rgba(255, 255, 255, 0.8), transparent 17%),
+    radial-gradient(circle at 78% 35%, rgba(141, 31, 50, 0.08), transparent 14%),
+    radial-gradient(circle at 70% 78%, rgba(183, 145, 96, 0.08), transparent 12%);
+  opacity: 0.8;
+}
+
+.editorial-light .section-shell,
+.editorial-light section,
+.editorial-light article,
+.editorial-light form {
+  position: relative;
+  z-index: 1;
+}
+
+.editorial-light .eyebrow {
+  color: #8b5d2a;
+}
+
+.editorial-light .section-title,
+.editorial-light .card-title {
+  color: #171412;
+}
+
+.editorial-light .section-copy,
+.editorial-light .meta-label {
+  color: #5f564e;
+}
+
+.editorial-light .panel {
+  border-color: rgba(107, 88, 63, 0.16);
+  background: rgba(255, 252, 247, 0.78);
+  box-shadow: 0 24px 60px rgba(33, 24, 17, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.editorial-light .glass {
+  background: linear-gradient(135deg, rgba(255, 252, 247, 0.86), rgba(248, 241, 232, 0.72));
+  border-color: rgba(107, 88, 63, 0.16);
+}
+
+.editorial-light .input-shell {
+  border-color: rgba(107, 88, 63, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  color: #171412;
+}
+
+.editorial-light .input-shell::placeholder {
+  color: rgba(79, 69, 62, 0.7);
+}
+
+.editorial-light .noise-mask::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 35%),
+    radial-gradient(circle at 20% 20%, rgba(183, 145, 96, 0.08), transparent 18%),
+    radial-gradient(circle at 70% 70%, rgba(141, 31, 50, 0.05), transparent 18%);
+  mix-blend-mode: multiply;
 }

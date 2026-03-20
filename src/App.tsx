@@ -26,14 +26,16 @@ export default function App() {
       <Navbar page="home" />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Gallery />
-        <ArtistSpotlight />
-        <Values />
-        <Testimonials />
-        <BookingCTA />
-        <Contact />
+        <div className="editorial-light relative">
+          <About />
+          <Services />
+          <Gallery />
+          <ArtistSpotlight />
+          <Values />
+          <Testimonials />
+          <BookingCTA />
+          <Contact />
+        </div>
       </main>
       <Footer page="home" />
     </div>

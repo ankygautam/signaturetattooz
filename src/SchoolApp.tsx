@@ -16,7 +16,7 @@ export default function SchoolApp() {
     <div className="relative min-h-screen overflow-x-hidden bg-background text-bone">
       <Atmosphere />
       <Navbar page="school" />
-      <main className="pt-24">
+      <main className="editorial-light relative pt-24">
         <TattooSchool />
       </main>
       <Footer page="school" />

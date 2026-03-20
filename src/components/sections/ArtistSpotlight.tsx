@@ -20,10 +20,10 @@ export function ArtistSpotlight() {
         <motion.div
           variants={fadeUp(0.06)}
           initial="hidden"
-        whileInView="show"
-        viewport={viewport}
-        className="relative overflow-hidden rounded-[2rem] border border-white/8 shadow-card"
-      >
+          whileInView="show"
+          viewport={viewport}
+          className="relative overflow-hidden rounded-[2rem] border border-[#d8cfc1] shadow-[0_24px_60px_rgba(33,24,17,0.12)]"
+        >
           <img src={visuals.artistImage} alt="Nitin Gautam" className="h-[38rem] w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
         </motion.div>
@@ -65,7 +65,7 @@ export function ArtistSpotlight() {
               href="https://www.instagram.com/signaturetattooz"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
             >
               <Instagram className="h-4 w-4" />
             </a>
@@ -73,7 +73,7 @@ export function ArtistSpotlight() {
               href="https://www.facebook.com/nitinsignaturetattooz/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
             >
               <Facebook className="h-4 w-4" />
             </a>
@@ -81,7 +81,7 @@ export function ArtistSpotlight() {
               href="https://www.youtube.com/@signaturetattooz"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
             >
               <Youtube className="h-4 w-4" />
             </a>

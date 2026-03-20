@@ -73,7 +73,7 @@ export function TattooSchool() {
               whileInView="show"
               viewport={viewport}
               variants={fadeUp(0.08)}
-              className="max-w-xl text-sm leading-8 text-muted"
+              className="max-w-xl text-sm leading-8 text-[#5f564e]"
             >
               Whether you are just starting out or looking to sharpen your skills, our training is
               designed to help you grow with proper guidance in a creative studio environment. You
@@ -86,7 +86,7 @@ export function TattooSchool() {
               whileInView="show"
               viewport={viewport}
               variants={fadeUp(0.12)}
-              className="max-w-xl text-sm leading-8 text-muted"
+              className="max-w-xl text-sm leading-8 text-[#5f564e]"
             >
               This is not just about making tattoos look good. It is about learning how to work
               safely, professionally, and with purpose.
@@ -97,10 +97,10 @@ export function TattooSchool() {
               whileInView="show"
               viewport={viewport}
               variants={fadeUp(0.16)}
-              className="border border-white/10 bg-white/[0.03] p-5"
+              className="border border-[#d8cfc1] bg-white/70 p-5 shadow-[0_20px_50px_rgba(33,24,17,0.1)]"
             >
               <p className="eyebrow">Training focus</p>
-              <p className="mt-3 max-w-2xl text-sm leading-8 text-muted">
+              <p className="mt-3 max-w-2xl text-sm leading-8 text-[#5f564e]">
                 Students are trained through observation, guided practice, design correction,
                 technical breakdowns, and repeat discipline. The goal is to help you understand not
                 only what to do, but why it matters inside a real studio workflow.
@@ -152,7 +152,7 @@ export function TattooSchool() {
         <div className="space-y-6">
           <div className="max-w-3xl">
             <p className="eyebrow">Technique modules</p>
-            <h3 className="mt-4 font-display text-5xl uppercase leading-[0.88] text-bone sm:text-6xl">
+            <h3 className="mt-4 font-display text-5xl uppercase leading-[0.88] text-[#171412] sm:text-6xl">
               More Detail. More Technique. More Real Studio Knowledge.
             </h3>
           </div>
@@ -166,10 +166,10 @@ export function TattooSchool() {
           >
             {modules.map((module) => (
               <motion.article key={module.title} variants={revealCard} className="panel p-6">
-                <h4 className="font-display text-4xl uppercase leading-none text-bone">
+                <h4 className="font-display text-4xl uppercase leading-none text-[#171412]">
                   {module.title}
                 </h4>
-                <p className="mt-4 text-sm leading-7 text-muted">{module.description}</p>
+                <p className="mt-4 text-sm leading-7 text-[#5f564e]">{module.description}</p>
               </motion.article>
             ))}
           </motion.div>

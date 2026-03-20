@@ -85,7 +85,7 @@ export function Contact() {
                     href={item.href}
                     target={item.label === "Studio location" ? "_blank" : undefined}
                     rel={item.label === "Studio location" ? "noreferrer" : undefined}
-                    className="mt-2 block text-sm leading-7 text-bone transition hover:text-accentMuted"
+                    className="mt-2 block text-sm leading-7 text-[#171412] transition hover:text-accent"
                   >
                     {item.value}
                   </a>
@@ -99,7 +99,7 @@ export function Contact() {
               href="https://www.instagram.com/signaturetattooz"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
             >
               <Instagram className="h-4 w-4" />
             </a>
@@ -107,7 +107,7 @@ export function Contact() {
               href="https://www.facebook.com/nitinsignaturetattooz/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
             >
               <Facebook className="h-4 w-4" />
             </a>
@@ -115,7 +115,7 @@ export function Contact() {
               href="https://www.youtube.com/@signaturetattooz"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-muted transition hover:border-accentMuted hover:text-bone"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
             >
               <Youtube className="h-4 w-4" />
             </a>
