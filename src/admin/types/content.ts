@@ -10,6 +10,7 @@ export type GalleryItemContent = ContentBase & {
   category: string;
   alt: string;
   imageUrl: string;
+  description?: string;
   featured?: boolean;
 };
 

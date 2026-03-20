@@ -7,6 +7,7 @@ import { StatCard } from "@/components/ui/StatCard";
 import { EditorModal } from "@/admin/components/EditorModal";
 import { AdminField } from "@/admin/components/form/AdminField";
 import { AdminSelect } from "@/admin/components/form/AdminSelect";
+import { AdminTextarea } from "@/admin/components/form/AdminTextarea";
 import { AdminTextInput } from "@/admin/components/form/AdminTextInput";
 import { AdminToggle } from "@/admin/components/form/AdminToggle";
 import { useContentCollection } from "@/admin/hooks/useContentCollection";
@@ -21,6 +22,7 @@ type GalleryFormState = {
   category: string;
   alt: string;
   imageUrl: string;
+  description: string;
   order: string;
   featured: boolean;
 };
@@ -30,6 +32,7 @@ const emptyForm: GalleryFormState = {
   category: categories[0],
   alt: "",
   imageUrl: "",
+  description: "",
   order: "0",
   featured: false,
 };
@@ -122,6 +125,7 @@ export function GalleryManagementPage() {
       category: item.category,
       alt: item.alt,
       imageUrl: item.imageUrl,
+      description: item.description ?? "",
       order: String(item.order ?? 0),
       featured: Boolean(item.featured),
     });
@@ -151,6 +155,7 @@ export function GalleryManagementPage() {
         category: form.category,
         alt: form.alt.trim() || form.title.trim(),
         imageUrl,
+        description: form.description.trim(),
         order: Number(form.order) || 0,
         featured: form.featured,
       };
@@ -377,6 +382,14 @@ export function GalleryManagementPage() {
               value={form.imageUrl}
               onChange={(event) => setForm((current) => ({ ...current, imageUrl: event.target.value }))}
               placeholder="https://..."
+            />
+          </AdminField>
+
+          <AdminField label="Description" hint="This appears in the fullscreen gallery detail view.">
+            <AdminTextarea
+              value={form.description}
+              onChange={(event) => setForm((current) => ({ ...current, description: event.target.value }))}
+              placeholder="Describe the concept, style, placement, or artistic direction of this tattoo."
             />
           </AdminField>
 
