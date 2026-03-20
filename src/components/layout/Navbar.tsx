@@ -44,24 +44,24 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
   }, [page]);
 
   const frameClasses = lightSurface
-    ? "border-[#d5cab9] bg-[#f8f3eb]/96 backdrop-blur-xl shadow-[0_16px_36px_rgba(33,24,17,0.12)]"
+    ? "border-[rgb(var(--theme-light-border-rgb)/0.78)] bg-[rgb(var(--theme-paper-rgb)/0.96)] backdrop-blur-xl shadow-[0_16px_36px_rgba(33,24,17,0.12)]"
     : scrolled
       ? "border-white/10 bg-black/88 backdrop-blur-xl"
       : "border-white/10 bg-black/35 backdrop-blur-md";
 
-  const brandClasses = lightSurface ? "text-[#120f0d]" : "text-bone";
-  const metaClasses = lightSurface ? "text-[#5e544d]" : "text-muted";
+  const brandClasses = lightSurface ? "text-[rgb(var(--theme-light-ink-rgb)/1)]" : "text-bone";
+  const metaClasses = lightSurface ? "text-[rgb(var(--theme-light-muted-rgb)/1)]" : "text-muted";
   const navLinkClasses = lightSurface
-    ? "font-medium text-[#3d342e] hover:text-[#120f0d]"
+    ? "font-medium text-[rgb(var(--theme-light-muted-rgb)/1)] hover:text-[rgb(var(--theme-light-ink-rgb)/1)]"
     : "text-muted hover:text-bone";
   const iconButtonClasses = lightSurface
-    ? "border-[#cfc2af] bg-white/70 text-[#120f0d]"
+    ? "border-[rgb(var(--theme-light-border-rgb)/0.82)] bg-white/70 text-[rgb(var(--theme-light-ink-rgb)/1)]"
     : "border-white/10 bg-transparent text-bone";
   const mobilePanelClasses = lightSurface
-    ? "border-[#d8cfc1] bg-[#f8f2ea]/95 shadow-[0_20px_50px_rgba(33,24,17,0.12)]"
+    ? "border-[rgb(var(--theme-light-border-rgb)/0.78)] bg-[rgb(var(--theme-paper-rgb)/0.97)] shadow-[0_20px_50px_rgba(33,24,17,0.12)]"
     : "border-white/10 bg-black/95 shadow-card";
   const bookingButtonClasses = lightSurface
-    ? "!border-[#b9955b] !bg-[#e4c997] !text-[#120f0d] hover:!bg-[#dbbb82]"
+    ? "!border-[rgb(var(--theme-accent-soft-rgb)/0.95)] !bg-[rgb(var(--theme-accent-soft-rgb)/0.42)] !text-[rgb(var(--theme-light-ink-rgb)/1)] hover:!bg-[rgb(var(--theme-accent-soft-rgb)/0.56)]"
     : undefined;
 
   return (

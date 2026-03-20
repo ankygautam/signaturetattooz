@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { About } from "@/components/sections/About";
@@ -9,6 +10,7 @@ import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Values } from "@/components/sections/Values";
+import { createSiteThemeStyle, pickRandomSitePalette } from "@/lib/site-theme";
 
 function Atmosphere() {
   return (
@@ -20,8 +22,13 @@ function Atmosphere() {
 }
 
 export default function App() {
+  const [palette] = useState(() => pickRandomSitePalette());
+
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-background text-bone">
+    <div
+      className="relative min-h-screen overflow-x-hidden bg-background text-bone"
+      style={createSiteThemeStyle(palette)}
+    >
       <Atmosphere />
       <Navbar page="home" />
       <main>

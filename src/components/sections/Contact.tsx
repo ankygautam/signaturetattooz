@@ -85,7 +85,7 @@ export function Contact() {
                     href={item.href}
                     target={item.label === "Studio location" ? "_blank" : undefined}
                     rel={item.label === "Studio location" ? "noreferrer" : undefined}
-                    className="mt-2 block text-sm leading-7 text-[#171412] transition hover:text-accent"
+                    className="theme-light-link mt-2 block text-sm leading-7 transition"
                   >
                     {item.value}
                   </a>
@@ -99,7 +99,7 @@ export function Contact() {
               href="https://www.instagram.com/signaturetattooz"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
+              className="theme-icon-link inline-flex h-11 w-11 items-center justify-center rounded-full border transition"
             >
               <Instagram className="h-4 w-4" />
             </a>
@@ -107,7 +107,7 @@ export function Contact() {
               href="https://www.facebook.com/nitinsignaturetattooz/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
+              className="theme-icon-link inline-flex h-11 w-11 items-center justify-center rounded-full border transition"
             >
               <Facebook className="h-4 w-4" />
             </a>
@@ -115,7 +115,7 @@ export function Contact() {
               href="https://www.youtube.com/@signaturetattooz"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
+              className="theme-icon-link inline-flex h-11 w-11 items-center justify-center rounded-full border transition"
             >
               <Youtube className="h-4 w-4" />
             </a>
@@ -172,7 +172,7 @@ export function Contact() {
             onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
           />
           {error ? (
-            <div className="md:col-span-2 rounded-[1.25rem] border border-[#8d1f32]/40 bg-[#8d1f32]/10 px-4 py-3 text-sm text-bone/90">
+            <div className="md:col-span-2 rounded-[1.25rem] border border-accent/40 bg-accent/10 px-4 py-3 text-sm text-bone/90">
               {error}
             </div>
           ) : null}

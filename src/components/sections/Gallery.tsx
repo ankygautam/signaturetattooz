@@ -235,8 +235,8 @@ export function Gallery() {
                   className={cn(
                     "min-w-[7rem] border px-5 py-2.5 text-[0.64rem] uppercase tracking-[0.24em] transition",
                     activeFilter === filter
-                      ? "border-accentMuted bg-[#e8dcc0] text-black shadow-[0_0_0_1px_rgba(205,162,95,0.35)]"
-                      : "border-[#4b3a22] bg-[#120f0b] text-[#d7c29d] hover:border-accentMuted/60 hover:bg-[#18130d] hover:text-bone",
+                      ? "theme-filter-chip-active"
+                      : "theme-filter-chip",
                   )}
                 >
                   {filter}
@@ -296,7 +296,7 @@ export function Gallery() {
                       heights[index % heights.length],
                     )}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent" />
+                  <div className="theme-image-overlay absolute inset-0" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <p className="card-title">{item.title}</p>
                     <p className="meta-label mt-2 text-accentMuted">

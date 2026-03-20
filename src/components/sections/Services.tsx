@@ -15,7 +15,7 @@ export function Services() {
           </h2>
         </div>
 
-        <div className="border-y border-[#d8cfc1]">
+        <div className="theme-light-divider border-y">
           {services.map((service, index) => (
             <motion.article
               key={service.title}
@@ -23,7 +23,7 @@ export function Services() {
               whileInView="show"
               viewport={viewport}
               variants={fadeUp(index * 0.05)}
-              className="group grid gap-6 border-b border-[#d8cfc1] px-0 py-8 transition hover:bg-black/[0.02] md:grid-cols-[0.18fr_0.42fr_0.4fr]"
+              className="theme-light-divider group grid gap-6 border-b px-0 py-8 transition hover:bg-black/[0.02] md:grid-cols-[0.18fr_0.42fr_0.4fr]"
             >
               <p className="meta-label">
                 {String(index + 1).padStart(2, "0")}

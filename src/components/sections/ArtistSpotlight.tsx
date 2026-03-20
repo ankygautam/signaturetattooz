@@ -22,10 +22,10 @@ export function ArtistSpotlight() {
           initial="hidden"
           whileInView="show"
           viewport={viewport}
-          className="relative overflow-hidden rounded-[2rem] border border-[#d8cfc1] shadow-[0_24px_60px_rgba(33,24,17,0.12)]"
+          className="theme-image-frame relative overflow-hidden rounded-[2rem] border"
         >
           <img src={visuals.artistImage} alt="Nitin Gautam" className="h-[38rem] w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          <div className="theme-image-overlay-soft absolute inset-0" />
         </motion.div>
 
         <div className="space-y-8">
@@ -65,7 +65,7 @@ export function ArtistSpotlight() {
               href="https://www.instagram.com/signaturetattooz"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
+              className="theme-icon-link inline-flex h-11 w-11 items-center justify-center rounded-full border transition"
             >
               <Instagram className="h-4 w-4" />
             </a>
@@ -73,7 +73,7 @@ export function ArtistSpotlight() {
               href="https://www.facebook.com/nitinsignaturetattooz/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
+              className="theme-icon-link inline-flex h-11 w-11 items-center justify-center rounded-full border transition"
             >
               <Facebook className="h-4 w-4" />
             </a>
@@ -81,7 +81,7 @@ export function ArtistSpotlight() {
               href="https://www.youtube.com/@signaturetattooz"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8cfc1] text-[#5f564e] transition hover:border-accentMuted hover:text-[#171412]"
+              className="theme-icon-link inline-flex h-11 w-11 items-center justify-center rounded-full border transition"
             >
               <Youtube className="h-4 w-4" />
             </a>

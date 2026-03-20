@@ -20,7 +20,7 @@ export function Footer({ page = "home" }: { page?: FooterPage }) {
   const links = getLinks(page);
 
   return (
-    <footer className="border-t border-white/8 bg-[#040404] py-14">
+    <footer className="border-t border-white/8 bg-background py-14">
       <div className="section-shell grid gap-10 lg:grid-cols-[1.3fr_0.7fr_0.8fr]">
         <div className="space-y-4">
           <p className="font-display text-5xl uppercase leading-none tracking-[0.06em] text-bone sm:text-6xl">

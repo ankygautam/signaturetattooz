@@ -37,7 +37,7 @@ export function Testimonials() {
           align="center"
         />
 
-        <div className="panel overflow-hidden border-accentMuted/15 bg-black/40">
+        <div className="panel overflow-hidden border-accentMuted/15 bg-background/50">
           <AnimatedTestimonials testimonials={reviews} autoplay className="py-14" />
         </div>
       </div>

@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#060606",
-        surface: "#101013",
-        bone: "#f4eee4",
-        muted: "#aaa39c",
-        accent: "#8d1f32",
-        accentMuted: "#b89160",
-        stroke: "#242429",
+        background: "rgb(var(--theme-background-rgb) / <alpha-value>)",
+        surface: "rgb(var(--theme-surface-rgb) / <alpha-value>)",
+        bone: "rgb(var(--theme-bone-rgb) / <alpha-value>)",
+        muted: "rgb(var(--theme-muted-rgb) / <alpha-value>)",
+        accent: "rgb(var(--theme-accent-rgb) / <alpha-value>)",
+        accentMuted: "rgb(var(--theme-accent-soft-rgb) / <alpha-value>)",
+        stroke: "rgb(var(--theme-stroke-rgb) / <alpha-value>)",
       },
       fontFamily: {
         display: ['"Bebas Neue"', "sans-serif"],

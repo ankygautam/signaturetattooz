@@ -63,14 +63,14 @@ export function About() {
           whileInView="show"
           viewport={viewport}
           variants={fadeUp(0.08)}
-          className="noise-mask relative overflow-hidden rounded-[2rem] border border-[#d8cfc1] shadow-[0_24px_60px_rgba(33,24,17,0.12)]"
+          className="theme-image-frame noise-mask relative overflow-hidden rounded-[2rem] border"
         >
           <img
             src={visuals.aboutImage}
             alt="Tattoo artwork detail"
             className="h-[38rem] w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+          <div className="theme-image-overlay absolute inset-0" />
         </motion.div>
       </div>
     </section>

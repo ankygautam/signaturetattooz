@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { TattooSchool } from "@/components/sections/TattooSchool";
+import { createSiteThemeStyle, pickRandomSitePalette } from "@/lib/site-theme";
 
 function Atmosphere() {
   return (
@@ -12,8 +14,13 @@ function Atmosphere() {
 }
 
 export default function SchoolApp() {
+  const [palette] = useState(() => pickRandomSitePalette());
+
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-background text-bone">
+    <div
+      className="relative min-h-screen overflow-x-hidden bg-background text-bone"
+      style={createSiteThemeStyle(palette)}
+    >
       <Atmosphere />
       <Navbar page="school" />
       <main className="editorial-light relative pt-24">

@@ -58,7 +58,7 @@ const modules = [
 
 export function TattooSchool() {
   return (
-    <section id="tattoo-school" className="relative py-24">
+    <section id="tattoo-school" className="section-surface surface-sand relative py-24">
       <div className="section-shell space-y-12">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="space-y-7">
@@ -73,7 +73,7 @@ export function TattooSchool() {
               whileInView="show"
               viewport={viewport}
               variants={fadeUp(0.08)}
-              className="max-w-xl text-sm leading-8 text-[#5f564e]"
+              className="theme-light-muted max-w-xl text-sm leading-8"
             >
               Whether you are just starting out or looking to sharpen your skills, our training is
               designed to help you grow with proper guidance in a creative studio environment. You
@@ -86,7 +86,7 @@ export function TattooSchool() {
               whileInView="show"
               viewport={viewport}
               variants={fadeUp(0.12)}
-              className="max-w-xl text-sm leading-8 text-[#5f564e]"
+              className="theme-light-muted max-w-xl text-sm leading-8"
             >
               This is not just about making tattoos look good. It is about learning how to work
               safely, professionally, and with purpose.
@@ -97,10 +97,10 @@ export function TattooSchool() {
               whileInView="show"
               viewport={viewport}
               variants={fadeUp(0.16)}
-              className="border border-[#d8cfc1] bg-white/70 p-5 shadow-[0_20px_50px_rgba(33,24,17,0.1)]"
+              className="theme-paper-panel border p-5"
             >
               <p className="eyebrow">Training focus</p>
-              <p className="mt-3 max-w-2xl text-sm leading-8 text-[#5f564e]">
+              <p className="theme-light-muted mt-3 max-w-2xl text-sm leading-8">
                 Students are trained through observation, guided practice, design correction,
                 technical breakdowns, and repeat discipline. The goal is to help you understand not
                 only what to do, but why it matters inside a real studio workflow.
@@ -121,7 +121,7 @@ export function TattooSchool() {
                 alt="Tattoo machine and studio practice"
                 className="h-[26rem] w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+              <div className="theme-image-overlay absolute inset-0" />
             </motion.div>
 
             {studentShots.map((student, index) => (
@@ -138,7 +138,7 @@ export function TattooSchool() {
                   alt={student.title}
                   className="h-[18rem] w-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                <div className="theme-image-overlay-soft absolute inset-0" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="font-display text-3xl uppercase leading-none text-bone">
                     {student.title}
@@ -152,7 +152,7 @@ export function TattooSchool() {
         <div className="space-y-6">
           <div className="max-w-3xl">
             <p className="eyebrow">Technique modules</p>
-            <h3 className="mt-4 font-display text-5xl uppercase leading-[0.88] text-[#171412] sm:text-6xl">
+            <h3 className="theme-light-ink mt-4 font-display text-5xl uppercase leading-[0.88] sm:text-6xl">
               More Detail. More Technique. More Real Studio Knowledge.
             </h3>
           </div>
@@ -166,10 +166,10 @@ export function TattooSchool() {
           >
             {modules.map((module) => (
               <motion.article key={module.title} variants={revealCard} className="panel p-6">
-                <h4 className="font-display text-4xl uppercase leading-none text-[#171412]">
+                <h4 className="theme-light-ink font-display text-4xl uppercase leading-none">
                   {module.title}
                 </h4>
-                <p className="mt-4 text-sm leading-7 text-[#5f564e]">{module.description}</p>
+                <p className="theme-light-muted mt-4 text-sm leading-7">{module.description}</p>
               </motion.article>
             ))}
           </motion.div>

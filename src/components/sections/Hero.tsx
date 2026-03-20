@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-black pt-28">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(141,31,50,0.22),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(183,145,96,0.14),transparent_24%)]" />
+      <div className="theme-hero-glow absolute inset-0" />
       <div className="absolute inset-0 grid-overlay opacity-[0.08]" />
 
       <div className="section-shell relative grid min-h-[calc(100vh-7rem)] gap-10 pb-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
@@ -67,12 +67,12 @@ export function Hero() {
               alt="Tattoo studio portrait"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
+            <div className="theme-image-overlay absolute inset-0" />
           </div>
 
           <div className="noise-mask absolute bottom-0 left-0 z-10 h-[42%] w-[46%] overflow-hidden border border-white/10 bg-black shadow-card">
             <img src={visuals.heroSecondaryImage} alt="Tattoo detail" className="h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+            <div className="theme-image-overlay-soft absolute inset-0" />
           </div>
 
           <div className="absolute left-[10%] top-[10%] z-20 border border-white/10 bg-black/80 px-5 py-4 backdrop-blur-md">
