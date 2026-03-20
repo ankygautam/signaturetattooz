@@ -33,7 +33,7 @@ export function Testimonials() {
         <SectionHeader
           eyebrow="Google Reviews"
           title="What Clients Say After The Session."
-          description="A curated set of Google reviews from Signature Tattooz clients, reflecting the studio's approach to comfort, hygiene, design guidance, and finished tattoo quality."
+          description="Real feedback from people who came in with an idea and left with work that felt personal, clean, and confidently done."
           align="center"
         />
 
