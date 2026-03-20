@@ -5,6 +5,7 @@ import { ArtistsManagementPage } from "@/admin/pages/ArtistsManagementPage";
 import { BookingsPage } from "@/admin/pages/BookingsPage";
 import { ContactSubmissionsPage } from "@/admin/pages/ContactSubmissionsPage";
 import { GalleryManagementPage } from "@/admin/pages/GalleryManagementPage";
+import { GoogleReviewsPage } from "@/admin/pages/GoogleReviewsPage";
 import { LoginPage } from "@/admin/pages/LoginPage";
 import { OverviewPage } from "@/admin/pages/OverviewPage";
 import { PlaceholderPage } from "@/admin/pages/PlaceholderPage";
@@ -27,6 +28,7 @@ export default function AdminApp() {
               <Route path="/bookings" element={<BookingsPage />} />
               <Route path="/contacts" element={<ContactSubmissionsPage />} />
               <Route path="/gallery" element={<GalleryManagementPage />} />
+              <Route path="/reviews" element={<GoogleReviewsPage />} />
               <Route path="/services" element={<ServicesManagementPage />} />
               <Route path="/artists" element={<ArtistsManagementPage />} />
               <Route path="/school" element={<TattooSchoolCmsPage />} />

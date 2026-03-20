@@ -25,6 +25,10 @@ const titles: Record<string, { title: string; subtitle: string }> = {
     title: "Gallery Manager",
     subtitle: "Organize portfolio drops and keep the site visuals current.",
   },
+  "/reviews": {
+    title: "Google Reviews",
+    subtitle: "Manage public testimonial cards, import current reviews, and remove them anytime.",
+  },
   "/services": {
     title: "Services Manager",
     subtitle: "Control service copy, ordering, and updates for the public site.",

@@ -1,8 +1,32 @@
+import { useMemo } from "react";
+import { GoogleReviewContent } from "@/admin/types/content";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { testimonials } from "@/data/site-content";
+import { defaultGoogleReviewPublicItems } from "@/data/cms-defaults";
+import { usePublicContentCollection } from "@/firebase/public-content";
 
 export function Testimonials() {
+  const fallbackReviews = useMemo(() => defaultGoogleReviewPublicItems, []);
+  const managedReviews = usePublicContentCollection<GoogleReviewContent>(
+    "googleReviews",
+    fallbackReviews,
+  );
+  const reviews = useMemo(
+    () =>
+      [...managedReviews]
+        .sort(
+          (left, right) =>
+            (left.order ?? Number.MAX_SAFE_INTEGER) - (right.order ?? Number.MAX_SAFE_INTEGER),
+        )
+        .map((item) => ({
+          quote: item.quote,
+          name: item.name,
+          designation: item.designation,
+          src: item.src,
+        })),
+    [managedReviews],
+  );
+
   return (
     <section className="relative py-24">
       <div className="section-shell space-y-10">
@@ -14,7 +38,7 @@ export function Testimonials() {
         />
 
         <div className="panel overflow-hidden border-accentMuted/15 bg-black/40">
-          <AnimatedTestimonials testimonials={testimonials} autoplay className="py-14" />
+          <AnimatedTestimonials testimonials={reviews} autoplay className="py-14" />
         </div>
       </div>
     </section>

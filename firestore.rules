@@ -20,6 +20,11 @@ service cloud.firestore {
       allow write: if signedIn();
     }
 
+    match /googleReviews/{document=**} {
+      allow read: if true;
+      allow write: if signedIn();
+    }
+
     match /services/{document=**} {
       allow read, write: if signedIn();
     }

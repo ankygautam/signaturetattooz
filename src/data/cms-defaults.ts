@@ -1,5 +1,5 @@
-import { galleryItems } from "@/data/site-content";
-import { GalleryItemContent, SiteVisuals } from "@/admin/types/content";
+import { galleryItems, testimonials } from "@/data/site-content";
+import { GalleryItemContent, GoogleReviewContent, SiteVisuals } from "@/admin/types/content";
 
 export const defaultSiteVisuals: SiteVisuals = {
   heroPrimaryImage:
@@ -27,5 +27,23 @@ export const defaultGallerySeedItems: Omit<GalleryItemContent, "id">[] = gallery
 
 export const defaultGalleryPublicItems = defaultGallerySeedItems.map((item, index) => ({
   id: `default-gallery-${index + 1}`,
+  ...item,
+}));
+
+export const defaultGoogleReviewSeedItems: Omit<GoogleReviewContent, "id">[] = testimonials.map(
+  (item, index) => ({
+    name: item.name,
+    quote: item.quote,
+    designation: item.designation,
+    src: item.src,
+    rating: 5,
+    reviewUrl: "",
+    featured: index < 4,
+    order: index,
+  }),
+);
+
+export const defaultGoogleReviewPublicItems = defaultGoogleReviewSeedItems.map((item, index) => ({
+  id: `default-review-${index + 1}`,
   ...item,
 }));

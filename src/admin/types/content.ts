@@ -14,6 +14,16 @@ export type GalleryItemContent = ContentBase & {
   featured?: boolean;
 };
 
+export type GoogleReviewContent = ContentBase & {
+  name: string;
+  quote: string;
+  designation: string;
+  src: string;
+  rating?: number;
+  reviewUrl?: string;
+  featured?: boolean;
+};
+
 export type ServiceContent = ContentBase & {
   title: string;
   description: string;
