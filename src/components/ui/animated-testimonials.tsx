@@ -51,7 +51,7 @@ export function AnimatedTestimonials({
   return (
     <div
       className={cn(
-        "mx-auto max-w-sm px-4 py-12 md:max-w-5xl md:px-8 lg:px-12",
+        "animated-testimonials mx-auto max-w-sm px-4 py-12 md:max-w-5xl md:px-8 lg:px-12",
         className,
       )}
     >
@@ -92,7 +92,7 @@ export function AnimatedTestimonials({
                     src={testimonial.src}
                     alt={testimonial.name}
                     draggable={false}
-                    className="h-full w-full rounded-[2rem] border border-white/10 object-cover object-center shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
+                    className="testimonial-image h-full w-full rounded-[2rem] border border-white/10 object-cover object-center shadow-[0_30px_80px_rgba(0,0,0,0.55)]"
                   />
                 </motion.div>
               ))}
@@ -108,11 +108,11 @@ export function AnimatedTestimonials({
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
           >
-            <h3 className="font-display text-3xl text-bone">{activeTestimonial.name}</h3>
-            <p className="mt-2 text-sm uppercase tracking-[0.2em] text-accentMuted">
+            <h3 className="testimonial-name font-display text-3xl text-bone">{activeTestimonial.name}</h3>
+            <p className="testimonial-role mt-2 text-sm uppercase tracking-[0.2em] text-accentMuted">
               {activeTestimonial.designation}
             </p>
-            <motion.p className="mt-8 text-lg leading-8 text-muted">
+            <motion.p className="testimonial-quote mt-8 text-lg leading-8 text-muted">
               {activeTestimonial.quote.split(" ").map((word, index) => (
                 <motion.span
                   key={`${word}-${index}`}
@@ -142,17 +142,17 @@ export function AnimatedTestimonials({
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="group/button flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:border-accent/70 hover:bg-accent/10"
+              className="testimonial-nav group/button flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:border-accent/70 hover:bg-accent/10"
               aria-label="Previous gallery item"
             >
-              <IconArrowLeft className="h-5 w-5 text-bone transition-transform duration-300 group-hover/button:rotate-12" />
+              <IconArrowLeft className="testimonial-nav-icon h-5 w-5 text-bone transition-transform duration-300 group-hover/button:rotate-12" />
             </button>
             <button
               onClick={handleNext}
-              className="group/button flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:border-accent/70 hover:bg-accent/10"
+              className="testimonial-nav group/button flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 transition hover:border-accent/70 hover:bg-accent/10"
               aria-label="Next gallery item"
             >
-              <IconArrowRight className="h-5 w-5 text-bone transition-transform duration-300 group-hover/button:-rotate-12" />
+              <IconArrowRight className="testimonial-nav-icon h-5 w-5 text-bone transition-transform duration-300 group-hover/button:-rotate-12" />
             </button>
           </div>
         </div>

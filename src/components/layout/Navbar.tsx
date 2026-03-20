@@ -21,15 +21,48 @@ const getLinks = (page: NavbarPage) => [
 export function Navbar({ page = "home" }: { page?: NavbarPage }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [lightSurface, setLightSurface] = useState(page === "school");
   const links = getLinks(page);
   const homeHref = page === "home" ? "#home" : "./#home";
   const bookingHref = page === "home" ? "#contact" : "./#contact";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+
+      if (page === "school") {
+        setLightSurface(true);
+        return;
+      }
+
+      setLightSurface(window.scrollY > window.innerHeight * 0.68);
+    };
+
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [page]);
+
+  const frameClasses = lightSurface
+    ? "border-[#d8cfc1] bg-[#f7f1e9]/90 backdrop-blur-xl shadow-[0_12px_30px_rgba(33,24,17,0.08)]"
+    : scrolled
+      ? "border-white/10 bg-black/88 backdrop-blur-xl"
+      : "border-white/10 bg-black/35 backdrop-blur-md";
+
+  const brandClasses = lightSurface ? "text-[#171412]" : "text-bone";
+  const metaClasses = lightSurface ? "text-[#7b7068]" : "text-muted";
+  const navLinkClasses = lightSurface
+    ? "text-[#6a6058] hover:text-[#171412]"
+    : "text-muted hover:text-bone";
+  const iconButtonClasses = lightSurface
+    ? "border-[#d8cfc1] bg-white/40 text-[#171412]"
+    : "border-white/10 bg-transparent text-bone";
+  const mobilePanelClasses = lightSurface
+    ? "border-[#d8cfc1] bg-[#f8f2ea]/95 shadow-[0_20px_50px_rgba(33,24,17,0.12)]"
+    : "border-white/10 bg-black/95 shadow-card";
+  const bookingButtonClasses = lightSurface
+    ? "border-[#c9ac7d] bg-[#efe2cb] text-[#171412] hover:bg-[#e8d5b4]"
+    : undefined;
 
   return (
     <motion.header
@@ -41,17 +74,15 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
       <div
         className={cn(
           "section-shell flex max-w-7xl items-center justify-between border-b px-0 py-5 transition-all duration-300",
-          scrolled
-            ? "border-white/10 bg-black/88 backdrop-blur-xl"
-            : "border-white/10 bg-black/35 backdrop-blur-md",
+          frameClasses,
         )}
       >
         <a href={homeHref} className="flex min-w-0 items-center gap-3">
           <div className="min-w-0">
-            <p className="font-display text-3xl uppercase leading-none tracking-[0.08em] text-bone sm:text-4xl">
+            <p className={cn("font-display text-3xl uppercase leading-none tracking-[0.08em] sm:text-4xl", brandClasses)}>
               Signature Tattooz
             </p>
-            <p className="mt-1 text-[0.58rem] uppercase tracking-[0.34em] text-muted sm:text-[0.62rem]">
+            <p className={cn("mt-1 text-[0.58rem] uppercase tracking-[0.34em] sm:text-[0.62rem]", metaClasses)}>
               Tattoo Studio · Hoshiarpur (PB)
             </p>
           </div>
@@ -62,7 +93,7 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
             <a
               key={link.label}
               href={link.href}
-              className="text-[0.62rem] uppercase tracking-[0.28em] text-muted transition hover:text-bone"
+              className={cn("text-[0.62rem] uppercase tracking-[0.28em] transition", navLinkClasses)}
             >
               {link.label}
             </a>
@@ -73,13 +104,13 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
           <Button
             href={bookingHref}
             variant="secondary"
-            className="hidden md:inline-flex rounded-none border-x-0 border-b-0 border-t-0 px-0"
+            className={cn("hidden md:inline-flex rounded-none border-x-0 border-b-0 border-t-0 px-0", bookingButtonClasses)}
           >
             Book Session
           </Button>
           <button
             onClick={() => setOpen((value) => !value)}
-            className="inline-flex h-11 w-11 items-center justify-center border border-white/10 bg-transparent text-bone xl:hidden"
+            className={cn("inline-flex h-11 w-11 items-center justify-center border xl:hidden", iconButtonClasses)}
             aria-label="Toggle navigation"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -94,7 +125,7 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25 }}
-            className="section-shell overflow-hidden border-b border-white/10 bg-black/95 px-0 py-4 shadow-card backdrop-blur-xl xl:hidden"
+            className={cn("section-shell overflow-hidden border-b px-0 py-4 backdrop-blur-xl xl:hidden", mobilePanelClasses)}
           >
             <div className="flex flex-col gap-2">
               {links.map((link) => (
@@ -102,7 +133,7 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="px-0 py-3 text-sm uppercase tracking-[0.24em] text-muted transition hover:text-bone"
+                  className={cn("px-0 py-3 text-sm uppercase tracking-[0.24em] transition", navLinkClasses)}
                 >
                   {link.label}
                 </a>
@@ -110,7 +141,7 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
               <Button
                 href={bookingHref}
                 variant="secondary"
-                className="mt-2 w-full rounded-none border-x-0 border-b-0 border-t-0 px-0"
+                className={cn("mt-2 w-full rounded-none border-x-0 border-b-0 border-t-0 px-0", bookingButtonClasses)}
                 onClick={() => setOpen(false)}
               >
                 Book Session

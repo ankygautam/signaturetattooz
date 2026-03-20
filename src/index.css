@@ -194,3 +194,28 @@ body {
     radial-gradient(circle at 70% 70%, rgba(141, 31, 50, 0.05), transparent 18%);
   mix-blend-mode: multiply;
 }
+
+.editorial-light .animated-testimonials .testimonial-image {
+  border-color: rgba(107, 88, 63, 0.18);
+}
+
+.editorial-light .animated-testimonials .testimonial-name {
+  color: #171412;
+}
+
+.editorial-light .animated-testimonials .testimonial-role {
+  color: #8b5d2a;
+}
+
+.editorial-light .animated-testimonials .testimonial-quote {
+  color: #5f564e;
+}
+
+.editorial-light .animated-testimonials .testimonial-nav {
+  border-color: rgba(107, 88, 63, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.editorial-light .animated-testimonials .testimonial-nav-icon {
+  color: #171412;
+}
