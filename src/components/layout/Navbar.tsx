@@ -93,7 +93,7 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
             <a
               key={link.label}
               href={link.href}
-              className={cn("text-[0.62rem] uppercase tracking-[0.28em] transition", navLinkClasses)}
+              className={cn("text-[0.7rem] uppercase tracking-[0.28em] transition", navLinkClasses)}
             >
               {link.label}
             </a>
@@ -133,7 +133,7 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={cn("px-0 py-3 text-sm uppercase tracking-[0.24em] transition", navLinkClasses)}
+                  className={cn("px-0 py-3 text-[0.95rem] uppercase tracking-[0.24em] transition", navLinkClasses)}
                 >
                   {link.label}
                 </a>
