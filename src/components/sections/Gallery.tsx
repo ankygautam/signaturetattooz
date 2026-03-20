@@ -296,7 +296,7 @@ export function Gallery() {
                     <img
                       src={selectedItem.imageUrl}
                       alt={selectedItem.alt || selectedItem.title}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain p-4 sm:p-6 lg:p-8"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
                     <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
