@@ -6,8 +6,7 @@ export const defaultSiteVisuals: SiteVisuals = {
     "https://images.unsplash.com/photo-1542727365-19732a80dcfd?auto=format&fit=crop&w=1600&q=80",
   heroSecondaryImage:
     "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80",
-  aboutImage:
-    "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1400&q=80",
+  aboutImage: "/images/site/about-nitin.jpg",
   artistImage:
     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=80",
   bookingBannerImage:
