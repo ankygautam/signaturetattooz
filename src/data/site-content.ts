@@ -176,7 +176,7 @@ export const testimonials = [
       "Well I came here for my very first tattoo and the experience was amazing - let's say incredible. I was feeling very nervous, but the artist made me feel comfortable. I'm happy with my tattoo and even getting compliments from people. It's exactly how I wanted it. Mr. Nitin is so talented and experienced in his work that I hardly knew the pain while getting my tattoo. I'm a happy customer from Signature Art studio and would definitely visit again for more in the future.",
     name: "Neha Saini",
     designation: "Google Review",
-    src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
+    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80",
   },
   {
     quote:
