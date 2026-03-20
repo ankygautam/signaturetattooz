@@ -28,7 +28,7 @@ export function Testimonials() {
   );
 
   return (
-    <section className="relative py-24">
+    <section className="section-surface surface-blush relative py-24">
       <div className="section-shell space-y-10">
         <SectionHeader
           eyebrow="Google Reviews"

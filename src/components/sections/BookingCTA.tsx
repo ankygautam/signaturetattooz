@@ -13,7 +13,7 @@ export function BookingCTA() {
   );
 
   return (
-    <section className="relative py-24">
+    <section className="section-surface surface-mocha relative py-24">
       <div className="section-shell">
         <motion.div
           variants={fadeUp(0.05)}

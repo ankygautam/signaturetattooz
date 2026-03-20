@@ -15,7 +15,7 @@ export function ArtistSpotlight() {
   );
 
   return (
-    <section id="artist" className="relative py-24">
+    <section id="artist" className="section-surface surface-linen relative py-24">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <motion.div
           variants={fadeUp(0.06)}

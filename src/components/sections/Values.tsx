@@ -5,7 +5,7 @@ import { revealCard, stagger, viewport } from "@/lib/motion";
 
 export function Values() {
   return (
-    <section id="why-us" className="relative py-24">
+    <section id="why-us" className="section-surface surface-clay relative py-24">
       <div className="section-shell space-y-12">
         <SectionHeader
           eyebrow="Why choose us"

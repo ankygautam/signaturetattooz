@@ -4,7 +4,7 @@ import { fadeUp, viewport } from "@/lib/motion";
 
 export function Services() {
   return (
-    <section id="services" className="relative py-24">
+    <section id="services" className="section-surface surface-sand relative py-24">
       <div className="section-shell space-y-10">
         <div className="max-w-3xl">
           <p className="eyebrow">Services</p>

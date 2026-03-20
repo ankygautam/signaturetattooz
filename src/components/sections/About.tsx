@@ -12,7 +12,7 @@ export function About() {
   );
 
   return (
-    <section id="about" className="relative py-24">
+    <section id="about" className="section-surface surface-ivory relative py-24">
       <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="space-y-7">
           <div className="space-y-4">

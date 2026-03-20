@@ -62,7 +62,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-24">
+    <section id="contact" className="section-surface surface-porcelain relative py-24">
       <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-8">
           <SectionHeader
