@@ -32,10 +32,10 @@ export function BookingCTA() {
             <div className="section-shell w-full">
               <div className="max-w-2xl space-y-6">
                 <p className="eyebrow">Booking CTA</p>
-                <h2 className="font-display text-5xl leading-none text-bone sm:text-6xl">
+                <h2 className="section-title leading-none">
                   Ready to start your next piece?
                 </h2>
-                <p className="max-w-xl text-sm leading-8 text-muted">
+                <p className="section-copy max-w-xl">
                   Bring the idea, reference, or mood. Signature Tattooz will shape it into a custom
                   concept with detail, comfort, and a process you can trust.
                 </p>

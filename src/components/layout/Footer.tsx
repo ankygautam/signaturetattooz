@@ -2,6 +2,11 @@ import { Facebook, Instagram, MapPin, Youtube } from "lucide-react";
 
 type FooterPage = "home" | "school";
 
+const studioLocation =
+  "The Mall Road, opposite LIC office, Ish Nagar, Fatehgarh, Hoshiarpur, Punjab";
+const mapsLink =
+  "https://www.google.com/maps/search/?api=1&query=The+Mall+Road,+opposite+LIC+office,+Ish+Nagar,+Fatehgarh,+Hoshiarpur,+Punjab";
+
 const getLinks = (page: FooterPage) => [
   { label: "Home", href: page === "home" ? "#home" : "./#home" },
   { label: "About", href: page === "home" ? "#about" : "./#about" },
@@ -18,10 +23,10 @@ export function Footer({ page = "home" }: { page?: FooterPage }) {
     <footer className="border-t border-white/8 bg-[#040404] py-14">
       <div className="section-shell grid gap-10 lg:grid-cols-[1.3fr_0.7fr_0.8fr]">
         <div className="space-y-4">
-          <p className="font-display text-6xl uppercase leading-none tracking-[0.06em] text-bone">
+          <p className="font-display text-5xl uppercase leading-none tracking-[0.06em] text-bone sm:text-6xl">
             Signature Tattooz
           </p>
-          <p className="max-w-md text-sm leading-7 text-muted">
+          <p className="section-copy max-w-md text-sm">
             Custom tattoos with story, detail, and soul. Signature Tattooz is built around
             original artwork, comfort, privacy, and a safe studio standard in Hoshiarpur.
           </p>
@@ -41,10 +46,15 @@ export function Footer({ page = "home" }: { page?: FooterPage }) {
         <div className="space-y-4">
           <p className="eyebrow">Connect</p>
           <div className="space-y-3 text-sm text-muted">
-            <p className="flex items-center gap-3">
+            <a
+              href={mapsLink}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-start gap-3 transition hover:text-bone"
+            >
               <MapPin className="h-4 w-4 text-accentMuted" />
-              Hoshiarpur (PB)
-            </p>
+              <span>{studioLocation}</span>
+            </a>
             <div className="flex items-center gap-4">
               <a
                 href="https://www.instagram.com/signaturetattooz"

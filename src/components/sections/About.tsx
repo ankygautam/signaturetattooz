@@ -17,7 +17,7 @@ export function About() {
         <div className="space-y-7">
           <div className="space-y-4">
             <p className="eyebrow">About Signature Tattooz</p>
-            <h2 className="font-display text-5xl uppercase leading-[0.88] tracking-[0.03em] text-bone sm:text-6xl">
+            <h2 className="section-title">
               A Better Rated Tattoo Shop With A More Personal Process.
             </h2>
           </div>
@@ -27,7 +27,7 @@ export function About() {
             whileInView="show"
             viewport={viewport}
             variants={fadeUp(0.06)}
-            className="max-w-xl text-sm leading-8 text-muted"
+            className="section-copy max-w-xl"
           >
             Signature Tattooz provides unique and custom work and is one of the best rated tattoo
             shops in Hoshiarpur (PB). The studio focuses on high quality service, custom artwork,
@@ -39,7 +39,7 @@ export function About() {
             whileInView="show"
             viewport={viewport}
             variants={fadeUp(0.1)}
-            className="max-w-xl text-sm leading-8 text-muted"
+            className="section-copy max-w-xl"
           >
             Nitin Gautam leads the studio as an Expert Tattooist and Digital Artist, constantly
             evolving through new methods while staying grounded in traditional tattooing roots.
@@ -50,7 +50,7 @@ export function About() {
             whileInView="show"
             viewport={viewport}
             variants={fadeUp(0.15)}
-            className="max-w-xl text-sm leading-8 text-muted"
+            className="section-copy max-w-xl"
           >
             The atmosphere is welcoming, the station is private and comfortable, and each tattoo is
             shaped through conversation so the final work feels original rather than repeated. From

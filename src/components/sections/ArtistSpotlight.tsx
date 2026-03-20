@@ -40,7 +40,7 @@ export function ArtistSpotlight() {
             whileInView="show"
             viewport={viewport}
             variants={fadeUp(0.1)}
-            className="text-sm leading-8 text-muted"
+            className="section-copy"
           >
             His work moves across multiple tattoo genres while staying grounded in traditional
             tattooing roots. Every project is approached through conversation, design studies, and
@@ -54,7 +54,7 @@ export function ArtistSpotlight() {
               "Constantly learning new methods",
             ].map((item) => (
               <div key={item} className="panel p-5 text-sm leading-7 text-muted">
-                <p className="font-display text-4xl uppercase leading-none text-bone">{item}</p>
+                <p className="card-title text-3xl sm:text-4xl">{item}</p>
               </div>
             ))}
           </div>

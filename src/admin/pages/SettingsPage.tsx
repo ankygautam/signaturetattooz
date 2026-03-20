@@ -16,9 +16,9 @@ const defaultStudioSettings: StudioSettings = {
   website: "signaturetattooz.com",
   ownerName: "Nitin Gautam",
   ownerRole: "Expert Tattooist, Digital Artist",
-  location: "Hoshiarpur (PB)",
-  email: "hello@signaturetattooz.com",
-  phone: "+91 98765 43210",
+  location: "The Mall Road, opposite LIC office, Ish Nagar, Fatehgarh, Hoshiarpur, Punjab",
+  email: "signaturetattooz@gmail.com",
+  phone: "+91 98782 28917",
   brandStatement:
     "Signature Tattooz provides unique and custom work with a focus on quality service, collaboration, comfort, privacy, and a safe sanitary environment.",
   instagram: "https://www.instagram.com/signaturetattooz",

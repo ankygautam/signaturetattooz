@@ -35,7 +35,7 @@ export function Gallery() {
         <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
           <div>
             <p className="eyebrow">Featured Work</p>
-            <h2 className="mt-4 font-display text-6xl uppercase leading-[0.84] text-bone sm:text-7xl">
+            <h2 className="section-title mt-4">
               Black
               <br />
               Stories
@@ -43,7 +43,7 @@ export function Gallery() {
           </div>
 
           <div className="space-y-5">
-            <p className="max-w-2xl text-sm leading-8 text-muted">
+            <p className="section-copy max-w-2xl">
               A more image-heavy gallery inspired by the reference layout. It is built to feel like
               a tattoo brand showcase first, with filters and hover details layered in after.
             </p>
@@ -117,10 +117,10 @@ export function Gallery() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <p className="font-display text-5xl uppercase leading-none text-bone">
+                    <p className="card-title">
                       {item.title}
                     </p>
-                    <p className="mt-2 text-[0.68rem] uppercase tracking-[0.3em] text-accentMuted">
+                    <p className="meta-label mt-2 text-accentMuted">
                       {item.category}
                     </p>
                   </div>

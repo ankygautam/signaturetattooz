@@ -27,7 +27,7 @@ export function Booking() {
             placement, sizing, and preferred artist to receive a curated consultation within 24 hours.
           </motion.p>
           <motion.div variants={fadeUp(0.15)} className="flex flex-wrap gap-4">
-            <Button onClick={() => window.open("mailto:hello@signaturetattooz.com?subject=Booking%20Consultation", "_blank")}>
+            <Button onClick={() => window.open("mailto:signaturetattooz@gmail.com?subject=Booking%20Consultation", "_blank")}>
               Email the studio
             </Button>
             <Button variant="ghost" onClick={() => window.open("https://cal.com", "_blank")}>

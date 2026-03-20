@@ -8,7 +8,7 @@ export function Services() {
       <div className="section-shell space-y-10">
         <div className="max-w-3xl">
           <p className="eyebrow">Services</p>
-          <h2 className="mt-4 font-display text-6xl uppercase leading-[0.84] text-bone sm:text-7xl">
+          <h2 className="section-title mt-4">
             The Process
             <br />
             Behind The Work
@@ -25,13 +25,13 @@ export function Services() {
               variants={fadeUp(index * 0.05)}
               className="group grid gap-6 border-b border-white/10 px-0 py-8 transition hover:bg-white/[0.02] md:grid-cols-[0.18fr_0.42fr_0.4fr]"
             >
-              <p className="text-[0.68rem] uppercase tracking-[0.34em] text-muted">
+              <p className="meta-label">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="font-display text-5xl uppercase leading-none text-bone sm:text-6xl">
+              <h3 className="card-title">
                 {service.title}
               </h3>
-              <p className="max-w-md text-sm leading-8 text-muted">{service.description}</p>
+              <p className="section-copy max-w-md">{service.description}</p>
             </motion.article>
           ))}
         </div>

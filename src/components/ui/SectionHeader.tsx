@@ -25,10 +25,8 @@ export function SectionHeader({
       className={`max-w-2xl space-y-4 ${alignment}`}
     >
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="font-display text-5xl uppercase leading-[0.88] tracking-[0.03em] text-bone sm:text-6xl">
-        {title}
-      </h2>
-      <p className="text-sm leading-7 text-muted sm:text-base">{description}</p>
+      <h2 className="section-title">{title}</h2>
+      <p className="section-copy">{description}</p>
     </motion.div>
   );
 }

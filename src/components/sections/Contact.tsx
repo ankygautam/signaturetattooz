@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/Button";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { submitPublicInquiry } from "@/firebase/submissions";
 
+const studioLocation =
+  "The Mall Road, opposite LIC office, Ish Nagar, Fatehgarh, Hoshiarpur, Punjab";
+const mapsLink =
+  "https://www.google.com/maps/search/?api=1&query=The+Mall+Road,+opposite+LIC+office,+Ish+Nagar,+Fatehgarh,+Hoshiarpur,+Punjab";
+
 export function Contact() {
   const [form, setForm] = useState({
     name: "",
@@ -68,15 +73,22 @@ export function Contact() {
 
           <div className="grid gap-4">
             {[
-              { icon: MapPin, label: "Studio location", value: "Hoshiarpur (PB)" },
-              { icon: Mail, label: "Email", value: "hello@signaturetattooz.com" },
-              { icon: Phone, label: "Phone", value: "+91 98765 43210" },
+              { icon: MapPin, label: "Studio location", value: studioLocation, href: mapsLink },
+              { icon: Mail, label: "Email", value: "signaturetattooz@gmail.com", href: "mailto:signaturetattooz@gmail.com" },
+              { icon: Phone, label: "Phone", value: "+91 98782 28917", href: "tel:+919878228917" },
             ].map((item) => (
               <div key={item.label} className="panel flex items-start gap-4 p-5">
                 <item.icon className="mt-1 h-5 w-5 text-accentMuted" />
                 <div>
-                  <p className="text-[0.65rem] uppercase tracking-[0.28em] text-muted">{item.label}</p>
-                  <p className="mt-2 text-sm text-bone">{item.value}</p>
+                  <p className="meta-label">{item.label}</p>
+                  <a
+                    href={item.href}
+                    target={item.label === "Studio location" ? "_blank" : undefined}
+                    rel={item.label === "Studio location" ? "noreferrer" : undefined}
+                    className="mt-2 block text-sm leading-7 text-bone transition hover:text-accentMuted"
+                  >
+                    {item.value}
+                  </a>
                 </div>
               </div>
             ))}

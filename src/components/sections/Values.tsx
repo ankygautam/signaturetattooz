@@ -23,13 +23,13 @@ export function Values() {
         >
           {values.map((value, index) => (
             <motion.article key={value.title} variants={revealCard} className="panel p-6">
-              <p className="text-[0.65rem] uppercase tracking-[0.34em] text-accentMuted">
+              <p className="meta-label text-accentMuted">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <h3 className="mt-8 font-display text-5xl uppercase leading-none text-bone">
+              <h3 className="card-title mt-8">
                 {value.title}
               </h3>
-              <p className="mt-4 text-sm leading-7 text-muted">{value.description}</p>
+              <p className="section-copy mt-4 text-sm">{value.description}</p>
             </motion.article>
           ))}
         </motion.div>
