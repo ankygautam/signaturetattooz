@@ -25,7 +25,7 @@ export function AboutStudio() {
           </motion.h2>
           <motion.p variants={fadeUp(0.12)} className="text-lg text-muted">
             SignatureTattooz crafts bespoke pieces through collaborative design rituals, museum-grade
-            hygiene, and a hospitality-forward experience that keeps focus on the artist and the client.
+            hygiene, and a hospitality-forward experience that keeps focus on the artist and the guest.
           </motion.p>
           <motion.div
             variants={fadeUp(0.18)}
@@ -44,7 +44,7 @@ export function AboutStudio() {
               <p className="mt-2">Body-mapped mockups, fine-line detailing, and bespoke color palettes.</p>
             </div>
             <div className="glass rounded-2xl border border-stroke p-4">
-              <p className="text-bone">Client experience</p>
+              <p className="text-bone">Guest experience</p>
               <p className="mt-2">Private suites, curated playlists, aftercare concierge, and calm pacing.</p>
             </div>
           </motion.div>

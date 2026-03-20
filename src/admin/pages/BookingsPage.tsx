@@ -73,10 +73,10 @@ export function BookingsPage() {
   const columns: TableColumn<BookingRecord>[] = [
     {
       key: "client",
-      label: "Client",
+      label: "Guest",
       render: (record: FirestoreRecord<BookingRecord>) => (
         <div>
-          <p className="font-medium text-bone">{record.name || "Unknown client"}</p>
+          <p className="font-medium text-bone">{record.name || "Unknown guest"}</p>
           <p className="mt-1 text-sm text-muted">{record.email}</p>
         </div>
       ),
@@ -139,7 +139,7 @@ export function BookingsPage() {
               Bookings
             </h3>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">
-              Search by client or tattoo idea, filter by status, open full details, mark items read, or move bookings through the studio pipeline.
+              Search by guest or tattoo idea, filter by status, open full details, mark items read, or move bookings through the studio pipeline.
             </p>
           </div>
         </div>

@@ -13,7 +13,7 @@ export function Artists() {
             <Tag tone="muted">Meet the artists</Tag>
             <h2 className="font-display text-3xl text-bone md:text-4xl">Editorial-grade profiles</h2>
             <p className="max-w-2xl text-muted">
-              Artist-forward presentation with dedicated suites, refined palettes, and bespoke compositions for every client story.
+              Artist-forward presentation with dedicated suites, refined palettes, and bespoke compositions for every guest story.
             </p>
           </div>
           <motion.div

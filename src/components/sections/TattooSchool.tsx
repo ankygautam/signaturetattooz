@@ -52,7 +52,7 @@ const modules = [
   {
     title: "Professional Practice",
     description:
-      "Focus on hygiene, safe workflow, skin handling, client communication, and the discipline required inside a studio.",
+      "Focus on hygiene, safe workflow, skin handling, guest communication, and the discipline required inside a studio.",
   },
 ];
 

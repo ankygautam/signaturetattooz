@@ -33,7 +33,7 @@ export const services = [
   {
     title: "Digital Art Concepts",
     description:
-      "Digital compositions and artwork studies for clients who want precision before ink begins.",
+      "Digital compositions and artwork studies for guests who want precision before ink begins.",
   },
 ];
 
@@ -135,7 +135,7 @@ export const values = [
   {
     title: "Private & Comfortable Space",
     description:
-      "A calm setup that gives clients privacy, comfort, and room to settle into the process.",
+      "A calm setup that gives guests privacy, comfort, and room to settle into the process.",
   },
   {
     title: "Multiple Tattoo Genres",

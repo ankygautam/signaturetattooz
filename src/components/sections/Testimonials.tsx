@@ -32,8 +32,8 @@ export function Testimonials() {
       <div className="section-shell space-y-10">
         <SectionHeader
           eyebrow="Google Reviews"
-          title="What Clients Say After The Session."
-          description="Real feedback from people who came in with an idea and left with work that felt personal, clean, and confidently done."
+          title="What Guests Say After The Session."
+          description="Real feedback from guests who walked in with an idea and left with work that felt personal, clean, and confidently done."
           align="center"
         />
 

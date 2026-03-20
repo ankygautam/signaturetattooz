@@ -219,7 +219,7 @@ export function AnalyticsPage() {
           <div className="mt-6 space-y-4 text-sm leading-7 text-muted">
             <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.02] p-5">
               <p className="font-display text-3xl uppercase leading-none text-bone">Unread follow-ups</p>
-              <p className="mt-3">{bookings.counts.unread + contacts.counts.unread || 5} client conversations still need a first reply or status update.</p>
+              <p className="mt-3">{bookings.counts.unread + contacts.counts.unread || 5} guest conversations still need a first reply or status update.</p>
             </div>
             <div className="rounded-[1.5rem] border border-white/10 bg-white/[0.02] p-5">
               <p className="font-display text-3xl uppercase leading-none text-bone">Content freshness</p>

@@ -25,7 +25,7 @@ const stats = [
   {
     title: "Studio tasks",
     value: "04",
-    helper: "Priority brand or client follow-ups that need attention before the next drop.",
+    helper: "Priority brand or guest follow-ups that need attention before the next drop.",
     icon: Sparkles,
   },
 ];
@@ -73,7 +73,7 @@ export function OverviewPage() {
             <div>
               <p className="eyebrow">Recent activity</p>
               <h3 className="mt-3 font-display text-5xl uppercase leading-none text-bone">
-                New Client Momentum
+                New Guest Momentum
               </h3>
             </div>
             <p className="text-sm text-muted">Latest leads, ideas, and studio touchpoints.</p>

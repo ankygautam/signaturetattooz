@@ -19,7 +19,7 @@ const titles: Record<string, { title: string; subtitle: string }> = {
   },
   "/contacts": {
     title: "Contact Submissions",
-    subtitle: "Follow up on unread messages, contact forms, and next client conversations.",
+    subtitle: "Follow up on unread messages, contact forms, and next guest conversations.",
   },
   "/gallery": {
     title: "Gallery Manager",
