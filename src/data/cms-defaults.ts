@@ -18,8 +18,9 @@ export const defaultGallerySeedItems: Omit<GalleryItemContent, "id">[] = gallery
   (item, index) => ({
     title: item.title,
     category: item.category,
-    alt: `${item.title} tattoo artwork`,
+    alt: item.alt ?? `${item.title} tattoo artwork`,
     imageUrl: item.image,
+    description: item.description ?? "",
     featured: index < 2,
     order: index,
   }),

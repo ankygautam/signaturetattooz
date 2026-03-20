@@ -8,66 +8,109 @@ import { cn } from "@/lib/utils";
 
 const filters = ["All", "Blackwork", "Realism", "Fine Line", "Traditional", "Custom"] as const;
 
-const galleryDescriptionFallbacks: Array<{ match: string; description: string }> = [
+const galleryDisplayOverrides: Array<{
+  match: string;
+  title: string;
+  category: (typeof filters)[number];
+  alt: string;
+  description: string;
+}> = [
   {
     match: "clock-eye",
+    title: "Eye Of Time",
+    category: "Realism",
+    alt: "Realism forearm tattoo with eye and Roman numeral watch composition",
     description:
       "A black-and-grey forearm composition built around the symbolism of time and awareness, pairing a detailed eye with Roman numeral clockwork for a strong realism-driven flow.",
   },
   {
     match: "lion-crown",
+    title: "Crowned Lion",
+    category: "Realism",
+    alt: "Lion crown and rose realism tattoo across the upper arm",
     description:
       "A bold lion portrait with crown and rose elements, designed to read with authority across the upper arm while keeping the black-and-grey shading rich and controlled.",
   },
   {
     match: "spartan-eagle",
+    title: "Spartan Eagle",
+    category: "Realism",
+    alt: "Black and grey Spartan helmet and eagle tattoo on the upper arm",
     description:
-      "This warrior-driven sleeve section layers a Spartan helmet with an eagle motif, giving the piece a disciplined heroic mood and a clean contrast through deep blackwork shading.",
+      "This warrior-driven sleeve section layers a Spartan helmet with an eagle motif, giving the piece a disciplined heroic mood and a clean contrast through deep black-and-grey shading.",
   },
   {
     match: "tiger-crown",
+    title: "Royal Tiger",
+    category: "Realism",
+    alt: "Tiger portrait with crown realism tattoo on the forearm",
     description:
       "A tiger face anchored by a crown for a king-like statement piece, focused on direct eye contact, heavy contrast, and a commanding forearm presence.",
   },
   {
     match: "pattern-arm",
+    title: "Geometric Flow",
+    category: "Blackwork",
+    alt: "Geometric blackwork tattoo pattern wrapping across the arm",
     description:
       "A precision geometric blackwork piece that uses repeating forms and negative space to create a clean ornamental rhythm across the arm.",
   },
   {
     match: "shiv-half-face",
+    title: "Shiv Shakti Linework",
+    category: "Custom",
+    alt: "Custom spiritual tattoo with Shiv portrait and calligraphic trident linework",
     description:
       "A devotional custom piece blending portraiture, symbolism, and calligraphic flow, balanced with a red accent stroke to keep the spiritual energy sharp and modern.",
   },
   {
     match: "family-watch",
+    title: "Family In Time",
+    category: "Custom",
+    alt: "Custom family silhouette tattoo with watch realism on the forearm",
     description:
       "A sentimental family composition with a mechanical watch centerpiece, built to express time, memory, and emotional connection through layered realism.",
   },
   {
     match: "respect-time",
+    title: "Respect The Past",
+    category: "Blackwork",
+    alt: "Black and grey watch tattoo with script banner on the forearm",
     description:
       "A black-and-grey watch concept with scripted lettering, composed as a reflective piece about honoring the past while moving forward with purpose.",
   },
   {
     match: "portrait-elder",
+    title: "Legacy Portrait",
+    category: "Realism",
+    alt: "Realism portrait tribute tattoo with silhouette scene on the forearm",
     description:
       "A realism portrait tribute focused on likeness, softness in the face, and emotional storytelling through the figure and silhouette scene below.",
   },
 ];
 
-function getGalleryDescription(item: GalleryItemContent) {
-  if (item.description?.trim()) {
-    return item.description.trim();
-  }
-
+function normalizeGalleryItem(item: GalleryItemContent): GalleryItemContent {
   const normalizedSource = `${item.imageUrl} ${item.title}`.toLowerCase();
-  const matchedDescription = galleryDescriptionFallbacks.find((entry) =>
+  const matchedOverride = galleryDisplayOverrides.find((entry) =>
     normalizedSource.includes(entry.match),
   );
 
-  if (matchedDescription) {
-    return matchedDescription.description;
+  if (!matchedOverride) {
+    return item;
+  }
+
+  return {
+    ...item,
+    title: matchedOverride.title,
+    category: matchedOverride.category,
+    alt: matchedOverride.alt,
+    description: item.description?.trim() || matchedOverride.description,
+  };
+}
+
+function getGalleryDescription(item: GalleryItemContent) {
+  if (item.description?.trim()) {
+    return item.description.trim();
   }
 
   return `This ${item.category.toLowerCase()} piece is presented as part of the Signature Tattooz portfolio, with attention on composition, readability, and long-term visual strength on the skin.`;
@@ -81,9 +124,11 @@ export function Gallery() {
 
   const sortedItems = useMemo(
     () =>
-      [...managedItems].sort(
+      [...managedItems]
+        .map((item) => normalizeGalleryItem(item))
+        .sort(
         (left, right) => (left.order ?? Number.MAX_SAFE_INTEGER) - (right.order ?? Number.MAX_SAFE_INTEGER),
-      ),
+        ),
     [managedItems],
   );
 
@@ -170,9 +215,9 @@ export function Gallery() {
           <div>
             <p className="eyebrow">Featured Work</p>
             <h2 className="section-title mt-4">
-              Black
+              Tattoo
               <br />
-              Stories
+              Gallery
             </h2>
           </div>
 
@@ -188,10 +233,10 @@ export function Gallery() {
                   key={filter}
                   onClick={() => startTransition(() => setActiveFilter(filter))}
                   className={cn(
-                    "border px-4 py-2 text-[0.64rem] uppercase tracking-[0.28em] transition",
+                    "min-w-[7rem] border px-5 py-2.5 text-[0.64rem] uppercase tracking-[0.24em] transition",
                     activeFilter === filter
-                      ? "border-accentMuted bg-accentMuted/10 text-bone"
-                      : "border-white/10 text-muted hover:border-white/20 hover:text-bone",
+                      ? "border-accentMuted bg-[#e8dcc0] text-black shadow-[0_0_0_1px_rgba(205,162,95,0.35)]"
+                      : "border-[#4b3a22] bg-[#120f0b] text-[#d7c29d] hover:border-accentMuted/60 hover:bg-[#18130d] hover:text-bone",
                   )}
                 >
                   {filter}

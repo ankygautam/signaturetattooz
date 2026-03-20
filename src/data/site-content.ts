@@ -39,45 +39,84 @@ export const services = [
 
 export const galleryItems = [
   {
-    title: "Serpent Veil",
-    category: "Blackwork",
-    image:
-      "https://images.unsplash.com/photo-1543248939-4296e1fea89b?auto=format&fit=crop&w=1200&q=80",
-    size: "mb-5 break-inside-avoid",
-  },
-  {
-    title: "Quiet Bloom",
-    category: "Fine Line",
-    image:
-      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80",
-    size: "mb-5 break-inside-avoid",
-  },
-  {
-    title: "Royal Atlas",
-    category: "Custom",
-    image:
-      "https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1200&q=80",
-    size: "mb-5 break-inside-avoid",
-  },
-  {
-    title: "Iron Prayer",
-    category: "Traditional",
-    image:
-      "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80",
-    size: "mb-5 break-inside-avoid",
-  },
-  {
-    title: "Velvet Oath",
+    title: "Eye Of Time",
     category: "Realism",
-    image:
-      "https://images.unsplash.com/photo-1552539618-7eec75b05f72?auto=format&fit=crop&w=1200&q=80&sat=-15",
+    alt: "Realism forearm tattoo with eye and Roman numeral watch composition",
+    description:
+      "A black-and-grey forearm composition built around the symbolism of time and awareness, pairing a detailed eye with Roman numeral clockwork for a strong realism-driven flow.",
+    image: "/images/gallery/clock-eye.jpg",
     size: "mb-5 break-inside-avoid",
   },
   {
-    title: "Ritual Lines",
+    title: "Crowned Lion",
+    category: "Realism",
+    alt: "Lion crown and rose realism tattoo across the upper arm",
+    description:
+      "A bold lion portrait with crown and rose elements, designed to read with authority across the upper arm while keeping the black-and-grey shading rich and controlled.",
+    image: "/images/gallery/lion-crown.jpg",
+    size: "mb-5 break-inside-avoid",
+  },
+  {
+    title: "Spartan Eagle",
+    category: "Realism",
+    alt: "Black and grey Spartan helmet and eagle tattoo on the upper arm",
+    description:
+      "This warrior-driven sleeve section layers a Spartan helmet with an eagle motif, giving the piece a disciplined heroic mood and a clean contrast through deep black-and-grey shading.",
+    image: "/images/gallery/spartan-eagle.jpg",
+    size: "mb-5 break-inside-avoid",
+  },
+  {
+    title: "Royal Tiger",
+    category: "Realism",
+    alt: "Tiger portrait with crown realism tattoo on the forearm",
+    description:
+      "A tiger face anchored by a crown for a king-like statement piece, focused on direct eye contact, heavy contrast, and a commanding forearm presence.",
+    image: "/images/gallery/tiger-crown.jpg",
+    size: "mb-5 break-inside-avoid",
+  },
+  {
+    title: "Geometric Flow",
     category: "Blackwork",
-    image:
-      "https://images.unsplash.com/photo-1601121141529-7857c6624f95?auto=format&fit=crop&w=1200&q=80",
+    alt: "Geometric blackwork tattoo pattern wrapping across the arm",
+    description:
+      "A precision geometric blackwork piece that uses repeating forms and negative space to create a clean ornamental rhythm across the arm.",
+    image: "/images/gallery/pattern-arm.jpg",
+    size: "mb-5 break-inside-avoid",
+  },
+  {
+    title: "Shiv Shakti Linework",
+    category: "Custom",
+    alt: "Custom spiritual tattoo with Shiv portrait and calligraphic trident linework",
+    description:
+      "A devotional custom piece blending portraiture, symbolism, and calligraphic flow, balanced with a red accent stroke to keep the spiritual energy sharp and modern.",
+    image: "/images/gallery/shiv-half-face.jpg",
+    size: "mb-5 break-inside-avoid",
+  },
+  {
+    title: "Family In Time",
+    category: "Custom",
+    alt: "Custom family silhouette tattoo with watch realism on the forearm",
+    description:
+      "A sentimental family composition with a mechanical watch centerpiece, built to express time, memory, and emotional connection through layered realism.",
+    image: "/images/gallery/family-watch.jpg",
+    size: "mb-5 break-inside-avoid",
+  },
+  {
+    title: "Respect The Past",
+    category: "Blackwork",
+    alt: "Black and grey watch tattoo with script banner on the forearm",
+    description:
+      "A black-and-grey watch concept with scripted lettering, composed as a reflective piece about honoring the past while moving forward with purpose.",
+    image: "/images/gallery/respect-time.jpg",
+    size: "mb-5 break-inside-avoid",
+  },
+  {
+    title: "Legacy Portrait",
+    category: "Realism",
+    alt: "Realism portrait tribute tattoo with silhouette scene on the forearm",
+    description:
+      "A realism portrait tribute focused on likeness, softness in the face, and emotional storytelling through the figure and silhouette scene below.",
+    image: "/images/gallery/portrait-elder.jpg",
     size: "mb-5 break-inside-avoid",
   },
 ];
