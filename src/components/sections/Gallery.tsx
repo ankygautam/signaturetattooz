@@ -318,15 +318,15 @@ export function Gallery() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[120] bg-black/88 backdrop-blur-md"
+              className="fixed inset-0 z-[120] overflow-y-auto bg-black/88 backdrop-blur-md"
             >
-              <div className="flex h-full w-full items-center justify-center p-4 md:p-6">
+              <div className="flex min-h-full w-full items-start justify-center p-3 sm:p-4 md:p-6 lg:items-center">
                 <motion.div
                   initial={{ opacity: 0, y: 24, scale: 0.98 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 24, scale: 0.98 }}
                   transition={{ duration: 0.28, ease: "easeOut" }}
-                  className="relative grid h-full w-full max-w-[96rem] overflow-hidden border border-white/10 bg-[#080808] shadow-[0_30px_120px_rgba(0,0,0,0.65)] lg:grid-cols-[1.25fr_0.75fr]"
+                  className="relative grid w-full max-w-[96rem] overflow-hidden border border-white/10 bg-[#080808] shadow-[0_30px_120px_rgba(0,0,0,0.65)] lg:max-h-[calc(100vh-3rem)] lg:grid-cols-[1.25fr_0.75fr]"
                 >
                   <button
                     type="button"
@@ -337,7 +337,7 @@ export function Gallery() {
                     ×
                   </button>
 
-                  <div className="relative min-h-[48vh] overflow-hidden bg-black lg:min-h-full">
+                  <div className="relative min-h-[42vh] overflow-hidden bg-black sm:min-h-[48vh] lg:min-h-0">
                     <img
                       src={selectedItem.imageUrl}
                       alt={selectedItem.alt || selectedItem.title}
@@ -373,7 +373,7 @@ export function Gallery() {
                     </div>
                   </div>
 
-                  <div className="flex h-full flex-col justify-between border-t border-white/10 bg-[#090909] p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
+                  <div className="flex flex-col justify-between border-t border-white/10 bg-[#090909] p-6 sm:p-8 lg:max-h-[calc(100vh-3rem)] lg:overflow-y-auto lg:border-l lg:border-t-0 lg:p-10">
                     <div className="space-y-8">
                       <div className="space-y-3">
                         <p className="eyebrow">Gallery Detail</p>

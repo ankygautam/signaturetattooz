@@ -15,8 +15,8 @@ export function ArtistSpotlight() {
   );
 
   return (
-    <section id="artist" className="section-surface surface-linen relative py-24">
-      <div className="section-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+    <section id="artist" className="section-surface surface-linen relative py-20 sm:py-24">
+      <div className="section-shell grid gap-10 sm:gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <motion.div
           variants={fadeUp(0.06)}
           initial="hidden"
@@ -24,7 +24,7 @@ export function ArtistSpotlight() {
           viewport={viewport}
           className="theme-image-frame relative overflow-hidden rounded-[2rem] border"
         >
-          <img src={visuals.artistImage} alt="Nitin Gautam" className="h-[38rem] w-full object-cover" />
+          <img src={visuals.artistImage} alt="Nitin Gautam" className="h-[24rem] w-full object-cover sm:h-[38rem]" />
           <div className="theme-image-overlay-soft absolute inset-0" />
         </motion.div>
 
@@ -60,7 +60,7 @@ export function ArtistSpotlight() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
-            <Button href="#contact">Book With Nitin</Button>
+            <Button href="#contact" className="w-full sm:w-auto">Book With Nitin</Button>
             <a
               href="https://www.instagram.com/signaturetattooz"
               target="_blank"

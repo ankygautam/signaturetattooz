@@ -37,11 +37,11 @@ export function Button({
 }: ButtonProps) {
   const styles: Record<Variant, string> = {
     primary:
-      "border border-accent bg-accent text-bone shadow-glow hover:-translate-y-0.5 hover:bg-accent/90",
+      "border border-[#93593b] bg-[#93593b] text-[#f8efe6] shadow-[0_18px_45px_rgba(147,89,59,0.24)] hover:-translate-y-0.5 hover:border-[#844f35] hover:bg-[#844f35]",
     ghost:
-      "border border-white/12 bg-white/[0.03] text-bone/90 hover:-translate-y-0.5 hover:border-accentMuted hover:text-bone",
+      "border border-white/12 bg-white/[0.03] text-bone/90 hover:-translate-y-0.5 hover:border-[#93593b]/70 hover:bg-[#93593b]/12 hover:text-bone",
     secondary:
-      "border border-accentMuted/60 bg-accentMuted/10 text-bone hover:-translate-y-0.5 hover:bg-accentMuted/20",
+      "border border-[#93593b] bg-[#93593b] text-[#f8efe6] shadow-[0_18px_45px_rgba(147,89,59,0.24)] hover:-translate-y-0.5 hover:border-[#844f35] hover:bg-[#844f35]",
   };
   const sizes: Record<Size, string> = {
     md: "px-5 py-3 text-xs tracking-[0.24em]",

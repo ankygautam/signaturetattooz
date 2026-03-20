@@ -62,8 +62,8 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="section-surface surface-porcelain relative py-24">
-      <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+    <section id="contact" className="section-surface surface-porcelain relative py-20 sm:py-24">
+      <div className="section-shell grid gap-8 sm:gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="space-y-8">
           <SectionHeader
             eyebrow="Contact"
@@ -122,7 +122,7 @@ export function Contact() {
           </div>
         </div>
 
-        <form className="panel grid gap-4 p-6 md:grid-cols-2" onSubmit={(event) => void handleSubmit(event)}>
+        <form className="panel grid gap-4 p-5 sm:p-6 md:grid-cols-2" onSubmit={(event) => void handleSubmit(event)}>
           <input
             className="input-shell"
             placeholder="Name"
@@ -182,7 +182,7 @@ export function Contact() {
             </div>
           ) : null}
           <div className="md:col-span-2">
-            <Button type="submit" size="lg" className="min-w-[13rem]" disabled={submitting}>
+            <Button type="submit" size="lg" className="w-full min-w-[13rem] sm:w-auto" disabled={submitting}>
               {submitting ? "Sending..." : "Send Inquiry"}
             </Button>
           </div>

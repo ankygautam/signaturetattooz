@@ -12,8 +12,8 @@ export function About() {
   );
 
   return (
-    <section id="about" className="section-surface surface-ivory relative py-24">
-      <div className="section-shell grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+    <section id="about" className="section-surface surface-ivory relative py-20 sm:py-24">
+      <div className="section-shell grid gap-10 sm:gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div className="space-y-7">
           <div className="space-y-4">
             <p className="eyebrow">About Signature Tattooz</p>
@@ -68,7 +68,7 @@ export function About() {
           <img
             src={visuals.aboutImage}
             alt="Tattoo artwork detail"
-            className="h-[38rem] w-full object-cover"
+            className="h-[24rem] w-full object-cover sm:h-[38rem]"
           />
           <div className="theme-image-overlay absolute inset-0" />
         </motion.div>

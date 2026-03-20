@@ -3,7 +3,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { About } from "@/components/sections/About";
 import { ArtistSpotlight } from "@/components/sections/ArtistSpotlight";
-import { BookingCTA } from "@/components/sections/BookingCTA";
 import { Contact } from "@/components/sections/Contact";
 import { Gallery } from "@/components/sections/Gallery";
 import { Hero } from "@/components/sections/Hero";
@@ -40,7 +39,6 @@ export default function App() {
           <ArtistSpotlight />
           <Values />
           <Testimonials />
-          <BookingCTA />
           <Contact />
         </div>
       </main>

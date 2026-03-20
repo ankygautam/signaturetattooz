@@ -13,7 +13,6 @@ const getLinks = (page: NavbarPage) => [
   { label: "Services", href: page === "home" ? "#services" : "./#services" },
   { label: "Gallery", href: page === "home" ? "#gallery" : "./#gallery" },
   { label: "Artist", href: page === "home" ? "#artist" : "./#artist" },
-  { label: "School", href: page === "home" ? "./school.html" : "#tattoo-school" },
   { label: "Why Us", href: page === "home" ? "#why-us" : "./#why-us" },
   { label: "Contact", href: page === "home" ? "#contact" : "./#contact" },
 ];
@@ -24,7 +23,8 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
   const [lightSurface, setLightSurface] = useState(page === "school");
   const links = getLinks(page);
   const homeHref = page === "home" ? "#home" : "./#home";
-  const bookingHref = page === "home" ? "#contact" : "./#contact";
+  const bookingHref = page === "home" ? "./school.html" : "#tattoo-school";
+  const bookingLabel = "School";
 
   useEffect(() => {
     const onScroll = () => {
@@ -44,7 +44,7 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
   }, [page]);
 
   const frameClasses = lightSurface
-    ? "border-[rgb(var(--theme-light-border-rgb)/0.78)] bg-[rgb(var(--theme-paper-rgb)/0.96)] backdrop-blur-xl shadow-[0_16px_36px_rgba(33,24,17,0.12)]"
+    ? "border-[rgb(var(--theme-light-border-rgb)/0.62)] bg-[linear-gradient(135deg,rgba(255,255,255,0.54),rgba(255,255,255,0.28))] backdrop-blur-2xl shadow-[0_18px_42px_rgba(33,24,17,0.12)]"
     : scrolled
       ? "border-white/10 bg-black/88 backdrop-blur-xl"
       : "border-white/10 bg-black/35 backdrop-blur-md";
@@ -55,14 +55,12 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
     ? "font-medium text-[rgb(var(--theme-light-muted-rgb)/1)] hover:text-[rgb(var(--theme-light-ink-rgb)/1)]"
     : "text-muted hover:text-bone";
   const iconButtonClasses = lightSurface
-    ? "border-[rgb(var(--theme-light-border-rgb)/0.82)] bg-white/70 text-[rgb(var(--theme-light-ink-rgb)/1)]"
+    ? "border-[rgb(var(--theme-light-border-rgb)/0.62)] bg-white/38 text-[rgb(var(--theme-light-ink-rgb)/1)] backdrop-blur-md"
     : "border-white/10 bg-transparent text-bone";
   const mobilePanelClasses = lightSurface
-    ? "border-[rgb(var(--theme-light-border-rgb)/0.78)] bg-[rgb(var(--theme-paper-rgb)/0.97)] shadow-[0_20px_50px_rgba(33,24,17,0.12)]"
+    ? "border-[rgb(var(--theme-light-border-rgb)/0.62)] bg-[linear-gradient(135deg,rgba(255,255,255,0.62),rgba(255,255,255,0.34))] shadow-[0_20px_50px_rgba(33,24,17,0.12)]"
     : "border-white/10 bg-black/95 shadow-card";
-  const bookingButtonClasses = lightSurface
-    ? "!border-[rgb(var(--theme-accent-soft-rgb)/0.95)] !bg-[rgb(var(--theme-accent-soft-rgb)/0.42)] !text-[rgb(var(--theme-light-ink-rgb)/1)] hover:!bg-[rgb(var(--theme-accent-soft-rgb)/0.56)]"
-    : undefined;
+  const bookingButtonClasses = undefined;
 
   return (
     <motion.header
@@ -73,13 +71,13 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
     >
       <div
         className={cn(
-          "section-shell flex max-w-7xl items-center justify-between border-b px-0 py-5 transition-all duration-300",
+          "section-shell flex max-w-7xl items-center justify-between border-b px-0 py-4 sm:py-5 transition-all duration-300",
           frameClasses,
         )}
       >
         <a href={homeHref} className="flex min-w-0 items-center gap-3">
           <div className="min-w-0">
-            <p className={cn("font-display text-3xl uppercase leading-none tracking-[0.08em] sm:text-4xl", brandClasses)}>
+            <p className={cn("font-display text-[2.35rem] uppercase leading-none tracking-[0.08em] sm:text-4xl", brandClasses)}>
               Signature Tattooz
             </p>
             <p className={cn("mt-1 text-[0.58rem] uppercase tracking-[0.34em] sm:text-[0.62rem]", metaClasses)}>
@@ -100,13 +98,13 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Button
             href={bookingHref}
             variant="secondary"
-            className={cn("hidden md:inline-flex rounded-none border-x-0 border-b-0 border-t-0 px-0", bookingButtonClasses)}
+            className={cn("hidden md:inline-flex rounded-none border-x-0 border-b-0 border-t-0 px-0 text-[0.72rem]", bookingButtonClasses)}
           >
-            Book Session
+            {bookingLabel}
           </Button>
           <button
             onClick={() => setOpen((value) => !value)}
@@ -133,7 +131,7 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={cn("px-0 py-3 text-[1rem] uppercase tracking-[0.24em] transition", navLinkClasses)}
+                  className={cn("px-0 py-3 text-[0.92rem] uppercase tracking-[0.22em] transition", navLinkClasses)}
                 >
                   {link.label}
                 </a>
@@ -141,10 +139,10 @@ export function Navbar({ page = "home" }: { page?: NavbarPage }) {
               <Button
                 href={bookingHref}
                 variant="secondary"
-                className={cn("mt-2 w-full rounded-none border-x-0 border-b-0 border-t-0 px-0", bookingButtonClasses)}
+                className={cn("mt-2 w-full rounded-none border-x-0 border-b-0 border-t-0 px-0 text-[0.8rem]", bookingButtonClasses)}
                 onClick={() => setOpen(false)}
               >
-                Book Session
+                {bookingLabel}
               </Button>
             </div>
           </motion.div>
