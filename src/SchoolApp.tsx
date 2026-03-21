@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { TattooSchool } from "@/components/sections/TattooSchool";
 import { createSiteThemeStyle, pickRandomSitePalette } from "@/lib/site-theme";
 
@@ -27,6 +28,7 @@ export default function SchoolApp() {
         <TattooSchool />
       </main>
       <Footer page="school" />
+      <WhatsAppCTA />
     </div>
   );
 }

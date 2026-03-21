@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { WhatsAppCTA } from "@/components/layout/WhatsAppCTA";
 import { About } from "@/components/sections/About";
 import { ArtistSpotlight } from "@/components/sections/ArtistSpotlight";
 import { Contact } from "@/components/sections/Contact";
@@ -43,6 +44,7 @@ export default function App() {
         </div>
       </main>
       <Footer page="home" />
+      <WhatsAppCTA />
     </div>
   );
 }
