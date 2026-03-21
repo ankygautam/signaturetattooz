@@ -162,7 +162,7 @@ export const testimonials = [
       "\"Obsessed with my new tattoo! My experience was amazing, and the tattoo is perfect. Highly recommend!\"",
     name: "Palk Chauhan",
     designation: "Google Review",
-    src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80",
+    src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80",
   },
   {
     quote:
