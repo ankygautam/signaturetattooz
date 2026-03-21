@@ -227,13 +227,13 @@ export function Gallery() {
               a tattoo brand showcase first, with filters and hover details layered in after.
             </p>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex gap-3 overflow-x-auto pb-1">
               {filters.map((filter) => (
                 <button
                   key={filter}
                   onClick={() => startTransition(() => setActiveFilter(filter))}
                   className={cn(
-                    "min-w-[7rem] border px-5 py-2.5 text-[0.64rem] uppercase tracking-[0.24em] transition",
+                    "min-w-[7rem] shrink-0 border px-5 py-2.5 text-[0.64rem] uppercase tracking-[0.24em] transition",
                     activeFilter === filter
                       ? "theme-filter-chip-active"
                       : "theme-filter-chip",
@@ -253,25 +253,27 @@ export function Gallery() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.35 }}
-            className="grid gap-5 lg:grid-cols-12"
+            className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-12 lg:gap-4"
           >
             {filteredItems.map((item, index) => {
               const sizes = [
-                "lg:col-span-5 lg:row-span-2",
+                "lg:col-span-3",
+                "lg:col-span-3",
+                "lg:col-span-3",
                 "lg:col-span-3",
                 "lg:col-span-4",
                 "lg:col-span-4",
-                "lg:col-span-3",
-                "lg:col-span-5",
+                "lg:col-span-4",
               ];
 
               const heights = [
-                "h-[34rem]",
-                "h-[16rem]",
-                "h-[16rem]",
-                "h-[16rem]",
-                "h-[16rem]",
-                "h-[20rem]",
+                "h-[14rem] sm:h-[16rem] lg:h-[18rem]",
+                "h-[14rem] sm:h-[16rem] lg:h-[18rem]",
+                "h-[14rem] sm:h-[16rem] lg:h-[18rem]",
+                "h-[14rem] sm:h-[16rem] lg:h-[18rem]",
+                "h-[14rem] sm:h-[17rem] lg:h-[20rem]",
+                "h-[14rem] sm:h-[17rem] lg:h-[20rem]",
+                "h-[14rem] sm:h-[17rem] lg:h-[20rem]",
               ];
 
               return (
@@ -284,7 +286,7 @@ export function Gallery() {
                   viewport={viewport}
                   variants={fadeUp(index * 0.04)}
                   className={cn(
-                    "group noise-mask relative overflow-hidden border border-white/10 text-left transition hover:border-white/20",
+                    "group noise-mask relative overflow-hidden rounded-[1.35rem] border border-white/10 text-left transition hover:-translate-y-1 hover:border-white/20",
                     sizes[index % sizes.length],
                   )}
                 >
@@ -297,12 +299,14 @@ export function Gallery() {
                     )}
                   />
                   <div className="theme-image-overlay absolute inset-0" />
-                  <div className="absolute inset-x-0 bottom-0 p-5">
-                    <p className="card-title">{item.title}</p>
-                    <p className="meta-label mt-2 text-accentMuted">
-                      {item.category}
+                  <div className="absolute left-3 top-3 z-10 rounded-full border border-white/12 bg-black/35 px-2.5 py-1 text-[0.54rem] uppercase tracking-[0.22em] text-white/76 backdrop-blur-sm">
+                    {item.category}
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                    <p className="font-display text-[2rem] uppercase leading-[0.92] text-bone sm:text-[2.35rem]">
+                      {item.title}
                     </p>
-                    <p className="mt-4 text-[0.62rem] uppercase tracking-[0.3em] text-white/60 transition group-hover:text-white">
+                    <p className="mt-3 text-[0.58rem] uppercase tracking-[0.28em] text-white/60 transition group-hover:text-white">
                       Open Gallery View
                     </p>
                   </div>
