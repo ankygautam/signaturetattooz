@@ -4,7 +4,7 @@ import path from "node:path";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/signaturetattooz/",
+  base: "./",
   build: {
     rollupOptions: {
       input: {

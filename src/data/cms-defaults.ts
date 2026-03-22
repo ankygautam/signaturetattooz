@@ -8,8 +8,7 @@ const withBase = (assetPath: string) =>
 export const defaultSiteVisuals: SiteVisuals = {
   heroPrimaryImage:
     "https://images.unsplash.com/photo-1542727365-19732a80dcfd?auto=format&fit=crop&w=1600&q=80",
-  heroSecondaryImage:
-    "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80",
+  heroSecondaryImage: withBase("/images/gallery/clock-eye.jpg"),
   aboutImage: withBase("/images/site/about-nitin.jpg"),
   artistImage: withBase("/images/site/IMG_0530.jpg"),
   bookingBannerImage:

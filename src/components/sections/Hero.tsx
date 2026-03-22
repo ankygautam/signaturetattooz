@@ -12,6 +12,13 @@ export function Hero() {
     "siteVisuals",
     defaultSiteVisuals,
   );
+  const localSecondaryImage = `${import.meta.env.BASE_URL}images/gallery/clock-eye.jpg`;
+  const heroSecondaryImage =
+    !visuals.heroSecondaryImage ||
+    visuals.heroSecondaryImage ===
+      "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80"
+      ? localSecondaryImage
+      : visuals.heroSecondaryImage;
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-black pt-24 sm:pt-28">
@@ -71,7 +78,7 @@ export function Hero() {
           </div>
 
           <div className="noise-mask absolute bottom-0 left-0 z-10 h-[40%] w-[52%] overflow-hidden border border-white/10 bg-black shadow-card sm:h-[42%] sm:w-[46%]">
-            <img src={visuals.heroSecondaryImage} alt="Tattoo detail" className="h-full w-full object-cover" />
+            <img src={heroSecondaryImage} alt="Tattoo detail" className="h-full w-full object-cover" />
             <div className="theme-image-overlay-soft absolute inset-0" />
           </div>
 
