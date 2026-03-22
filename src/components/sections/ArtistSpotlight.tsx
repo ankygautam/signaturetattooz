@@ -6,6 +6,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { defaultSiteVisuals } from "@/data/cms-defaults";
 import { usePublicSingletonDocument } from "@/firebase/public-content";
 import { fadeUp, viewport } from "@/lib/motion";
+import { resolveSiteAssetPath } from "@/lib/site-paths";
 
 export function ArtistSpotlight() {
   const visuals = usePublicSingletonDocument<SiteVisuals>(
@@ -13,13 +14,13 @@ export function ArtistSpotlight() {
     "siteVisuals",
     defaultSiteVisuals,
   );
-  const localArtistImage = `${import.meta.env.BASE_URL}images/site/IMG_0530.jpg`;
+  const localArtistImage = resolveSiteAssetPath("/images/site/IMG_0530.jpg");
   const artistImage =
     !visuals.artistImage ||
     visuals.artistImage ===
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=80"
       ? localArtistImage
-      : visuals.artistImage;
+      : resolveSiteAssetPath(visuals.artistImage);
 
   return (
     <section id="artist" className="section-surface surface-linen relative py-20 sm:py-24">

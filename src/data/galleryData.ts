@@ -1,5 +1,6 @@
-const withBase = (assetPath: string) =>
-  `${import.meta.env.BASE_URL}${assetPath.replace(/^\/+/, "")}`;
+import { resolveSiteAssetPath } from "@/lib/site-paths";
+
+const withBase = (assetPath: string) => resolveSiteAssetPath(assetPath);
 
 export const galleryFilters = [
   "All",

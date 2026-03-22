@@ -12,13 +12,14 @@ import {
 } from "@/data/galleryData";
 import { defaultGalleryPublicItems } from "@/data/cms-defaults";
 import { usePublicContentCollection } from "@/firebase/public-content";
+import { resolveSiteAssetPath } from "@/lib/site-paths";
 
 type GalleryMode = "preview" | "full";
 
 function toGalleryItem(item: GalleryItemContent): TattooGalleryItem {
   return {
     id: item.id,
-    src: item.imageUrl,
+    src: resolveSiteAssetPath(item.imageUrl),
     title: item.title,
     filter: normalizeGalleryFilter(item.category),
     secondaryFilters: [],

@@ -1,9 +1,9 @@
 import { tattooGalleryData } from "@/data/galleryData";
 import { testimonials } from "@/data/site-content";
 import { GalleryItemContent, GoogleReviewContent, SiteVisuals } from "@/admin/types/content";
+import { resolveSiteAssetPath } from "@/lib/site-paths";
 
-const withBase = (assetPath: string) =>
-  `${import.meta.env.BASE_URL}${assetPath.replace(/^\/+/, "")}`;
+const withBase = (assetPath: string) => resolveSiteAssetPath(assetPath);
 
 export const defaultSiteVisuals: SiteVisuals = {
   heroPrimaryImage:

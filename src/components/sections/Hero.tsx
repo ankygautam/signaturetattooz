@@ -5,6 +5,7 @@ import { SiteVisuals } from "@/admin/types/content";
 import { defaultSiteVisuals } from "@/data/cms-defaults";
 import { usePublicSingletonDocument } from "@/firebase/public-content";
 import { fadeUp, stagger } from "@/lib/motion";
+import { resolveSiteAssetPath } from "@/lib/site-paths";
 
 export function Hero() {
   const visuals = usePublicSingletonDocument<SiteVisuals>(
@@ -12,13 +13,13 @@ export function Hero() {
     "siteVisuals",
     defaultSiteVisuals,
   );
-  const localSecondaryImage = `${import.meta.env.BASE_URL}images/gallery/clock-eye.jpg`;
+  const localSecondaryImage = resolveSiteAssetPath("/images/gallery/clock-eye.jpg");
   const heroSecondaryImage =
     !visuals.heroSecondaryImage ||
     visuals.heroSecondaryImage ===
       "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80"
       ? localSecondaryImage
-      : visuals.heroSecondaryImage;
+      : resolveSiteAssetPath(visuals.heroSecondaryImage);
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden bg-black pt-24 sm:pt-28">
