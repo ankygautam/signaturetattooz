@@ -1,27 +1,30 @@
-import { galleryItems, testimonials } from "@/data/site-content";
+import { tattooGalleryData } from "@/data/galleryData";
+import { testimonials } from "@/data/site-content";
 import { GalleryItemContent, GoogleReviewContent, SiteVisuals } from "@/admin/types/content";
+
+const withBase = (assetPath: string) =>
+  `${import.meta.env.BASE_URL}${assetPath.replace(/^\/+/, "")}`;
 
 export const defaultSiteVisuals: SiteVisuals = {
   heroPrimaryImage:
     "https://images.unsplash.com/photo-1542727365-19732a80dcfd?auto=format&fit=crop&w=1600&q=80",
   heroSecondaryImage:
     "https://images.unsplash.com/photo-1517230878791-4d28214057c2?auto=format&fit=crop&w=1200&q=80",
-  aboutImage: "/images/site/about-nitin.jpg",
-  artistImage:
-    "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=80",
+  aboutImage: withBase("/images/site/about-nitin.jpg"),
+  artistImage: withBase("/images/site/IMG_0530.jpg"),
   bookingBannerImage:
     "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1800&q=80",
 };
 
-export const defaultGallerySeedItems: Omit<GalleryItemContent, "id">[] = galleryItems.map(
+export const defaultGallerySeedItems: Omit<GalleryItemContent, "id">[] = tattooGalleryData.map(
   (item, index) => ({
     title: item.title,
-    category: item.category,
-    alt: item.alt ?? `${item.title} tattoo artwork`,
-    imageUrl: item.image,
-    description: item.description ?? "",
+    category: item.filter,
+    alt: item.alt,
+    imageUrl: item.src,
+    description: item.description,
     featured: index < 2,
-    order: index,
+    order: item.order,
   }),
 );
 

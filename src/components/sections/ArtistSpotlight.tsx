@@ -13,6 +13,13 @@ export function ArtistSpotlight() {
     "siteVisuals",
     defaultSiteVisuals,
   );
+  const localArtistImage = `${import.meta.env.BASE_URL}images/site/IMG_0530.jpg`;
+  const artistImage =
+    !visuals.artistImage ||
+    visuals.artistImage ===
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1400&q=80"
+      ? localArtistImage
+      : visuals.artistImage;
 
   return (
     <section id="artist" className="section-surface surface-linen relative py-20 sm:py-24">
@@ -24,7 +31,11 @@ export function ArtistSpotlight() {
           viewport={viewport}
           className="theme-image-frame relative overflow-hidden rounded-[2rem] border"
         >
-          <img src={visuals.artistImage} alt="Nitin Gautam" className="h-[24rem] w-full object-cover sm:h-[38rem]" />
+          <img
+            src={artistImage}
+            alt="Nitin Gautam"
+            className="h-[24rem] w-full object-cover object-[58%_center] sm:h-[38rem]"
+          />
           <div className="theme-image-overlay-soft absolute inset-0" />
         </motion.div>
 

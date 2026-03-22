@@ -14,8 +14,9 @@ import { useContentCollection } from "@/admin/hooks/useContentCollection";
 import { uploadImageFile, storageConfigured } from "@/admin/lib/storage";
 import { GalleryItemContent, NormalizedContentItem } from "@/admin/types/content";
 import { defaultGallerySeedItems } from "@/data/cms-defaults";
+import { galleryFilters, normalizeGalleryImageKey } from "@/data/galleryData";
 
-const categories = ["Blackwork", "Realism", "Fine Line", "Traditional", "Custom"];
+const categories = galleryFilters.filter((filter) => filter !== "All");
 
 type GalleryFormState = {
   title: string;
@@ -67,7 +68,7 @@ export function GalleryManagementPage() {
         (seed) =>
           !items.some(
             (item) =>
-              item.imageUrl === seed.imageUrl ||
+              normalizeGalleryImageKey(item.imageUrl) === normalizeGalleryImageKey(seed.imageUrl) ||
               (item.title.trim().toLowerCase() === seed.title.trim().toLowerCase() &&
                 item.category.trim().toLowerCase() === seed.category.trim().toLowerCase()),
           ),
@@ -365,7 +366,7 @@ export function GalleryManagementPage() {
               <AdminTextInput
                 value={form.alt}
                 onChange={(event) => setForm((current) => ({ ...current, alt: event.target.value }))}
-                placeholder="Blackwork forearm tattoo detail"
+                placeholder="Black and grey portrait tattoo on forearm"
               />
             </AdminField>
             <AdminField label="Order">

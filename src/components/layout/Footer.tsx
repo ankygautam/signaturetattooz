@@ -1,20 +1,36 @@
 import { Facebook, Instagram, MapPin, Youtube } from "lucide-react";
 
-type FooterPage = "home" | "school";
+type FooterPage = "home" | "school" | "gallery";
 
 const studioLocation =
   "The Mall Road, opposite LIC office, Ish Nagar, Fatehgarh, Hoshiarpur, Punjab";
 const mapsLink =
   "https://www.google.com/maps/search/?api=1&query=The+Mall+Road,+opposite+LIC+office,+Ish+Nagar,+Fatehgarh,+Hoshiarpur,+Punjab";
 
-const getLinks = (page: FooterPage) => [
-  { label: "Home", href: page === "home" ? "#home" : "./#home" },
-  { label: "About", href: page === "home" ? "#about" : "./#about" },
-  { label: "Services", href: page === "home" ? "#services" : "./#services" },
-  { label: "Gallery", href: page === "home" ? "#gallery" : "./#gallery" },
-  { label: "School", href: page === "home" ? "./school.html" : "#tattoo-school" },
-  { label: "Contact", href: page === "home" ? "#contact" : "./#contact" },
-];
+const getPagePrefix = (page: FooterPage) => {
+  if (page === "home") {
+    return "";
+  }
+
+  if (page === "school") {
+    return "./";
+  }
+
+  return "../";
+};
+
+const getLinks = (page: FooterPage) => {
+  const prefix = getPagePrefix(page);
+
+  return [
+    { label: "Home", href: page === "home" ? "#home" : `${prefix}#home` },
+    { label: "About", href: page === "home" ? "#about" : `${prefix}#about` },
+    { label: "Services", href: page === "home" ? "#services" : `${prefix}#services` },
+    { label: "Gallery", href: page === "gallery" ? "#gallery" : page === "home" ? "#gallery" : `${prefix}#gallery` },
+    { label: "School", href: page === "home" ? "./school.html" : page === "school" ? "#tattoo-school" : "../school.html" },
+    { label: "Contact", href: page === "home" ? "#contact" : `${prefix}#contact` },
+  ];
+};
 
 export function Footer({ page = "home" }: { page?: FooterPage }) {
   const links = getLinks(page);

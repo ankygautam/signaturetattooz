@@ -5,32 +5,49 @@ import { Button } from "@/components/ui/Button";
 import { fadeIn } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
-type NavbarPage = "home" | "school";
+type NavbarPage = "home" | "school" | "gallery";
 
-const getLinks = (page: NavbarPage) => [
-  { label: "Home", href: page === "home" ? "#home" : "./#home" },
-  { label: "About", href: page === "home" ? "#about" : "./#about" },
-  { label: "Services", href: page === "home" ? "#services" : "./#services" },
-  { label: "Gallery", href: page === "home" ? "#gallery" : "./#gallery" },
-  { label: "Artist", href: page === "home" ? "#artist" : "./#artist" },
-  { label: "Why Us", href: page === "home" ? "#why-us" : "./#why-us" },
-  { label: "Contact", href: page === "home" ? "#contact" : "./#contact" },
-];
+const getPagePrefix = (page: NavbarPage) => {
+  if (page === "home") {
+    return "";
+  }
+
+  if (page === "school") {
+    return "./";
+  }
+
+  return "../";
+};
+
+const getLinks = (page: NavbarPage) => {
+  const prefix = getPagePrefix(page);
+
+  return [
+    { label: "Home", href: page === "home" ? "#home" : `${prefix}#home` },
+    { label: "About", href: page === "home" ? "#about" : `${prefix}#about` },
+    { label: "Services", href: page === "home" ? "#services" : `${prefix}#services` },
+    { label: "Gallery", href: page === "gallery" ? "#gallery" : page === "home" ? "#gallery" : `${prefix}#gallery` },
+    { label: "Artist", href: page === "home" ? "#artist" : `${prefix}#artist` },
+    { label: "Why Us", href: page === "home" ? "#why-us" : `${prefix}#why-us` },
+    { label: "Contact", href: page === "home" ? "#contact" : `${prefix}#contact` },
+  ];
+};
 
 export function Navbar({ page = "home" }: { page?: NavbarPage }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [lightSurface, setLightSurface] = useState(page === "school");
+  const [lightSurface, setLightSurface] = useState(page !== "home");
   const links = getLinks(page);
-  const homeHref = page === "home" ? "#home" : "./#home";
-  const bookingHref = page === "home" ? "./school.html" : "#tattoo-school";
+  const homeHref = page === "home" ? "#home" : page === "school" ? "./#home" : "../#home";
+  const bookingHref =
+    page === "home" ? "./school.html" : page === "school" ? "#tattoo-school" : "../school.html";
   const bookingLabel = "School";
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 24);
 
-      if (page === "school") {
+      if (page !== "home") {
         setLightSurface(true);
         return;
       }
