@@ -9,10 +9,10 @@ export function WhatsAppCTA() {
       href={whatsappHref}
       target="_blank"
       rel="noreferrer"
-      className="fixed bottom-3 right-3 z-[90] inline-flex items-center gap-1 rounded-full border border-[#1ea952] bg-[#25D366] px-2 py-1.5 text-[0.5rem] font-medium uppercase tracking-[0.12em] text-[#06110b] shadow-[0_10px_24px_rgba(37,211,102,0.18)] transition hover:-translate-y-0.5 hover:bg-[#20bd5b] sm:hidden"
+      className="fixed bottom-3 right-3 z-[90] inline-flex items-center justify-center rounded-full border border-[#1ea952] bg-[#25D366] p-2 shadow-[0_12px_28px_rgba(37,211,102,0.2)] transition hover:-translate-y-0.5 hover:bg-[#20bd5b] sm:hidden"
       aria-label="Book on WhatsApp"
     >
-      <span className="inline-flex h-5 w-5 flex-none items-center justify-center">
+      <span className="inline-flex h-6 w-6 flex-none items-center justify-center">
         <img
           src={whatsappIcon}
           alt=""
@@ -20,7 +20,6 @@ export function WhatsAppCTA() {
           loading="eager"
         />
       </span>
-      <span className="whitespace-nowrap">Book on WhatsApp</span>
     </a>
   );
 }
