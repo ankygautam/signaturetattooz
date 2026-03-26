@@ -145,11 +145,12 @@ export function TattooSchool() {
       <div className="section-shell space-y-10 sm:space-y-12">
         <div className="grid gap-10 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
           <div className="space-y-7">
-            <SectionHeader
-              eyebrow="Tattoo School"
-              title="Learn The Art. Build The Discipline. Create With Confidence."
-              description="At Signature Tattooz, Tattoo School is built for aspiring artists who want more than just theory. We focus on the real foundation of tattooing — hygiene, machine knowledge, skin understanding, design flow, stencil placement, needle control, and professional studio practice."
-            />
+          <SectionHeader
+            eyebrow="Tattoo School"
+            title="Learn The Art. Build The Discipline. Create With Confidence."
+            description="At Signature Tattooz, Tattoo School is built for aspiring artists who want more than just theory. We focus on the real foundation of tattooing — hygiene, machine knowledge, skin understanding, design flow, stencil placement, needle control, and professional studio practice."
+            headingTag="h1"
+          />
 
             <motion.p
               initial="hidden"

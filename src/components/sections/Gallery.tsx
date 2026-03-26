@@ -129,17 +129,19 @@ export function Gallery({
     setSelectedId(allItems[prevIndex].id);
   };
 
+  const HeadingTag = isPreviewMode ? "h2" : "h1";
+
   return (
     <section id="gallery" className="section-surface surface-stone relative py-24">
       <div className="section-shell space-y-10">
         <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
           <div className="min-w-0">
             <p className="eyebrow">Featured Work</p>
-            <h2 className="section-title mt-4">
+            <HeadingTag className="section-title mt-4">
               Tattoo
               <br />
               Gallery
-            </h2>
+            </HeadingTag>
           </div>
 
           <div className="min-w-0 space-y-5">

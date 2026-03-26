@@ -6,6 +6,7 @@ type SectionHeaderProps = {
   title: string;
   description: string;
   align?: "left" | "center";
+  headingTag?: "h1" | "h2";
 };
 
 export function SectionHeader({
@@ -13,8 +14,10 @@ export function SectionHeader({
   title,
   description,
   align = "left",
+  headingTag = "h2",
 }: SectionHeaderProps) {
   const alignment = align === "center" ? "mx-auto text-center" : "";
+  const HeadingTag = headingTag;
 
   return (
     <motion.div
@@ -25,7 +28,7 @@ export function SectionHeader({
       className={`max-w-2xl space-y-4 ${alignment}`}
     >
       <p className="eyebrow">{eyebrow}</p>
-      <h2 className="section-title">{title}</h2>
+      <HeadingTag className="section-title">{title}</HeadingTag>
       <p className="section-copy">{description}</p>
     </motion.div>
   );
