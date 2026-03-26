@@ -133,7 +133,7 @@ export function Gallery({
     <section id="gallery" className="section-surface surface-stone relative py-24">
       <div className="section-shell space-y-10">
         <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
-          <div>
+          <div className="min-w-0">
             <p className="eyebrow">Featured Work</p>
             <h2 className="section-title mt-4">
               Tattoo
@@ -142,7 +142,7 @@ export function Gallery({
             </h2>
           </div>
 
-          <div className="space-y-5">
+          <div className="min-w-0 space-y-5">
             <p className="section-copy max-w-2xl">
               A tattoo-first gallery built to feel premium and visual, with every uploaded piece
               organized into a cleaner filter system that reads more naturally across the
@@ -152,7 +152,7 @@ export function Gallery({
             <GalleryFilters activeFilter={activeFilter} onFilterChange={setActiveFilter} />
 
             {isPreviewMode && filteredItems.length > 8 ? (
-              <p className="theme-light-muted text-xs uppercase tracking-[0.24em]">
+              <p className="theme-light-muted text-[0.68rem] uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.24em]">
                 Showing {previewCountLabel} works here. Open any image or visit{" "}
                 <a href={browseHref} className="underline underline-offset-4 transition hover:text-theme-light-ink">
                   Gallery
@@ -160,7 +160,7 @@ export function Gallery({
                 for all {filteredItems.length}.
               </p>
             ) : !isPreviewMode ? (
-              <p className="theme-light-muted text-xs uppercase tracking-[0.24em]">
+              <p className="theme-light-muted text-[0.68rem] uppercase tracking-[0.18em] sm:text-xs sm:tracking-[0.24em]">
                 Showing all {filteredItems.length} works in the full gallery.
               </p>
             ) : null}
