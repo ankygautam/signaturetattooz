@@ -1,4 +1,5 @@
 import { FirebaseOptions, getApp, getApps, initializeApp } from "firebase/app";
+import { Analytics, getAnalytics, isSupported } from "firebase/analytics";
 import { Auth, getAuth } from "firebase/auth";
 import { Firestore, getFirestore } from "firebase/firestore";
 
@@ -9,6 +10,7 @@ const fallbackFirebaseConfig = {
   storageBucket: "signaturetattooz-8a3a1.firebasestorage.app",
   messagingSenderId: "868503435345",
   appId: "1:868503435345:web:87e1b9ba5bb3d84f21a070",
+  measurementId: "G-3T87G0H4VS",
 } as const;
 
 const firebaseConfig: FirebaseOptions = {
@@ -19,6 +21,8 @@ const firebaseConfig: FirebaseOptions = {
   messagingSenderId:
     import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || fallbackFirebaseConfig.messagingSenderId,
   appId: import.meta.env.VITE_FIREBASE_APP_ID || fallbackFirebaseConfig.appId,
+  measurementId:
+    import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || fallbackFirebaseConfig.measurementId,
 };
 
 export const firebaseConfigured = Object.values(firebaseConfig).every(Boolean);
@@ -31,3 +35,19 @@ export const app = firebaseConfigured
 
 export const auth: Auth | null = app ? getAuth(app) : null;
 export const db: Firestore | null = app ? getFirestore(app) : null;
+
+let analyticsPromise: Promise<Analytics | null> | null = null;
+
+export function initializeAnalytics() {
+  if (!app || !firebaseConfig.measurementId || typeof window === "undefined") {
+    return Promise.resolve(null);
+  }
+
+  if (!analyticsPromise) {
+    analyticsPromise = isSupported()
+      .then((supported) => (supported ? getAnalytics(app) : null))
+      .catch(() => null);
+  }
+
+  return analyticsPromise;
+}
