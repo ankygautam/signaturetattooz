@@ -14,6 +14,7 @@ import {
   useState,
 } from "react";
 import { auth, db, firebaseConfigured } from "@/firebase/config";
+import { formatFirebaseError } from "@/lib/firebase-errors";
 
 const ADMIN_ACCESS_ERROR =
   "This account is authenticated but is not on the Firebase admin allowlist yet.";
@@ -92,12 +93,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           );
         }
 
-        const credential = await signInWithEmailAndPassword(auth, email, password);
-        const adminSnapshot = await getDoc(doc(db, "admins", credential.user.uid));
+        try {
+          const credential = await signInWithEmailAndPassword(auth, email, password);
+          const adminSnapshot = await getDoc(doc(db, "admins", credential.user.uid));
 
-        if (!adminSnapshot.exists()) {
-          await signOut(auth);
-          throw new Error(ADMIN_ACCESS_ERROR);
+          if (!adminSnapshot.exists()) {
+            await signOut(auth);
+            throw new Error(ADMIN_ACCESS_ERROR);
+          }
+        } catch (error) {
+          if (error instanceof Error && error.message === ADMIN_ACCESS_ERROR) {
+            throw error;
+          }
+
+          throw new Error(formatFirebaseError(error, "Unable to sign in right now."));
         }
       },
       signOutUser: async () => {

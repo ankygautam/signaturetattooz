@@ -13,6 +13,7 @@ import {
 import { ContentBase, NormalizedContentItem } from "@/admin/types/content";
 import { db, firebaseConfigured } from "@/firebase/config";
 import { DashboardRecordBase, FirestoreRecord } from "@/admin/types/records";
+import { toFirebaseDisplayError } from "@/lib/firebase-errors";
 
 export const firestoreConfigured = firebaseConfigured && Boolean(db);
 
@@ -112,10 +113,10 @@ export function subscribeToCollection<T extends DashboardRecordBase>(
 
         onData(items);
       },
-      (error) => onError(error),
+      (error) => onError(toFirebaseDisplayError(error, "Unable to load collection.")),
     );
   } catch (error) {
-    onError(error instanceof Error ? error : new Error("Unable to load collection."));
+    onError(toFirebaseDisplayError(error, "Unable to load collection."));
     return () => undefined;
   }
 }
@@ -146,10 +147,10 @@ export function subscribeToContentCollection<T extends ContentBase>(
 
         onData(items);
       },
-      (error) => onError(error),
+      (error) => onError(toFirebaseDisplayError(error, "Unable to load collection.")),
     );
   } catch (error) {
-    onError(error instanceof Error ? error : new Error("Unable to load collection."));
+    onError(toFirebaseDisplayError(error, "Unable to load collection."));
     return () => undefined;
   }
 }
@@ -162,11 +163,15 @@ export async function createCollectionItem<T extends Record<string, unknown>>(
     throw new Error("Firestore is not configured.");
   }
 
-  await addDoc(collection(db, collectionName), {
-    ...payload,
-    createdAt: serverTimestamp(),
-    updatedAt: serverTimestamp(),
-  });
+  try {
+    await addDoc(collection(db, collectionName), {
+      ...payload,
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    });
+  } catch (error) {
+    throw toFirebaseDisplayError(error, "Unable to save document.");
+  }
 }
 
 export async function updateCollectionRecord(
@@ -178,7 +183,11 @@ export async function updateCollectionRecord(
     throw new Error("Firestore is not configured.");
   }
 
-  await updateDoc(doc(db, collectionName, id), updates);
+  try {
+    await updateDoc(doc(db, collectionName, id), updates);
+  } catch (error) {
+    throw toFirebaseDisplayError(error, "Unable to update document.");
+  }
 }
 
 export async function deleteCollectionRecord(collectionName: string, id: string) {
@@ -186,7 +195,11 @@ export async function deleteCollectionRecord(collectionName: string, id: string)
     throw new Error("Firestore is not configured.");
   }
 
-  await deleteDoc(doc(db, collectionName, id));
+  try {
+    await deleteDoc(doc(db, collectionName, id));
+  } catch (error) {
+    throw toFirebaseDisplayError(error, "Unable to delete document.");
+  }
 }
 
 export async function updateCollectionItem(
@@ -198,10 +211,14 @@ export async function updateCollectionItem(
     throw new Error("Firestore is not configured.");
   }
 
-  await updateDoc(doc(db, collectionName, id), {
-    ...updates,
-    updatedAt: serverTimestamp(),
-  });
+  try {
+    await updateDoc(doc(db, collectionName, id), {
+      ...updates,
+      updatedAt: serverTimestamp(),
+    });
+  } catch (error) {
+    throw toFirebaseDisplayError(error, "Unable to update document.");
+  }
 }
 
 export function subscribeToSingletonDocument<T extends Record<string, unknown>>(
@@ -229,7 +246,7 @@ export function subscribeToSingletonDocument<T extends Record<string, unknown>>(
         ...(snapshot.data() as T),
       });
     },
-    (error) => onError(error),
+    (error) => onError(toFirebaseDisplayError(error, "Unable to load document.")),
   );
 }
 
@@ -242,12 +259,16 @@ export async function setSingletonDocument<T extends Record<string, unknown>>(
     throw new Error("Firestore is not configured.");
   }
 
-  await setDoc(
-    doc(db, collectionName, documentId),
-    {
-      ...payload,
-      updatedAt: serverTimestamp(),
-    },
-    { merge: true },
-  );
+  try {
+    await setDoc(
+      doc(db, collectionName, documentId),
+      {
+        ...payload,
+        updatedAt: serverTimestamp(),
+      },
+      { merge: true },
+    );
+  } catch (error) {
+    throw toFirebaseDisplayError(error, "Unable to save document.");
+  }
 }

@@ -1,5 +1,6 @@
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import { app, firebaseConfigured } from "@/firebase/config";
+import { formatFirebaseError } from "@/lib/firebase-errors";
 
 const storage = app ? getStorage(app) : null;
 export const storageConfigured = firebaseConfigured && Boolean(storage);
@@ -14,6 +15,11 @@ export async function uploadImageFile(file: File, folder: string) {
   }
 
   const fileRef = ref(storage, `${folder}/${Date.now()}-${sanitizeFileName(file.name)}`);
-  await uploadBytes(fileRef, file);
-  return getDownloadURL(fileRef);
+
+  try {
+    await uploadBytes(fileRef, file);
+    return getDownloadURL(fileRef);
+  } catch (error) {
+    throw new Error(formatFirebaseError(error, "Unable to upload image."));
+  }
 }
