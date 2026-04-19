@@ -5,41 +5,140 @@ service cloud.firestore {
       return request.auth != null;
     }
 
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    function hasString(field, min, max) {
+      return field is string
+        && field.size() >= min
+        && field.size() <= max;
+    }
+
+    function validPublicSubmissionBase() {
+      return request.resource.data.source == "website-contact-form"
+        && request.resource.data.status == "new"
+        && request.resource.data.isRead == false
+        && request.resource.data.createdAt == request.time
+        && hasString(request.resource.data.name, 1, 120)
+        && hasString(request.resource.data.email, 3, 160)
+        && hasString(request.resource.data.phone, 3, 40)
+        && hasString(request.resource.data.placement, 0, 160)
+        && hasString(request.resource.data.tattooIdea, 0, 500)
+        && hasString(request.resource.data.budget, 0, 80)
+        && hasString(request.resource.data.message, 0, 4000);
+    }
+
+    function validBookingCreate() {
+      return request.resource.data.keys().hasAll([
+          "name",
+          "email",
+          "phone",
+          "placement",
+          "tattooIdea",
+          "budget",
+          "message",
+          "source",
+          "status",
+          "isRead",
+          "createdAt",
+          "preferredDate",
+          "preferredTime",
+        ])
+        && request.resource.data.keys().hasOnly([
+          "name",
+          "email",
+          "phone",
+          "placement",
+          "tattooIdea",
+          "budget",
+          "message",
+          "source",
+          "status",
+          "isRead",
+          "createdAt",
+          "preferredDate",
+          "preferredTime",
+        ])
+        && validPublicSubmissionBase()
+        && hasString(request.resource.data.preferredDate, 0, 120)
+        && hasString(request.resource.data.preferredTime, 0, 120);
+    }
+
+    function validContactSubmissionCreate() {
+      return request.resource.data.keys().hasAll([
+          "name",
+          "email",
+          "phone",
+          "placement",
+          "tattooIdea",
+          "budget",
+          "message",
+          "source",
+          "status",
+          "isRead",
+          "createdAt",
+          "subject",
+        ])
+        && request.resource.data.keys().hasOnly([
+          "name",
+          "email",
+          "phone",
+          "placement",
+          "tattooIdea",
+          "budget",
+          "message",
+          "source",
+          "status",
+          "isRead",
+          "createdAt",
+          "subject",
+        ])
+        && validPublicSubmissionBase()
+        && hasString(request.resource.data.subject, 1, 200);
+    }
+
+    match /admins/{userId} {
+      allow read: if signedIn() && request.auth.uid == userId;
+      allow write: if false;
+    }
+
     match /bookings/{document=**} {
-      allow create: if true;
-      allow read, update, delete: if signedIn();
+      allow create: if validBookingCreate();
+      allow read, update, delete: if isAdmin();
     }
 
     match /contactSubmissions/{document=**} {
-      allow create: if true;
-      allow read, update, delete: if signedIn();
+      allow create: if validContactSubmissionCreate();
+      allow read, update, delete: if isAdmin();
     }
 
     match /galleryItems/{document=**} {
       allow read: if true;
-      allow write: if signedIn();
+      allow write: if isAdmin();
     }
 
     match /googleReviews/{document=**} {
       allow read: if true;
-      allow write: if signedIn();
+      allow write: if isAdmin();
     }
 
     match /services/{document=**} {
-      allow read, write: if signedIn();
+      allow read, write: if isAdmin();
     }
 
     match /artists/{document=**} {
-      allow read, write: if signedIn();
+      allow read, write: if isAdmin();
     }
 
     match /cms/{document=**} {
       allow read: if true;
-      allow write: if signedIn();
+      allow write: if isAdmin();
     }
 
     match /settings/{document=**} {
-      allow read, write: if signedIn();
+      allow read, write: if isAdmin();
     }
   }
 }

@@ -16,7 +16,7 @@ export function GalleryFilters({ activeFilter, onFilterChange }: GalleryFiltersP
           type="button"
           onClick={() => startTransition(() => onFilterChange(filter))}
           className={cn(
-            "w-full min-w-0 border px-4 py-3 text-center text-[0.62rem] uppercase tracking-[0.16em] transition sm:text-[0.64rem] sm:tracking-[0.2em] md:min-w-[7rem] md:shrink-0 md:px-5 md:py-2.5 md:tracking-[0.24em]",
+            "w-full min-w-0 border px-4 py-3 text-center text-[0.62rem] uppercase tracking-[0.16em] transition sm:text-[0.64rem] sm:tracking-[0.2em] md:w-auto md:min-w-[7rem] md:shrink-0 md:px-5 md:py-2.5 md:tracking-[0.24em]",
             activeFilter === filter ? "theme-filter-chip-active" : "theme-filter-chip",
           )}
         >

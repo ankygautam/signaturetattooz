@@ -75,7 +75,8 @@ export function LoginPage() {
                 Welcome Back
               </h2>
               <p className="mt-4 max-w-lg text-sm leading-7 text-muted">
-                Sign in with your Firebase-authenticated studio account to access the dashboard shell.
+                Sign in with your Firebase-authenticated studio account that has been added to the
+                admin allowlist.
               </p>
             </div>
 
