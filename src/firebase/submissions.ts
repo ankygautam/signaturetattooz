@@ -9,6 +9,7 @@ export type PublicInquiryPayload = {
   tattooIdea: string;
   budget: string;
   message: string;
+  website: string;
 };
 
 export async function submitPublicInquiry(payload: PublicInquiryPayload) {
@@ -22,6 +23,7 @@ export async function submitPublicInquiry(payload: PublicInquiryPayload) {
     status: "new",
     isRead: false,
     createdAt: serverTimestamp(),
+    website: payload.website,
   };
 
   await Promise.all([

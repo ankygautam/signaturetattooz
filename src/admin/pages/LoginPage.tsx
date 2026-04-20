@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, LockKeyhole } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -13,13 +13,19 @@ const loginImage =
 export function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { signIn, authAvailable } = useAuth();
+  const { signIn, authAvailable, user, isAdmin, loading } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const from = (location.state as { from?: string } | null)?.from ?? "/";
+
+  useEffect(() => {
+    if (!loading && user && isAdmin) {
+      navigate(from, { replace: true });
+    }
+  }, [from, isAdmin, loading, navigate, user]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();

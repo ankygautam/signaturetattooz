@@ -1,13 +1,18 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    function adminDocPath() {
+      return /databases/$(database)/documents/admins/$(request.auth.uid);
+    }
+
     function signedIn() {
       return request.auth != null;
     }
 
     function isAdmin() {
       return signedIn()
-        && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+        && exists(adminDocPath())
+        && get(adminDocPath()).data.role == "admin";
     }
 
     function hasString(field, min, max) {
@@ -21,13 +26,15 @@ service cloud.firestore {
         && request.resource.data.status == "new"
         && request.resource.data.isRead == false
         && request.resource.data.createdAt == request.time
+        && request.resource.data.website == ""
         && hasString(request.resource.data.name, 1, 120)
         && hasString(request.resource.data.email, 3, 160)
         && hasString(request.resource.data.phone, 3, 40)
         && hasString(request.resource.data.placement, 0, 160)
         && hasString(request.resource.data.tattooIdea, 0, 500)
         && hasString(request.resource.data.budget, 0, 80)
-        && hasString(request.resource.data.message, 0, 4000);
+        && hasString(request.resource.data.message, 0, 4000)
+        && hasString(request.resource.data.website, 0, 0);
     }
 
     function validBookingCreate() {
@@ -43,6 +50,7 @@ service cloud.firestore {
           "status",
           "isRead",
           "createdAt",
+          "website",
           "preferredDate",
           "preferredTime",
         ])
@@ -58,6 +66,7 @@ service cloud.firestore {
           "status",
           "isRead",
           "createdAt",
+          "website",
           "preferredDate",
           "preferredTime",
         ])
@@ -79,6 +88,7 @@ service cloud.firestore {
           "status",
           "isRead",
           "createdAt",
+          "website",
           "subject",
         ])
         && request.resource.data.keys().hasOnly([
@@ -93,6 +103,7 @@ service cloud.firestore {
           "status",
           "isRead",
           "createdAt",
+          "website",
           "subject",
         ])
         && validPublicSubmissionBase()
@@ -100,7 +111,9 @@ service cloud.firestore {
     }
 
     match /admins/{userId} {
-      allow read: if signedIn() && request.auth.uid == userId;
+      allow read: if signedIn()
+        && request.auth.uid == userId
+        && resource.data.role == "admin";
       allow write: if false;
     }
 

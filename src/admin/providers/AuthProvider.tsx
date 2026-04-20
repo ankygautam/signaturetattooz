@@ -19,6 +19,23 @@ import { formatFirebaseError } from "@/lib/firebase-errors";
 const ADMIN_ACCESS_ERROR =
   "This account is authenticated but is not on the Firebase admin allowlist yet.";
 
+type AdminAccess = {
+  isAdmin: boolean;
+};
+
+async function readAdminAccess(uid: string): Promise<AdminAccess> {
+  if (!db) {
+    return { isAdmin: false };
+  }
+
+  const adminSnapshot = await getDoc(doc(db, "admins", uid));
+  const role = adminSnapshot.data()?.role;
+
+  return {
+    isAdmin: adminSnapshot.exists() && role === "admin",
+  };
+}
+
 type AuthContextValue = {
   user: User | null;
   isAdmin: boolean;
@@ -55,13 +72,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       setLoading(true);
 
-      void getDoc(doc(db, "admins", nextUser.uid))
-        .then((snapshot) => {
+      void readAdminAccess(nextUser.uid)
+        .then((access) => {
           if (!active) {
             return;
           }
 
-          setIsAdmin(snapshot.exists());
+          setIsAdmin(access.isAdmin);
           setLoading(false);
         })
         .catch(() => {
@@ -95,9 +112,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         try {
           const credential = await signInWithEmailAndPassword(auth, email, password);
-          const adminSnapshot = await getDoc(doc(db, "admins", credential.user.uid));
+          const access = await readAdminAccess(credential.user.uid);
 
-          if (!adminSnapshot.exists()) {
+          if (!access.isAdmin) {
             await signOut(auth);
             throw new Error(ADMIN_ACCESS_ERROR);
           }

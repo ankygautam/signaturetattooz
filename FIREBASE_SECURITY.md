@@ -7,13 +7,14 @@ This project now expects dashboard admins to be explicitly allowlisted in Firest
 Create one document per admin in the `admins` collection:
 
 - Document ID: the Firebase Auth user UID
-- Suggested fields: `email`, `name`, `createdAt`
+- Required field: `role = "admin"`
+- Suggested extra fields: `email`, `name`, `createdAt`
 
 Example path:
 
 `admins/<firebase-auth-uid>`
 
-Only users with a matching `admins/{uid}` document can read or modify protected Firestore data or upload to Firebase Storage.
+Only users with a matching `admins/{uid}` document and `role = "admin"` can read or modify protected Firestore data or upload to Firebase Storage.
 
 ## Public forms
 
@@ -23,6 +24,7 @@ The public website can still create:
 - `contactSubmissions`
 
 Those writes are now limited to the exact fields the site submits, with type and length checks, so random authenticated users cannot use dashboard-level permissions to edit data.
+There is also a lightweight honeypot field (`website`) to make low-effort bot submissions easier to reject.
 
 ## Storage
 
@@ -32,6 +34,10 @@ Those writes are now limited to the exact fields the site submits, with type and
 
 ## After updating rules
 
-Deploy the rules to Firebase so the live project matches this repo:
+Deploy the Firestore rules to Firebase so the live project matches this repo:
 
-`firebase deploy --only firestore:rules,storage`
+`firebase deploy --only firestore:rules`
+
+Deploy Storage rules only after Firebase Storage has been initialized in the project:
+
+`firebase deploy --only storage`

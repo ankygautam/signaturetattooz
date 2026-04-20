@@ -18,6 +18,7 @@ export function Contact() {
     tattooIdea: "",
     budget: "",
     message: "",
+    website: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
@@ -38,6 +39,7 @@ export function Contact() {
         tattooIdea: form.tattooIdea.trim(),
         budget: form.budget.trim(),
         message: form.message.trim(),
+        website: form.website.trim(),
       });
 
       setSuccess("Your inquiry has been sent to Signature Tattooz. We will reach out soon.");
@@ -49,6 +51,7 @@ export function Contact() {
         tattooIdea: "",
         budget: "",
         message: "",
+        website: "",
       });
     } catch (caught) {
       setError(
@@ -170,6 +173,15 @@ export function Contact() {
             placeholder="Message"
             value={form.message}
             onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
+          />
+          <input
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            placeholder="Website"
+            value={form.website}
+            onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))}
           />
           {error ? (
             <div className="md:col-span-2 rounded-[1.25rem] border border-accent/40 bg-accent/10 px-4 py-3 text-sm text-bone/90">

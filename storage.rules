@@ -1,13 +1,18 @@
 rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
+    function adminDocPath() {
+      return /databases/(default)/documents/admins/$(request.auth.uid);
+    }
+
     function signedIn() {
       return request.auth != null;
     }
 
     function isAdmin() {
       return signedIn()
-        && firestore.exists(/databases/(default)/documents/admins/$(request.auth.uid));
+        && firestore.exists(adminDocPath())
+        && firestore.get(adminDocPath()).data.role == "admin";
     }
 
     match /gallery/{allPaths=**} {

@@ -98,6 +98,7 @@ export function TattooSchool() {
     experienceLevel: "",
     learningGoal: "",
     message: "",
+    website: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
@@ -118,6 +119,7 @@ export function TattooSchool() {
         tattooIdea: form.learningGoal.trim(),
         budget: form.experienceLevel.trim(),
         message: form.message.trim(),
+        website: form.website.trim(),
       });
 
       setSuccess("Your tattoo school enquiry has been sent. We will reach out to you soon.");
@@ -128,6 +130,7 @@ export function TattooSchool() {
         experienceLevel: "",
         learningGoal: "",
         message: "",
+        website: "",
       });
     } catch (caught) {
       setError(
@@ -445,6 +448,15 @@ export function TattooSchool() {
                 placeholder="Tell us about your background, goals, or questions"
                 value={form.message}
                 onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
+              />
+              <input
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                placeholder="Website"
+                value={form.website}
+                onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))}
               />
               {error ? (
                 <div className="md:col-span-2 rounded-[1.25rem] border border-accent/40 bg-accent/10 px-4 py-3 text-sm text-bone/90">
