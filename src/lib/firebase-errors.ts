@@ -24,6 +24,7 @@ export function formatFirebaseError(
 ) {
   const code = readErrorCode(error);
   const message = readErrorMessage(error);
+  const normalizedMessage = message.toLowerCase();
 
   if (
     code === "permission-denied" ||
@@ -37,6 +38,25 @@ export function formatFirebaseError(
     code === "auth/invalid-login-credentials"
   ) {
     return "Firebase rejected this sign-in. Check that Email/Password sign-in is enabled in Firebase Auth and that the email and password are correct.";
+  }
+
+  if (
+    code === "storage/unauthorized" ||
+    code === "storage/unauthenticated"
+  ) {
+    return "This signed-in account is not allowed to upload to Firebase Storage. Make sure your Firestore admin document exists at admins/<uid> with role = \"admin\", then deploy the latest storage rules after Firebase Storage has been initialized.";
+  }
+
+  if (
+    code === "storage/no-default-bucket" ||
+    (code === "storage/unknown" &&
+      (
+        normalizedMessage.includes("bucket") ||
+        normalizedMessage.includes("not found") ||
+        normalizedMessage.includes("server response")
+      ))
+  ) {
+    return "Firebase Storage is not ready for this project yet. Open Firebase Console > Storage and click Get Started, then deploy storage rules. Gallery image uploads will fail until Storage has been initialized.";
   }
 
   if (message) {

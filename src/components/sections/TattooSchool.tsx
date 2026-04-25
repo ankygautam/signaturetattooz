@@ -459,12 +459,12 @@ export function TattooSchool() {
                 onChange={(event) => setForm((current) => ({ ...current, website: event.target.value }))}
               />
               {error ? (
-                <div className="md:col-span-2 rounded-[1.25rem] border border-accent/40 bg-accent/10 px-4 py-3 text-sm text-bone/90">
+                <div className="theme-light-ink md:col-span-2 rounded-[1.25rem] border border-accent/40 bg-accent/10 px-4 py-3 text-sm">
                   {error}
                 </div>
               ) : null}
               {success ? (
-                <div className="md:col-span-2 rounded-[1.25rem] border border-accentMuted/30 bg-accentMuted/10 px-4 py-3 text-sm text-bone/90">
+                <div className="theme-light-ink md:col-span-2 rounded-[1.25rem] border border-accentMuted/30 bg-accentMuted/10 px-4 py-3 text-sm">
                   {success}
                 </div>
               ) : null}

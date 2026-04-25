@@ -51,9 +51,22 @@ export function RecordDetailModal<T extends DashboardRecordBase>({
 
         <div className="grid gap-4 p-6 md:grid-cols-2">
           {fields.map((field) => (
-            <div key={field.label} className="rounded-[1.25rem] border border-white/10 bg-white/[0.02] p-4">
+            <div
+              key={field.label}
+              className={cn(
+                "rounded-[1.25rem] border border-white/10 bg-white/[0.02] p-4",
+                field.label.toLowerCase() === "message" && "md:col-span-2 bg-accentMuted/8",
+              )}
+            >
               <p className="text-[0.64rem] uppercase tracking-[0.28em] text-muted">{field.label}</p>
-              <p className="mt-3 text-sm leading-7 text-bone/90">{field.value || "-"}</p>
+              <p
+                className={cn(
+                  "mt-3 text-sm leading-7 text-bone/90",
+                  field.label.toLowerCase() === "message" && "whitespace-pre-wrap text-base leading-8 text-bone",
+                )}
+              >
+                {field.value || "-"}
+              </p>
             </div>
           ))}
         </div>

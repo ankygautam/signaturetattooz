@@ -96,9 +96,9 @@ export function GalleryManagementPage() {
       icon: Layers3,
     },
     {
-      title: "Ready to upload",
+      title: "Storage client",
       value: storageConfigured ? "YES" : "NO",
-      helper: "Firebase Storage powers direct image upload when configured.",
+      helper: "This only confirms the browser has Firebase Storage config. The Firebase project must also have Storage initialized before uploads will work.",
       icon: ImagePlus,
     },
   ];
@@ -249,7 +249,7 @@ export function GalleryManagementPage() {
         {!firestoreConfigured ? (
           <EmptyState
             title="Connect Firebase first"
-            description="Add your Firebase environment variables before using the gallery manager. Firestore stores metadata and Firebase Storage handles uploads."
+            description="Add your Firebase environment variables before using the gallery manager. Firestore stores metadata, and Firebase Storage handles uploads after Storage has been initialized in the Firebase console."
             className="mt-6 rounded-[1.5rem]"
           />
         ) : loading ? (
@@ -394,7 +394,14 @@ export function GalleryManagementPage() {
             />
           </AdminField>
 
-          <AdminField label="Upload image" hint={storageConfigured ? "Upload replaces the image URL on save." : "Firebase Storage is not configured, so upload is unavailable right now."}>
+          <AdminField
+            label="Upload image"
+            hint={
+              storageConfigured
+                ? "Upload replaces the image URL on save. Firebase Storage must also be initialized in the Firebase console."
+                : "Firebase Storage config is missing, so upload is unavailable right now."
+            }
+          >
             <AdminTextInput
               type="file"
               accept="image/*"
